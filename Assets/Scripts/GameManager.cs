@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameRound : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     private int health;
     private int numRounds;
@@ -17,10 +17,10 @@ public class GameRound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 200;
-        numRounds = 80;
+        health = 250;
+        numRounds = 50;
         currentRound = 0;
-        coins = 300;
+        coins = 250;
         setCurrentRound();
 
     }
