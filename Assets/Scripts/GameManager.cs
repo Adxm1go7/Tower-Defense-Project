@@ -37,3 +37,4 @@ public class GameManager : MonoBehaviour
         RoundText.text = "Rounds : " + currentRound.ToString() + " / " + numRounds.ToString();
     }
 }
+
