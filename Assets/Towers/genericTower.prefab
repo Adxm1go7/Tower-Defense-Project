@@ -116,9 +116,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2524581338399161553}
-  - component: {fileID: 6725513207691173228}
+  - component: {fileID: 3351689804747548148}
   m_Layer: 0
-  m_Name: Tower1
+  m_Name: genericTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ Transform:
   - {fileID: 593487164695649080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6725513207691173228
+--- !u!114 &3351689804747548148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,3 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd405ece6b365f419cd43ed5bc69179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerID: 0
+  towerName: 
+  towerRange: 0
+  towerDamage: 0
+  towerFireRate: 0
+  towerCost: 0
+  sellValue: 0
+  elementType: 
