@@ -14,10 +14,13 @@ public class TowerScript : MonoBehaviour
     public int towerCost;
     public int sellValue;
     public string elementType;
+    private Enemy currentEnemy;
+    public float timeForNextAttack;
         
     void Start()
     {
         // Initialize tower properties
+        // i think we manually change this if its the first time we making the tower
         towerID = 1;
         towerName = "Basic Tower";
         towerCost = 50;
@@ -25,20 +28,107 @@ public class TowerScript : MonoBehaviour
         towerDamage = 10;
         towerFireRate = 1.0f;
         sellValue = (int)(towerCost * 0.75f);
-        elementType = "Neutral"; 
+        elementType = "Neutral";
+        timeForNextAttack = 0f; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Tower behavior logic (e.g., attacking enemies) would go here
-        AttackEnemies();
+        //Debug.Log(currentEnemy);
+        timeForNextAttack -= Time.deltaTime;
+        if (currentEnemy == null || Vector3.Distance(transform.position, currentEnemy.transform.position) > towerRange)
+        {
+
+            FindTarget();
+        }
+
+        if (currentEnemy != null && timeForNextAttack <= 0)
+        {
+            AttackEnemies();
+            timeForNextAttack = towerFireRate;
+        }
+
+    }
+
+    
+    void FindTargetTest()
+    {
+        Enemy[] allEnemies = FindObjectsOfType<Enemy>();
+
+        if (allEnemies.Length == 0)
+        {
+            return;
+        }
+
+        Enemy nearest = null;
+        float smallest = Mathf.Infinity;
+
+        foreach (Enemy enemy in allEnemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.Health > 0)
+            {
+                smallest = distanceToEnemy;
+                nearest = enemy;
+            }
+        }
+
+        currentEnemy = nearest;
+
+    }
+
+    void FindTarget()
+    {
+
+        if (EnemySummoner.ExistingEnemies == null || EnemySummoner.ExistingEnemies.Count == 0)
+        {
+            FindTargetTest();
+            return;
+        }
+        
+
+        Enemy nearest = null;
+        float smallest = Mathf.Infinity;
+
+
+
+        foreach (Enemy enemy in EnemySummoner.ExistingEnemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.Health > 0)
+            {
+                smallest = distanceToEnemy;
+                nearest = enemy;
+            }
+            
+        }
+        currentEnemy = nearest;
+        Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
+
     }
 
     void AttackEnemies()
     {
-        // Implement enemy detection and attack logic
+        if (currentEnemy != null)
+        {
+            currentEnemy.Health -= towerDamage;
 
+            if (currentEnemy.Health <= 0)
+            {
+                try
+                {
+                    EnemySummoner.ExistingEnemies.Remove(currentEnemy);
+                }
+                catch
+                {
+                    ;
+                }
+            }   
+        }
+        Debug.Log("HIT HIT HIR");
 
     }
+
+
 }

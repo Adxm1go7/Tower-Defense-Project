@@ -30,7 +30,7 @@ public class EnemySummoner : MonoBehaviour
         {
             Queue<Enemy> ReferencedQueue = EnemyObjectPools[EnemyID];
 
-            if(ReferencedQueue.Count > 0)
+            if (ReferencedQueue.Count > 0)
             {
                 //Dequeue Enemy and init
 
@@ -42,6 +42,8 @@ public class EnemySummoner : MonoBehaviour
                 //Instantiate new instance of enemy and init
                 GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], Vector3.zero, Quaternion.identity);
             }
+
+            ExistingEnemies.Add(SummonedEnemy);
         }
         else
         {
