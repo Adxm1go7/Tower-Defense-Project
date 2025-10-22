@@ -7,6 +7,12 @@ public class EnemySummoner : MonoBehaviour
     public static List<Enemy> ExistingEnemies; //List of spawned, alive enemies
     public static Dictionary<int, GameObject> EnemyPrefabs; //Components of EnemyData class, int is ID 
     public static Dictionary<int, Queue<Enemy>> EnemyObjectPools; //Multiple enemy types need multiple queues
+
+
+    public int enemyIDToSpawn = 0; // Which enemy ID to spawn
+    public float spawnInterval = 2f; // How often to spawn (seconds)
+    private float spawnTimer = 0f;
+
     void Start()
     {
         EnemyPrefabs = new Dictionary<int, GameObject>();
@@ -41,7 +47,15 @@ public class EnemySummoner : MonoBehaviour
             {
                 //Instantiate new instance of enemy and init
                 GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], Vector3.zero, Quaternion.identity);
+                SummonedEnemy = NewEnemy.GetComponent<Enemy>();
+                SummonedEnemy.init();
             }
+<<<<<<< Updated upstream
+=======
+
+            ExistingEnemies.Add(SummonedEnemy);
+
+>>>>>>> Stashed changes
         }
         else
         {
@@ -51,8 +65,18 @@ public class EnemySummoner : MonoBehaviour
 
         return SummonedEnemy;
     }
-    
 
+    void Update()
+    {
+        spawnTimer += Time.deltaTime;
 
-  
+        if (spawnTimer >= spawnInterval)
+        {
+            spawnTimer = 0f;
+
+            // Call SummonEnemy to spawn one enemy
+            SummonEnemy(enemyIDToSpawn);
+        }
+    }
+
 }
