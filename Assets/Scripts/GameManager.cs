@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI CoinText;
     public TextMeshProUGUI RoundText;
+    public GameObject Enemy;
+    public GameObject EnemyEndNode;
     
 
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
         currentRound = 0;
         coins = 250;
         setCurrentRound();
+        EnemyEndNode.GetComponent<Renderer>().enabled = false;
 
     }
 
@@ -30,11 +33,31 @@ public class GameManager : MonoBehaviour
     {
         HealthText.text = "Health : " + health.ToString();
         CoinText.text = "Coins : " + coins.ToString();
+        setCurrentRound();
     }
 
     public void setCurrentRound()
     {
         RoundText.text = "Rounds : " + currentRound.ToString() + " / " + numRounds.ToString();
     }
+
+    public void enemySuccess()
+    {
+        Destroy(Enemy);
+        if (health > 0)
+        {
+            if (health - 10 <= 0)
+            {
+                health = 0;
+                Debug.Log("Game Over!");
+            }
+            else
+            {
+                health -= 1;
+            }
+        } 
+    }
+
+
 }
 
