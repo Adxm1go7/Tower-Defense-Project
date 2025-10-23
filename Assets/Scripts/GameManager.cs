@@ -55,7 +55,12 @@ public class GameManager : MonoBehaviour
             {
                 health -= 1;
             }
-        } 
+        }
+    }
+    
+    public void addCoins(int amount)
+    {
+        coins += amount;
     }
 
 

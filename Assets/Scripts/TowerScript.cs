@@ -16,6 +16,7 @@ public class TowerScript : MonoBehaviour
     public string elementType;
     private Enemy currentEnemy;
     public float timeForNextAttack;
+    public GameManager gameManager;
         
     void Start()
     {
@@ -122,6 +123,8 @@ public class TowerScript : MonoBehaviour
                 }
 
                 Destroy(currentEnemy.gameObject);
+                gameManager.addCoins(10);
+
             }   
             
         }
