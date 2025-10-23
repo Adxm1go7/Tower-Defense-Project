@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
 
     public bool canPlaceTower(int cost)
     {
-        Debug.Log("Checking if can place tower with cost: " + cost + " Current coins: " + coins);
         return coins >= cost;
     }
     

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 
-public class DragDropTower : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 
     public GameManager gameManager;
@@ -77,11 +77,6 @@ public class DragDropTower : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
             Destroy(currentTowerPreview);
             Debug.Log("Not enough coins to place tower - cancelling placement");
         }
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("Tower Clicked");
     }
 
 
