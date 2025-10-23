@@ -8,11 +8,9 @@ public class EnemySummoner : MonoBehaviour
     public static Dictionary<int, GameObject> EnemyPrefabs; //Components of EnemyData class, int is ID 
     public static Dictionary<int, Queue<Enemy>> EnemyObjectPools; //Multiple enemy types need multiple queues
 
-
     public int enemyIDToSpawn = 0; // Which enemy ID to spawn
     public float spawnInterval = 2f; // How often to spawn (seconds)
     private float spawnTimer = 0f;
-
     void Start()
     {
         EnemyPrefabs = new Dictionary<int, GameObject>();
@@ -32,11 +30,11 @@ public class EnemySummoner : MonoBehaviour
     {
         Enemy SummonedEnemy = null;
 
-        if(EnemyPrefabs.ContainsKey(EnemyID)) //Check if enemyID exists by checking if prefab is stored with its ID in the prefabDictionary
+        if (EnemyPrefabs.ContainsKey(EnemyID)) //Check if enemyID exists by checking if prefab is stored with its ID in the prefabDictionary
         {
             Queue<Enemy> ReferencedQueue = EnemyObjectPools[EnemyID];
 
-            if(ReferencedQueue.Count > 0)
+            if (ReferencedQueue.Count > 0)
             {
                 //Dequeue Enemy and init
 
@@ -46,16 +44,11 @@ public class EnemySummoner : MonoBehaviour
             else
             {
                 //Instantiate new instance of enemy and init
-                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], Vector3.zero, Quaternion.identity);
-                SummonedEnemy = NewEnemy.GetComponent<Enemy>();
+                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], new Vector3((float)-9.5, (float)1.38, (float)9.03), Quaternion.identity);
                 SummonedEnemy.init();
             }
-<<<<<<< Updated upstream
-=======
 
             ExistingEnemies.Add(SummonedEnemy);
-
->>>>>>> Stashed changes
         }
         else
         {
@@ -78,5 +71,6 @@ public class EnemySummoner : MonoBehaviour
             SummonEnemy(enemyIDToSpawn);
         }
     }
+
 
 }

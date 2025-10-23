@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2258227253070125482}
   - component: {fileID: 7314957854431628256}
+  - component: {fileID: 2580681654011275514}
   m_Layer: 0
   m_Name: Basic
   m_TagString: Untagged
@@ -154,3 +155,16 @@ MonoBehaviour:
   MaxHealth: 0
   Health: 5
   Speed: 0
+  Element: 
+--- !u!114 &2580681654011275514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997379684120590142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7221c25ab3647fb43842d7101f0f571f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
