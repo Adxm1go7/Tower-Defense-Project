@@ -30,7 +30,8 @@ public class TowerScript : MonoBehaviour
         towerFireRate = 0.10f;
         sellValue = (int)(towerCost * 0.75f);
         elementType = "Neutral";
-        timeForNextAttack = 0f; 
+        timeForNextAttack = 0f;
+        gameManager = GameManager.Instance; 
     }
 
     // Update is called once per frame

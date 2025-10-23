@@ -12,16 +12,23 @@ public class Enemy : MonoBehaviour
     public string Element; //Could Change this to an ElementID Integer
 
     public GameManager gameManager;
+    Transform canvas;
+    
+    public void Start(){
+        canvas = transform.Find("Canvas");
+    }
 
     public void init()
     {
         Health = MaxHealth;
         gameManager = gameManager.Instance;
+        canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
         if (Health <=0)
         {
             if (EnemySummoner.ExistingEnemies.Contains(this))

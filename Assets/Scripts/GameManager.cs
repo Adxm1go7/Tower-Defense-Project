@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RoundText;
     public GameObject Enemy;
     public GameObject EnemyEndNode;
+    public static GameManager Instance;
     
 
     // Start is called before the first frame update
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
         HealthText.text = "Health : " + health.ToString();
         CoinText.text = "Coins : " + coins.ToString();
         setCurrentRound();
+    }
+
+    void Awake()
+    {
+        Instance = this;   
     }
 
     public void setCurrentRound()
@@ -65,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public bool canPlaceTower(int cost)
     {
+        Debug.Log("Checking if can place tower with cost: " + cost + " Current coins: " + coins);
         return coins >= cost;
     }
     

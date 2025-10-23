@@ -24,14 +24,15 @@ public class DragDropTower : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     {
         Debug.Log("Begin dragging tower");
 
-        if (gameManager.canPlaceTower(towerPrefab.towerCost))
-        {
-            currentTowerPreview = Instantiate(towerPrefab.gameObject);
-            currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        } else
+        if (!gameManager.canPlaceTower(towerPrefab.towerCost))
         {
             Debug.Log("Not enough coins to place tower");
         }
+        
+        currentTowerPreview = Instantiate(towerPrefab.gameObject);
+            TowerScript towerScript = currentTowerPreview.GetComponent<TowerScript>();
+            towerScript.gameManager = gameManager;
+            currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     }
 
@@ -69,6 +70,12 @@ public class DragDropTower : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
                 );
 
             gameManager.deductCoins(towerPrefab.towerCost);
+            Debug.Log("Tower placed  4444");
+        }
+        else
+        {
+            Destroy(currentTowerPreview);
+            Debug.Log("Not enough coins to place tower - cancelling placement");
         }
     }
 
