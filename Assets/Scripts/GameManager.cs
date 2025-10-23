@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         health = 250;
         numRounds = 50;
         currentRound = 0;
-        coins = 250;
+        coins = 120;
         setCurrentRound();
         EnemyEndNode.GetComponent<Renderer>().enabled = false;
 
