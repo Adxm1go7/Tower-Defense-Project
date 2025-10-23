@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1017,7 +1017,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 200, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &839447088
 MonoBehaviour:
@@ -1306,15 +1306,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2258227253070125482, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.77
+      value: -8.55
       objectReference: {fileID: 0}
     - target: {fileID: 2258227253070125482, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.74
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 2258227253070125482, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.46
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 2258227253070125482, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1452,6 +1452,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2373208774716467202, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373208774716467202, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2439697224421220551, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_Name
       value: GameUI
@@ -1462,7 +1470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649769999040555217, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6589646896193493695, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_text
@@ -1480,6 +1488,10 @@ PrefabInstance:
       propertyPath: EnemyEndNode
       value: 
       objectReference: {fileID: 234891655}
+    - target: {fileID: 8615299400534241336, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1755,6 +1767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToAttack: 2
+  damage: 2
 --- !u!135 &1584594058
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2413,7 +2426,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Tower 1
 
-'
+
+
+    50'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2440,8 +2455,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2520,7 +2535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524581338399161553, guid: 8a84cc9e51370b943ada0dd95e991d40, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.41
+      value: -1.88
       objectReference: {fileID: 0}
     - target: {fileID: 2524581338399161553, guid: 8a84cc9e51370b943ada0dd95e991d40, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2550,6 +2565,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351689804747548148, guid: 8a84cc9e51370b943ada0dd95e991d40, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1580571733}
     - target: {fileID: 8037065612023497174, guid: 8a84cc9e51370b943ada0dd95e991d40, type: 3}
       propertyPath: m_Name
       value: genericTower
