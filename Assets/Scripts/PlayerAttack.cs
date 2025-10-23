@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float timeToAttack = 2;
-    [SerializeField] private float damage = 2;
+    [SerializeField] private int damage = 2;
     private Collider lockedOnEnemy;
 
     private float time;
@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
             if (other == lockedOnEnemy){
                 if (time <= 0){
                     //Attack
-                    Debug.Log(lockedOnEnemy);
+                    other.gameObject.transform.parent.GetComponent<Enemy>().TakeDamage(damage);
                     time = timeToAttack;
                 }else{
                     time -= Time.deltaTime;
