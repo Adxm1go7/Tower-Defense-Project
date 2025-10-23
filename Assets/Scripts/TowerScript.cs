@@ -90,14 +90,18 @@ public class TowerScript : MonoBehaviour
             return;
         }
 
-
+        EnemySummoner.ExistingEnemies.RemoveAll(e => e == null);
         Enemy nearest = null;
         float smallest = Mathf.Infinity;
 
-
-
+        // Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
         foreach (Enemy enemy in EnemySummoner.ExistingEnemies)
         {
+
+            if (enemy == null)
+            {
+                continue;
+            }
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.Health > 0)
             {

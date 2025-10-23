@@ -16,13 +16,15 @@ public class Enemy : MonoBehaviour
     
     public void Start(){
         canvas = transform.Find("Canvas");
+        gameManager = GameManager.Instance;
+        
+        canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
     }
 
     public void init()
     {
         Health = MaxHealth;
-        gameManager = gameManager.Instance;
-        canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
+
     }
 
     public void TakeDamage(int damage)
