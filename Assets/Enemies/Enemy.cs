@@ -11,10 +11,20 @@ public class Enemy : MonoBehaviour
     public float Speed;
     public string Element; //Could Change this to an ElementID Integer
 
-    
+
     public void init()
     {
         Health = MaxHealth;
     }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+        if (Health <=0)
+        {
+            Destroy(this.gameObject);
+        } 
+    }
+    
 
 }
