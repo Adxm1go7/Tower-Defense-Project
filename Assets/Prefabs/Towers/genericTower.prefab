@@ -161,7 +161,7 @@ MonoBehaviour:
   towerRange: 0
   towerDamage: 0
   towerFireRate: 0
-  towerCost: 0
+  towerCost: 50
   sellValue: 0
   elementType: 
   timeForNextAttack: 0
