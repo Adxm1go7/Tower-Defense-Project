@@ -57,10 +57,20 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
     public void addCoins(int amount)
     {
         coins += amount;
+    }
+
+    public bool canPlaceTower(int cost)
+    {
+        return coins >= cost;
+    }
+    
+    public void deductCoins(int amount)
+    {
+        coins -= amount;
     }
 
 
