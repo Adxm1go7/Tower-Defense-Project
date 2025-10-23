@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour
     public float Speed;
     public string Element; //Could Change this to an ElementID Integer
 
-    private Transform targetNode;
-
 
     public void init()
     {
@@ -29,41 +27,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if (targetNode == null) return;
-        nextNode();
-    }
-
-    void nextNode()
-    {
-        Vector3 dir = targetNode.position - transform.position;
-        transform.Translate(dir.normalized * Speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, targetNode.position) < 0.2f)
+        Health -= damage;
+        if (Health <=0)
         {
-            GetNextNode();
-        }
+            Destroy(this.gameObject);
+        } 
     }
-
-    void GetNextNode()
-    {
-        if (NodeIndex < Nodes.nodesArray.Length - 2)
-        {
-            NodeIndex++;
-            targetNode = Nodes.nodesArray[NodeIndex + 1];
-        }
-        else
-        {
-            lastNodeReached();
-        }
-    }
-
-    private void lastNodeReached()
-
-    {
-        Debug.Log("Reached the end");
-        gameObject.SetActive(false);
-    }
+    
 
 }

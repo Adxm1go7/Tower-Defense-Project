@@ -3,7 +3,12 @@ guid: 6494e11e5e333a34fa34d69bdfa2986e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - HealthText: {instanceID: 0}
+  - CoinText: {instanceID: 0}
+  - RoundText: {instanceID: 0}
+  - Enemy: {fileID: 6997379684120590142, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+  - EnemyEndNode: {fileID: 8088271271235162320, guid: 8c4e615679b1d9948b682bbc66654434, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
