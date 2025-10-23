@@ -27,7 +27,7 @@ public class TowerScript : MonoBehaviour
         towerCost = 50;
         towerRange = 5.0f;
         towerDamage = 1;
-        towerFireRate = 1.0f;
+        towerFireRate = 0.10f;
         sellValue = (int)(towerCost * 0.75f);
         elementType = "Neutral";
         timeForNextAttack = 0f; 
@@ -124,20 +124,8 @@ public class TowerScript : MonoBehaviour
     {
         if (currentEnemy != null)
         {
-            currentEnemy.Health -= towerDamage;
+            currentEnemy.TakeDamage(towerDamage);
 
-            if (currentEnemy.Health <= 0)
-            {
-                if (EnemySummoner.ExistingEnemies.Contains(currentEnemy))
-                {
-                    EnemySummoner.ExistingEnemies.Remove(currentEnemy);
-                }
-
-                Destroy(currentEnemy.gameObject);
-                gameManager.addCoins(10);
-
-            }   
-            
         }
         Debug.Log("HIT HIT HIR");
 

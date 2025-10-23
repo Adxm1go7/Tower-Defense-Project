@@ -11,10 +11,12 @@ public class Enemy : MonoBehaviour
     public float Speed;
     public string Element; //Could Change this to an ElementID Integer
 
+    public GameManager gameManager;
 
     public void init()
     {
         Health = MaxHealth;
+        gameManager = gameManager.Instance;
     }
 
     public void TakeDamage(int damage)
@@ -22,7 +24,12 @@ public class Enemy : MonoBehaviour
         Health -= damage;
         if (Health <=0)
         {
+            if (EnemySummoner.ExistingEnemies.Contains(this))
+            {
+                EnemySummoner.ExistingEnemies.Remove(this);
+            }
             Destroy(this.gameObject);
+            gameManager.addCoins(10);
         } 
     }
     
