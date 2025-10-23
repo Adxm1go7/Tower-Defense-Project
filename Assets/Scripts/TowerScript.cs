@@ -47,6 +47,7 @@ public class TowerScript : MonoBehaviour
         if (currentEnemy != null && timeForNextAttack <= 0)
         {
             AttackEnemies();
+            LookAtEnemies();
             timeForNextAttack = towerFireRate;
         }
 
@@ -87,7 +88,7 @@ public class TowerScript : MonoBehaviour
             FindTargetTest();
             return;
         }
-        
+
 
         Enemy nearest = null;
         float smallest = Mathf.Infinity;
@@ -102,10 +103,20 @@ public class TowerScript : MonoBehaviour
                 smallest = distanceToEnemy;
                 nearest = enemy;
             }
-            
+
         }
         currentEnemy = nearest;
         Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
+
+    }
+    
+    void LookAtEnemies()
+    {
+        Vector3 direction = currentEnemy.transform.position - transform.position;
+        direction.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        lookRotation *= Quaternion.Euler(0, 180f, 0);
+        transform.rotation = lookRotation;
 
     }
 
