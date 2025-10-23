@@ -27,8 +27,9 @@ public class EnemyMovement : MonoBehaviour
     void GetNextWaypoint(){
         if (wavepointIndex >= Waypoints.waypointsArray.Length - 1){
             Destroy(gameObject);
+        }else{
+            wavepointIndex++;
+            target = Waypoints.waypointsArray[wavepointIndex];
         }
-        wavepointIndex++;
-        target = Waypoints.waypointsArray[wavepointIndex];
     }
 }
