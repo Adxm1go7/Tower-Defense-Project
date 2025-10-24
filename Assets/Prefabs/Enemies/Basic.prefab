@@ -405,9 +405,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 10
   MaxHealth: 100
-  Health: 500
+  Health: 50
   Speed: 0
   Element: 
+  gameManager: {fileID: 0}
 --- !u!54 &7455274806342690575
 Rigidbody:
   m_ObjectHideFlags: 0
