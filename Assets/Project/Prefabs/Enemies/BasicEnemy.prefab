@@ -404,9 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
-  MaxHealth: 50
-  Health: 50
-  Speed: 0
+  MaxHealth: 25
+  Health: 25
+  Speed: 2
   Element: 
   gameManager: {fileID: 0}
 --- !u!54 &7455274806342690575
@@ -448,3 +448,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7221c25ab3647fb43842d7101f0f571f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyScript: {fileID: 0}

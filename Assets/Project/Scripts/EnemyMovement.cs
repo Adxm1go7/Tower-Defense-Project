@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float speed = 6f;
+    public Enemy EnemyScript;
+
+    private float speed;
 
     private Transform target;
     private int wavepointIndex = 0;
 
-    void Start(){
+    void Awake()
+    {
+        EnemyScript = GetComponent<Enemy>();
+    }
+
+    void Start()
+    {
         target = Waypoints.waypointsArray[0];
+        speed = EnemyScript.Speed;
     }
 
     // Update is called once per frame
