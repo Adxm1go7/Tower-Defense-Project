@@ -57,6 +57,8 @@ public class EnemySummoner : MonoBehaviour
 
         return SummonedEnemy;
     }
+
+    /*
     void Update()
     {
         spawnTimer += Time.deltaTime;
@@ -69,4 +71,5 @@ public class EnemySummoner : MonoBehaviour
             SummonEnemy(enemyIDToSpawn);
         }
     }
+    */
 }
