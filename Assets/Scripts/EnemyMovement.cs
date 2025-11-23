@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float speed = 8f;
+    private float speed = 6f;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -27,8 +27,9 @@ public class EnemyMovement : MonoBehaviour
     void GetNextWaypoint(){
         if (wavepointIndex >= Waypoints.waypointsArray.Length - 1){
             Destroy(gameObject);
+        }else{
+            wavepointIndex++;
+            target = Waypoints.waypointsArray[wavepointIndex];
         }
-        wavepointIndex++;
-        target = Waypoints.waypointsArray[wavepointIndex];
     }
 }

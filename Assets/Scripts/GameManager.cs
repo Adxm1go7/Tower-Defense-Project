@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         health = 250;
         numRounds = 50;
         currentRound = 0;
-        coins = 250;
+        coins = 120;
         setCurrentRound();
         EnemyEndNode.GetComponent<Renderer>().enabled = false;
 
@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
 
     public bool canPlaceTower(int cost)
     {
-        Debug.Log("Checking if can place tower with cost: " + cost + " Current coins: " + coins);
         return coins >= cost;
     }
     

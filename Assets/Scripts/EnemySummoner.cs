@@ -11,7 +11,7 @@ public class EnemySummoner : MonoBehaviour
     public int enemyIDToSpawn = 0; // Which enemy ID to spawn
     public float spawnInterval = 2f; // How often to spawn (seconds)
     private float spawnTimer = 0f;
-    void Start()
+    void Awake()
     {
         EnemyPrefabs = new Dictionary<int, GameObject>();
         EnemyObjectPools = new Dictionary<int, Queue<Enemy>>();
@@ -29,7 +29,7 @@ public class EnemySummoner : MonoBehaviour
     public static Enemy SummonEnemy(int EnemyID)
     {
         Enemy SummonedEnemy = null;
-
+        
         if(EnemyPrefabs.ContainsKey(EnemyID)) //Check if enemyID exists by checking if prefab is stored with its ID in the prefabDictionary
         {
             Queue<Enemy> ReferencedQueue = EnemyObjectPools[EnemyID];

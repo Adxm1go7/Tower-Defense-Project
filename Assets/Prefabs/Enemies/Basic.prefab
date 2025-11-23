@@ -404,7 +404,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
+<<<<<<< HEAD
   MaxHealth: 100
+=======
+  MaxHealth: 50
+>>>>>>> bb8fddbf1d6f5755b455e4763d771709e225dd1c
   Health: 50
   Speed: 0
   Element: 
