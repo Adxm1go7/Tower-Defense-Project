@@ -8,6 +8,6 @@ public class EndNode : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        gameManager.enemySuccess();
+        gameManager.enemySuccess(other);
     }
 }

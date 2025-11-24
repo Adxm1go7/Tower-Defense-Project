@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/LevelSelector.unity
     guid: 29981b15cf9ec934da53df8453f8719a
+  - enabled: 1
+    path: Assets/Project/Scenes/DeathScreen.unity
+    guid: ffa57796c1b324541bf4fbe1d9e436f5
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

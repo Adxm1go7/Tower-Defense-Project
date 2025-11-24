@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float MaxHealth;
     public float Health;
     public float Speed;
+    [SerializeField] private int livesWorth; // how much lives player loses if this enemy passes end node
     public string Element; //Could Change this to an ElementID Integer
 
     public GameManager gameManager;
@@ -19,6 +20,11 @@ public class Enemy : MonoBehaviour
         gameManager = GameManager.Instance;
         
         canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
+    }
+
+    public int getLivesWorth()
+    {
+        return livesWorth;
     }
 
     public void init()

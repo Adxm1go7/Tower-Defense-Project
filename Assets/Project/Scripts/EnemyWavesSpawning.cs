@@ -16,7 +16,8 @@ public class TestSpawnEnemy : MonoBehaviour
 
     void Awake()
     {
-        Wave1();
+        //Wave1();
+        customWave(); // Used for testing purposes
         resetIndexes();
         cycleFinished = false;
     }
@@ -69,5 +70,12 @@ public class TestSpawnEnemy : MonoBehaviour
         };
     }
 
+    private void customWave() {
+        resetIndexes();
+        enemyCycle = new List<float[]>
+        {
+            new float[] {50f, 2f, 0.3f} // {number of enemies, type of enemy, interval between spawns}
+        };
+    }
 
 }

@@ -407,6 +407,7 @@ MonoBehaviour:
   MaxHealth: 25
   Health: 25
   Speed: 2
+  livesWorth: 10
   Element: 
   gameManager: {fileID: 0}
 --- !u!54 &7455274806342690575
