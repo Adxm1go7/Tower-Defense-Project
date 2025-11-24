@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6742417553083482957}
   - component: {fileID: 2677628589610200714}
   - component: {fileID: 3381739005040827150}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 8538794545355032032}
   - component: {fileID: 1827926168581379892}
   - component: {fileID: 7510477762605238873}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 6840997648510531878}
   - component: {fileID: 2608028349767539040}
   - component: {fileID: 467258974342515183}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 7314957854431628256}
   - component: {fileID: 7455274806342690575}
   - component: {fileID: 5771721448412280002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

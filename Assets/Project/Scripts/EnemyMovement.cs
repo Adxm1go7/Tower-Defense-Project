@@ -9,7 +9,9 @@ public class EnemyMovement : MonoBehaviour
     private float speed;
 
     private Transform target;
-    private int wavepointIndex = 0;
+    private int waypointIndex;
+    private float distanceToNextWaypoint;
+    private float enemyMovementProgress; // A value showing how close enemies are to endNode
 
     void Awake()
     {
@@ -18,7 +20,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        target = Waypoints.waypointsArray[0];
+        waypointIndex = 1;
+        target = Waypoints.waypointsArray[waypointIndex];
         speed = EnemyScript.Speed;
     }
 
@@ -28,17 +31,30 @@ public class EnemyMovement : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.3f){
+        distanceToNextWaypoint = Vector3.Distance(transform.position, target.position);
+        if (distanceToNextWaypoint <= 0.3f)
+        {
             GetNextWaypoint();
+        }
+        enemyMovementProgress = //Tracks progress of enemy as a float value
+        waypointIndex + (1-(distanceToNextWaypoint / Vector3.Distance(Waypoints.waypointsArray[waypointIndex - 1].position, target.position)));
+    }
+
+    void GetNextWaypoint()
+    {
+        if (waypointIndex >= Waypoints.waypointsArray.Length - 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            waypointIndex++;
+            target = Waypoints.waypointsArray[waypointIndex];
         }
     }
 
-    void GetNextWaypoint(){
-        if (wavepointIndex >= Waypoints.waypointsArray.Length - 1){
-            Destroy(gameObject);
-        }else{
-            wavepointIndex++;
-            target = Waypoints.waypointsArray[wavepointIndex];
-        }
+    public float getEnemyMovementProgress()
+    {
+        return enemyMovementProgress;
     }
 }
