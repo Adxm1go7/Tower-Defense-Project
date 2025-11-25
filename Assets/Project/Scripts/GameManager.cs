@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,15 +13,16 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI CoinText;
     public TextMeshProUGUI RoundText;
-    public GameObject Enemy;
     public GameObject EnemyEndNode;
     public static GameManager Instance;
+
+    private Enemy enemyScript;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 250;
+        health = 50;
         numRounds = 50;
         currentRound = 0;
         coins = 120;
@@ -47,20 +49,21 @@ public class GameManager : MonoBehaviour
         RoundText.text = "Rounds : " + currentRound.ToString() + " / " + numRounds.ToString();
     }
 
-    public void enemySuccess()
+    public void enemySuccess(Collider enemyCollider)
     {
-        Destroy(Enemy);
-        if (health > 0)
+
+        enemyScript = enemyCollider.GetComponentInParent<Enemy>(); // Gets Enemy.cs from passed enemy
+        int deductLives = enemyScript.getLivesWorth();
+
+        if (health - deductLives <= 0)
         {
-            if (health - 10 <= 0)
-            {
-                health = 0;
-                Debug.Log("Game Over!");
-            }
-            else
-            {
-                health -= 1;
-            }
+            health = 0;
+            Debug.Log("Game Over!");
+            SceneManager.LoadScene(3); // Loads Death screen
+        }
+        else
+        {
+            health -= deductLives;
         }
     }
 

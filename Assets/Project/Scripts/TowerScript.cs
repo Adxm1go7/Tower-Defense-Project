@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TowerScript : MonoBehaviour
+public class TowerScript : MonoBehaviour, IPointerClickHandler
 {
     // Start is called before the first frame update
     //WE CALL THE TOWERSTATS SCRIPTABLE OBJECT 
@@ -18,6 +19,7 @@ public class TowerScript : MonoBehaviour
     private Enemy currentEnemy;
     public float timeForNextAttack;
     public GameManager gameManager;
+    public GameObject upgradePanel;
         
     void Start()
     {
@@ -144,6 +146,18 @@ public class TowerScript : MonoBehaviour
         }
         Debug.Log("HIT HIT HIR");
 
+    }
+
+    //Implementing a click event to show tower info to user.
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("Tower clicked!");
+        if (upgradePanel != null)
+        {
+            upgradePanel.SetActive(true);
+            // You can also update the panel with tower info here
+        }
+        
     }
 
 
