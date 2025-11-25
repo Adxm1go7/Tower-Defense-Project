@@ -22,7 +22,6 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin dragging tower");
 
         if (!gameManager.canPlaceTower(towerPrefab.towerCost))
         {
@@ -38,7 +37,6 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging tower");
         if (currentTowerPreview != null)
         {
             Vector3 cursorPos = eventData.position;
@@ -58,7 +56,6 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End dragging tower");
 
         if (gameManager.canPlaceTower(towerPrefab.towerCost))
         {
@@ -70,7 +67,6 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                 );
 
             gameManager.deductCoins(towerPrefab.towerCost);
-            Debug.Log("Tower placed  4444");
         }
         else
         {
