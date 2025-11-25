@@ -404,19 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
-<<<<<<< HEAD:Assets/Prefabs/Enemies/Basic.prefab
-<<<<<<< HEAD
-  MaxHealth: 100
-=======
-  MaxHealth: 50
->>>>>>> bb8fddbf1d6f5755b455e4763d771709e225dd1c
-  Health: 50
-  Speed: 0
-=======
   MaxHealth: 25
   Health: 25
   Speed: 2
->>>>>>> d439e558ac20eab45f6461234d9997481c78da80:Assets/Project/Prefabs/Enemies/BasicEnemy.prefab
   Element: 
   gameManager: {fileID: 0}
 --- !u!54 &7455274806342690575

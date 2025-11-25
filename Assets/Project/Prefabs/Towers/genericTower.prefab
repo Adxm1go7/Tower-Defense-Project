@@ -156,10 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd405ece6b365f419cd43ed5bc69179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerStats: {fileID: 11400000, guid: a8276d2d65af4d8419b74cc52885e303, type: 2}
   towerID: 0
   towerName: 
   towerRange: 0
-  towerDamage: 0
+  towerDamage: 50
   towerFireRate: 0
   towerCost: 50
   sellValue: 0

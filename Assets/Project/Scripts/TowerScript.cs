@@ -5,7 +5,8 @@ using UnityEngine;
 public class TowerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    //WE CALL THE TOWERSTATS SCRIPTABLE OBJECT 
+    public TowerStats towerStats;
     public int towerID;
     public string towerName;
     public float towerRange;
@@ -20,16 +21,17 @@ public class TowerScript : MonoBehaviour
         
     void Start()
     {
-        // Initialize tower properties
-        // i think we manually change this if its the first time we making the tower
-        towerID = 1;
-        towerName = "Basic Tower";
-        towerCost = 50;
-        towerRange = 5.0f;
-        towerDamage = 1;
-        towerFireRate = 0.10f;
-        sellValue = (int)(towerCost * 0.75f);
-        elementType = "Neutral";
+        // INITIALISE THE TOWER ATTRIBUTES FROM THE TOWERSTATS SCRIPTABLE OBJECT
+        // UNIQUE FOR EACH TOWER
+
+        towerID = towerStats.towerID;
+        towerName = towerStats.towerName;
+        towerRange = towerStats.towerRange;
+        towerDamage = towerStats.towerDamage;
+        towerFireRate = towerStats.towerFireRate;
+        towerCost = towerStats.towerCost;
+        elementType = towerStats.elementType;
+        sellValue = (int)(towerCost * 0.7f);
         timeForNextAttack = 0f;
         gameManager = GameManager.Instance; 
     }
@@ -51,6 +53,14 @@ public class TowerScript : MonoBehaviour
             LookAtEnemies();
             timeForNextAttack = towerFireRate;
         }
+
+    }
+
+
+    // METHOD TO CHANGE THE ATTRIBUTES FOR UPGRADES 
+    void setAttributes()
+    {
+        
 
     }
 
