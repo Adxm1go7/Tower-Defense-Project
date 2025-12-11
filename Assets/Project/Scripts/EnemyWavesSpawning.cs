@@ -74,9 +74,14 @@ public class TestSpawnEnemy : MonoBehaviour
         resetIndexes();
         enemyCycle = new List<float[]>
         {
-            new float[] {5f, 1f, 2f}, // {number of enemies, type of enemy, interval between spawns}
-            new float[] {20f, 2f, 1f},
-            new float[] {5f, 0f, 0.5f}
+            new float[] {5f, 0f, 1f}, // {number of enemies, type of enemy, interval between spawns}
+            new float[] {5f, 1f, 1f},
+            new float[] {5f, 10f, 1f},
+            new float[] {20f, 0f, 0.8f}, 
+            new float[] {15f, 1f, 0.5f},
+            new float[] {20f, 2f, 0.5f},
+            new float[] {30f, 1f, 0.7f}, 
+            new float[] {100f, 0f, 0.3f}
         };
     }
 
