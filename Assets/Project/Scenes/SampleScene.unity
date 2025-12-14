@@ -3338,7 +3338,7 @@ MonoBehaviour:
   areaDamage: 2
   areaTimeToAttack: 1
   singleAttackRadius: 8
-  singleDamage: 10
+  singleDamage: 6
   singleTimeToAttack: 1.5
   enemyLayer:
     serializedVersion: 2
