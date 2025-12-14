@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &520562481702637684
+--- !u!1001 &4401214931341570204
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1827926168581379892, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 4bcfda2cf18d4104783880c8d667cf7a, type: 2}
+      objectReference: {fileID: 2100000, guid: c9d0600a55ecd6045b42a4010730d21e, type: 2}
     - target: {fileID: 2258227253070125482, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54,24 +54,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6997379684120590142, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_Name
-      value: ArmouredEnemy
+      value: MotherSlimeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: ID
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: Speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
-      propertyPath: Health
-      value: 50
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: MaxHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
-      propertyPath: livesWorth
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: LivesWorth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: SplitCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: SplitEnemy
+      value: 
+      objectReference: {fileID: 3024991142015652446, guid: b68b089238fa61d42a669f033d1dada5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
