@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class UpgradePanelController : MonoBehaviour
 {
-    public void ClosePanel()
+    public GameObject upgradePanel; // Reference to the upgrade panel UI
+    public GameObject towerNameObject; // Reference to the tower name UI object
+    public GameObject damageDealtObject; // Reference to the damage dealt UI object
+    public void OnButtonClick()
     {
-        this.gameObject.SetActive(false);
+        upgradePanel.SetActive(false);
+        towerNameObject.SetActive(false);
+        damageDealtObject.SetActive(false);
+
     }
 }
