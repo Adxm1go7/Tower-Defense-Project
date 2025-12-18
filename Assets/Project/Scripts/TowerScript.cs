@@ -74,7 +74,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         foreach (Enemy enemy in allEnemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.Health > 0)
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
             {
                 smallest = distanceToEnemy;
                 nearest = enemy;
@@ -107,7 +107,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
                 continue;
             }
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.Health > 0)
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
             {
                 smallest = distanceToEnemy;
                 nearest = enemy;

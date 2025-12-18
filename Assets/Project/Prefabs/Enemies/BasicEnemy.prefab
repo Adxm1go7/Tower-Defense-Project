@@ -403,12 +403,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e214a9fc1dbac54fa558629b8f15e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 10
-  MaxHealth: 25
-  Health: 25
+  ID: 0
+  MaxHealth: 10
   Speed: 2
-  livesWorth: 10
-  Element: 
+  LivesWorth: 1
+  RegenHealth: 0
+  RegenRate: 0
+  RegenTime: 0
+  SplitCount: 0
+  CoinsWorth: 0
   gameManager: {fileID: 0}
 --- !u!54 &7455274806342690575
 Rigidbody:
