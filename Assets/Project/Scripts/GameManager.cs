@@ -27,6 +27,13 @@ public class GameManager : MonoBehaviour
     public TextMeshPro nameOfTower; //Name of tower text object
     public TextMeshPro DDTower; //Damage dealt by tower text object
 
+
+    public GameObject SpeedControlButton; // Reference to the speed control button
+    public float normalSpeed = 1f;
+    public float fastSpeed = 2f;
+    public float ultraSpeed = 3f;
+    private float currentSpeed = 1f;
+
     
 
     // Start is called before the first frame update
@@ -104,6 +111,32 @@ public class GameManager : MonoBehaviour
         nameOfTower.transform.position = tower.transform.position + new Vector3(0.5f, 2f, 0);
         DDTower.text = "Δ" + tower.towerDamage.ToString();
         DDTower.transform.position = tower.transform.position + new Vector3(3f, 0, 0);
+    }
+
+    public void SetGameSpeed(float speed)
+    {
+        currentSpeed = speed;
+        Time.timeScale = speed;
+        Debug.Log("Game speed set to: " + speed + "x");
+    }
+
+     public void CycleGameSpeed()
+    {
+        if (currentSpeed == normalSpeed)
+        {
+            SetGameSpeed(fastSpeed);
+            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "2x";
+        }
+        else if (currentSpeed == fastSpeed)
+        {
+            SetGameSpeed(ultraSpeed);
+            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "3x";
+        }
+        else
+        {
+            SetGameSpeed(normalSpeed);
+            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "1x";
+        }
     }
 
 
