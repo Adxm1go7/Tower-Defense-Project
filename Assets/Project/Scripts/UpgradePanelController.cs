@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class UpgradePanelController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ClosePanel()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.gameObject.SetActive(false);
     }
 }

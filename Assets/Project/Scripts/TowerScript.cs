@@ -17,10 +17,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public string elementType;
     private Enemy currentEnemy;
     public float timeForNextAttack;
-    public GameManager gameManager;
-    public GameObject upgradePanel;
-    public GameObject nameOfTower; //Name of tower text object
-    public GameObject DDTower; //Damage dealt by tower text object
+    public GameManager gameManager; // Controls the flow of the game
         
     void Start()
     {
@@ -144,13 +141,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Tower clicked!");
-        if (upgradePanel != null)
-        {
-            upgradePanel.SetActive(true);
-            // You can also update the panel with tower info here
-            nameOfTower.SetActive(true);
-            DDTower.SetActive(true);
-        }
+        gameManager.ShowTowerInfo(this);
         
     }
 

@@ -17,6 +17,16 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private Enemy enemyScript;
+
+        
+    public GameObject upgradePanel; // Reference to the upgrade panel UI
+
+    public GameObject towerNameObject; // Reference to the tower name UI object
+
+    public GameObject damageDealtObject; // Reference to the damage dealt UI object 
+    public TextMeshPro nameOfTower; //Name of tower text object
+    public TextMeshPro DDTower; //Damage dealt by tower text object
+
     
 
     // Start is called before the first frame update
@@ -81,6 +91,21 @@ public class GameManager : MonoBehaviour
     {
         coins -= amount;
     }
+
+
+    public void ShowTowerInfo(TowerScript tower)
+    {
+        // Activate the upgrade panel
+        upgradePanel.SetActive(true);
+        towerNameObject.SetActive(true);
+        damageDealtObject.SetActive(true);
+
+        nameOfTower.text = tower.towerName;
+        nameOfTower.transform.position = tower.transform.position + new Vector3(0.5f, 2f, 0);
+        DDTower.text = "Δ" + tower.towerDamage.ToString();
+        DDTower.transform.position = tower.transform.position + new Vector3(3f, 0, 0);
+    }
+
 
 
 }
