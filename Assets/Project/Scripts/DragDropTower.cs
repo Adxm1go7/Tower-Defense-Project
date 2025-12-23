@@ -13,6 +13,8 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public GameObject map;
     private RectTransform rectTransform;
     private Canvas canvas;
+
+    public bool canPlaceTower;
     
     private void Awake()
     {
@@ -26,12 +28,13 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         if (!gameManager.canPlaceTower(towerPrefab.towerCost))
         {
             Debug.Log("Not enough coins to place tower");
+            return;
         }
         
         currentTowerPreview = Instantiate(towerPrefab.gameObject);
-            TowerScript towerScript = currentTowerPreview.GetComponent<TowerScript>();
-            towerScript.gameManager = gameManager;
-            currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        TowerScript towerScript = currentTowerPreview.GetComponent<TowerScript>();
+        towerScript.gameManager = gameManager;
+        currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     }
 
@@ -73,6 +76,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             Destroy(currentTowerPreview);
             Debug.Log("Not enough coins to place tower - cancelling placement");
         }
+        currentTowerPreview = null;
     }
 
 
