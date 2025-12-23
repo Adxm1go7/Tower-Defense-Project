@@ -99,7 +99,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -164,6 +164,7 @@ MonoBehaviour:
   towerCost: 50
   sellValue: 0
   elementType: 
+  active: 0
   timeForNextAttack: 0
   gameManager: {fileID: 0}
 --- !u!136 &7230958924995746166
@@ -181,7 +182,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

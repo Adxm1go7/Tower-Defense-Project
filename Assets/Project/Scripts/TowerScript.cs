@@ -15,6 +15,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public int towerCost;
     public int sellValue;
     public string elementType;
+    public bool activeTower;
     private Enemy currentEnemy;
     public float timeForNextAttack;
     public GameManager gameManager; // Controls the flow of the game
@@ -54,6 +55,8 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         }
 
     }
+
+
 
     
     void FindTargetTest()
@@ -128,7 +131,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
     void AttackEnemies()
     {
-        if (currentEnemy != null)
+        if (currentEnemy != null && activeTower==true)
         {
             currentEnemy.TakeDamage(towerDamage);
 
@@ -144,6 +147,8 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         gameManager.ShowTowerInfo(this);
         
     }
+
+    
 
 
 }

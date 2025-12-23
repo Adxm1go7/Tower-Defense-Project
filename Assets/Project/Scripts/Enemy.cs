@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
         canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
         aliveTimer = 0f;
         lastRegenTime = 0f;
+        CoinsWorth = 10;
     }
 
     public void Update()

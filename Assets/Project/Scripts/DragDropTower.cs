@@ -10,17 +10,17 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public GameManager gameManager;
     public TowerScript towerPrefab;
     private GameObject currentTowerPreview;
+    private TowerScript currentTowerScript;
     public GameObject map;
     private RectTransform rectTransform;
     private Canvas canvas;
-
-    public bool canPlaceTower;
     
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
     }
+
     
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -32,8 +32,8 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         }
         
         currentTowerPreview = Instantiate(towerPrefab.gameObject);
-        TowerScript towerScript = currentTowerPreview.GetComponent<TowerScript>();
-        towerScript.gameManager = gameManager;
+        currentTowerScript = currentTowerPreview.GetComponent<TowerScript>();
+        currentTowerScript.activeTower = false;
         currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     }
@@ -68,16 +68,35 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                     1,
                     Mathf.Round(currentTowerPreview.transform.position.z)
                 );
+            currentTowerScript.activeTower = true;
 
             gameManager.deductCoins(towerPrefab.towerCost);
         }
         else
         {
-            Destroy(currentTowerPreview);
             Debug.Log("Not enough coins to place tower - cancelling placement");
         }
         currentTowerPreview = null;
     }
 
+    // public bool isTowerPlacementAllowed(Vector3 position)
+    // {
+    //     RaycastHit hit;
+    //     Debug.Log("Checking tower placement at position: " + position);
+    //     if (Physics.Raycast(position + Vector3.up, Vector3.down, out hit, 100f))
+    //     {
+    //         Debug.Log("Raycast hit: " + hit.collider.name);
+    //         if (hit.collider.CompareTag("EnemyPath"))
+    //         {
+                
+    //             return false;
+    //         }
+    //         else
+    //         {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
 }
