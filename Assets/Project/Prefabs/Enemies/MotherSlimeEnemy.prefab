@@ -69,6 +69,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: CoinsWorth
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: LivesWorth
       value: 25
       objectReference: {fileID: 0}
