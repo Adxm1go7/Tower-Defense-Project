@@ -15,10 +15,12 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public int towerCost;
     public int sellValue;
     public string elementType;
-    public bool activeTower;
+    public bool activeTower; //Used by DragDropTower to disable tower attack functionality during placement
     private Enemy currentEnemy;
     public float timeForNextAttack;
     public GameManager gameManager; // Controls the flow of the game
+
+    private int blockedContacts = 0;
         
     void Start()
     {
@@ -131,7 +133,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
     void AttackEnemies()
     {
-        if (currentEnemy != null && activeTower==true)
+        if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
             currentEnemy.TakeDamage(towerDamage);
 
@@ -143,12 +145,33 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     //Implementing a click event to show tower info to user.
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Tower clicked!");
+        // Passes the tower object that was clicked to the GameManager to show its info
         gameManager.ShowTowerInfo(this);
         
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the tower interacts the EnemyPath or another Tower
+        if (other.CompareTag("EnemyPath")|| other.CompareTag("Tower"))
+        {
+            // If it does then increment blockedContacts by 1
+            blockedContacts++;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EnemyPath") || other.CompareTag("Tower"))
+        {
+            // If it exits the EnemyPath or another Tower then decrement blockedContacts by 1
+            blockedContacts--;
+        }
+    }
 
+    public bool CanBePlaced()
+    {
+        // If the tower is not colliding with the EnemyPath or another Tower then it can be placed
+        return blockedContacts == 0;
+    }
 }

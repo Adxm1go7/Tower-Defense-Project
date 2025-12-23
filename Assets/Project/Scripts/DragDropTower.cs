@@ -70,6 +70,13 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                 );
             currentTowerScript.activeTower = true;
 
+            if (!currentTowerScript.CanBePlaced())
+            {
+                Debug.Log("Invalid tower placement - cancelling placement");
+                Destroy(currentTowerPreview);
+                return;
+            }
+
             gameManager.deductCoins(towerPrefab.towerCost);
         }
         else
@@ -79,24 +86,23 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         currentTowerPreview = null;
     }
 
-    // public bool isTowerPlacementAllowed(Vector3 position)
-    // {
-    //     RaycastHit hit;
-    //     Debug.Log("Checking tower placement at position: " + position);
-    //     if (Physics.Raycast(position + Vector3.up, Vector3.down, out hit, 100f))
-    //     {
-    //         Debug.Log("Raycast hit: " + hit.collider.name);
-    //         if (hit.collider.CompareTag("EnemyPath"))
-    //         {
-                
-    //             return false;
-    //         }
-    //         else
-    //         {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
+    public bool isTowerPlacementAllowed(Vector3 position)
+    {
+        RaycastHit hit;
+        Debug.Log("Checking tower placement at position: " + position);
+        if (Physics.Raycast(position + Vector3.up * 5.0f, Vector3.down, out hit, 10f))
+        {
+            Debug.Log("Raycast hit: " + hit.collider.name);
+            if (hit.collider.CompareTag("EnemyPath"))
+            {
+                Debug.Log("Tower placement not allowed on EnemyPath");
+                return false;
+            }
+            Debug.Log("Tower placement allowed");
+            return true;
+
+        }
+        return false;
+    }
 
 }
