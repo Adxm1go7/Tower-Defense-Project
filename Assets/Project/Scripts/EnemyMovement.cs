@@ -16,13 +16,13 @@ public class EnemyMovement : MonoBehaviour
     void Awake()
     {
         EnemyScript = GetComponent<Enemy>();
+        waypointIndex = 1;
     }
 
     void Start()
     {
-        waypointIndex = 1;
         target = Waypoints.waypointsArray[waypointIndex];
-        speed = EnemyScript.Speed;
+        speed = EnemyScript.getSpeed();
     }
 
     // Update is called once per frame
@@ -56,5 +56,14 @@ public class EnemyMovement : MonoBehaviour
     public float getEnemyMovementProgress()
     {
         return enemyMovementProgress;
+    }
+
+    public int getWaypointIndex(){
+        return waypointIndex;
+    }
+
+    public void setWaypointIndex(int i){
+        waypointIndex = i;
+        target = Waypoints.waypointsArray[waypointIndex];
     }
 }

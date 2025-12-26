@@ -18,8 +18,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public string elementType;
     private Enemy currentEnemy;
     public float timeForNextAttack;
-    public GameManager gameManager;
-    public GameObject upgradePanel;
+    public GameManager gameManager; // Controls the flow of the game
         
     void Start()
     {
@@ -82,7 +81,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         foreach (Enemy enemy in allEnemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.Health > 0)
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
             {
                 smallest = distanceToEnemy;
                 nearest = enemy;
@@ -115,7 +114,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
                 continue;
             }
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.Health > 0)
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
             {
                 smallest = distanceToEnemy;
                 nearest = enemy;
@@ -152,11 +151,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Tower clicked!");
-        if (upgradePanel != null)
-        {
-            upgradePanel.SetActive(true);
-            // You can also update the panel with tower info here
-        }
+        gameManager.ShowTowerInfo(this);
         
     }
 

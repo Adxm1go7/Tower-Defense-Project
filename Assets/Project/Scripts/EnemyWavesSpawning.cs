@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
 
-public class TestSpawnEnemy : MonoBehaviour
+public class EnemyWaveSpawning : MonoBehaviour
 {
     private int waveNumber;
     private float spawnTimer;
@@ -13,6 +13,8 @@ public class TestSpawnEnemy : MonoBehaviour
 
     private int enemyNumber; // spawned enemy number
     private int enemyCycleIndex;
+
+    private Vector3 spawnVector;
 
     void Awake()
     {
@@ -37,7 +39,8 @@ public class TestSpawnEnemy : MonoBehaviour
             {
                 spawnTimer = 0f;
                 // Call SummonEnemy to spawn one enemy
-                EnemySummoner.SummonEnemy((int)enemyCycle[enemyCycleIndex][1]);
+                spawnVector = EnemySummoner.getSpawnPoint();
+                EnemySummoner.SummonEnemy((int)enemyCycle[enemyCycleIndex][1], spawnVector);
                 enemyNumber++;
 
                 if (enemyNumber >= enemyCycle[enemyCycleIndex][0]) // Check if current enemy spawn cycle is reached
@@ -74,9 +77,12 @@ public class TestSpawnEnemy : MonoBehaviour
         resetIndexes();
         enemyCycle = new List<float[]>
         {
-            new float[] {5f, 1f, 2f}, // {number of enemies, type of enemy, interval between spawns}
-            new float[] {20f, 2f, 1f},
-            new float[] {5f, 0f, 0.5f}
+            new float[] {2f, 0f, 1f}, // {number of enemies, type of enemy, interval between spawns}
+            new float[] {2f, 1f, 1f},
+            new float[] {2f, 2f, 1f},
+            new float[] {2f, 3f, 1f},
+            new float[] {2f, 4f, 1f},
+            new float[] {2f, 5f, 1f}
         };
     }
 

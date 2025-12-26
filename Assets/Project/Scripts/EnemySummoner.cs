@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemySummoner : MonoBehaviour
 {
+    //new Vector3((float)-9.5, (float)1.38, (float)9.03)
+    private static Vector3 spawnPoint;
+
     public static List<Enemy> ExistingEnemies; //List of spawned, alive enemies
     public static Dictionary<int, GameObject> EnemyPrefabs; //Components of EnemyData class, int is ID 
     public static Dictionary<int, Queue<Enemy>> EnemyObjectPools; //Multiple enemy types need multiple queues
@@ -17,6 +20,8 @@ public class EnemySummoner : MonoBehaviour
         EnemyObjectPools = new Dictionary<int, Queue<Enemy>>();
         ExistingEnemies = new List<Enemy>();
 
+        spawnPoint = transform.position;
+
         EnemyData[] Enemies = Resources.LoadAll<EnemyData>("Enemies"); //Going through all directories until it reaches resource folders and puts a "\"
 
         foreach (EnemyData enemy in Enemies)
@@ -26,7 +31,7 @@ public class EnemySummoner : MonoBehaviour
         }
     }
 
-    public static Enemy SummonEnemy(int EnemyID)
+    public static Enemy SummonEnemy(int EnemyID, Vector3 spawnPoint)
     {
         Enemy SummonedEnemy = null;
         
@@ -39,12 +44,12 @@ public class EnemySummoner : MonoBehaviour
                 //Dequeue Enemy and init
 
                 SummonedEnemy = ReferencedQueue.Dequeue();
-                SummonedEnemy.init();
             }
             else
             {
                 //Instantiate new instance of enemy and init
-                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], new Vector3((float)-9.5, (float)1.38, (float)9.03), Quaternion.identity);
+                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], spawnPoint, Quaternion.identity);
+                SummonedEnemy = NewEnemy.GetComponent<Enemy>();
             }
 
             ExistingEnemies.Add(SummonedEnemy);
@@ -56,6 +61,10 @@ public class EnemySummoner : MonoBehaviour
         }
 
         return SummonedEnemy;
+    }
+
+    public static Vector3 getSpawnPoint(){
+        return spawnPoint;
     }
 
     /*
