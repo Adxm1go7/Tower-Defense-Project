@@ -16,6 +16,6 @@ MonoBehaviour:
   towerName: Sniper
   towerRange: 50
   towerDamage: 20
-  towerFireRate: 0.1
+  towerFireRate: 3
   towerCost: 0
   elementType: 

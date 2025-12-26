@@ -15,7 +15,7 @@ MonoBehaviour:
   towerID: 0
   towerName: 
   towerRange: 10
-  towerDamage: 100
-  towerFireRate: 1
+  towerDamage: 5
+  towerFireRate: 0.5
   towerCost: 50
   elementType: 
