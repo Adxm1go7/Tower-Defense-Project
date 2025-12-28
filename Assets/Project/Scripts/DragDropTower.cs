@@ -10,6 +10,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public GameManager gameManager;
     public TowerScript towerPrefab;
     private GameObject currentTowerPreview;
+    private TowerScript currentTowerScript;
     public GameObject map;
     private RectTransform rectTransform;
     private Canvas canvas;
@@ -19,6 +20,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
     }
+
     
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -26,12 +28,13 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         if (!gameManager.canPlaceTower(towerPrefab.towerCost))
         {
             Debug.Log("Not enough coins to place tower");
+            return;
         }
         
         currentTowerPreview = Instantiate(towerPrefab.gameObject);
-            TowerScript towerScript = currentTowerPreview.GetComponent<TowerScript>();
-            towerScript.gameManager = gameManager;
-            currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        currentTowerScript = currentTowerPreview.GetComponent<TowerScript>();
+        currentTowerScript.activeTower = false;
+        currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     }
 
@@ -65,15 +68,41 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                     1,
                     Mathf.Round(currentTowerPreview.transform.position.z)
                 );
+            currentTowerScript.activeTower = true;
+
+            if (!currentTowerScript.CanBePlaced())
+            {
+                Debug.Log("Invalid tower placement - cancelling placement");
+                Destroy(currentTowerPreview);
+                return;
+            }
 
             gameManager.deductCoins(towerPrefab.towerCost);
         }
         else
         {
-            Destroy(currentTowerPreview);
             Debug.Log("Not enough coins to place tower - cancelling placement");
         }
+        currentTowerPreview = null;
     }
 
+    public bool isTowerPlacementAllowed(Vector3 position)
+    {
+        RaycastHit hit;
+        Debug.Log("Checking tower placement at position: " + position);
+        if (Physics.Raycast(position + Vector3.up * 5.0f, Vector3.down, out hit, 10f))
+        {
+            Debug.Log("Raycast hit: " + hit.collider.name);
+            if (hit.collider.CompareTag("EnemyPath"))
+            {
+                Debug.Log("Tower placement not allowed on EnemyPath");
+                return false;
+            }
+            Debug.Log("Tower placement allowed");
+            return true;
+
+        }
+        return false;
+    }
 
 }

@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6997379684120590142, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_Name
-      value: Giga-Tank
+      value: Giga-TankEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: ID
@@ -67,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: MaxHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: CoinsWorth
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: LivesWorth
