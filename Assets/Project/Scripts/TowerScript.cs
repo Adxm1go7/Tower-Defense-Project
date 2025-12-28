@@ -59,19 +59,6 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         }
 
     }
-
-
-<<<<<<< HEAD
-    // METHOD TO CHANGE THE ATTRIBUTES FOR UPGRADES 
-    void setAttributes()
-    {
-        
-
-    }
-=======
->>>>>>> ff105333179a4649c3061dd2074fc7bb69c19257
-
-    
     void FindTargetTest()
     {
         Enemy[] allEnemies = FindObjectsOfType<Enemy>();
