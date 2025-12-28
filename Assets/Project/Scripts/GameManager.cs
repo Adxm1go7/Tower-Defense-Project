@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public float ultraSpeed = 3f;
     private float currentSpeed = 1f;
 
+    public GameObject pauseMenuUI; // Reference to the pause menu UI
+    public bool isPaused = false; // boolean to track if the game is paused
+
     
 
     // Start is called before the first frame update
@@ -54,6 +57,22 @@ public class GameManager : MonoBehaviour
         HealthText.text = "Health : " + health.ToString();
         CoinText.text = "Coins : " + coins.ToString();
         setCurrentRound();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                pauseMenuUI.SetActive(false);
+                Time.timeScale = currentSpeed; // Resume game at current speed
+                isPaused = false;
+            }
+            else
+            {
+                pauseMenuUI.SetActive(true);
+                Time.timeScale = 0f; // Pause game
+                isPaused = true;
+            }
+        }
     }
 
     void Awake()
@@ -122,21 +141,49 @@ public class GameManager : MonoBehaviour
 
      public void CycleGameSpeed()
     {
-        if (currentSpeed == normalSpeed)
-        {
-            SetGameSpeed(fastSpeed);
-            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "2x";
+        if (!isPaused){
+            if (currentSpeed == normalSpeed)
+            {
+                SetGameSpeed(fastSpeed);
+                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "2x";
+            }
+            else if (currentSpeed == fastSpeed)
+            {
+                SetGameSpeed(ultraSpeed);
+                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "3x";
+            }
+            else
+            {
+                SetGameSpeed(normalSpeed);
+                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "1x";
+            }
         }
-        else if (currentSpeed == fastSpeed)
-        {
-            SetGameSpeed(ultraSpeed);
-            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "3x";
-        }
-        else
-        {
-            SetGameSpeed(normalSpeed);
-            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "1x";
-        }
+    }
+
+    public void HomeButton()
+    {
+        Time.timeScale = 1f; // Reset time scale to normal
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0); // Load home menu scene
+    }
+
+    public void ResumeButton()
+    {
+        Time.timeScale = currentSpeed; // Resume time scale to current speed
+        isPaused = false; // Unpause the game
+        pauseMenuUI.SetActive(false); // Hide pause menu UI
+    }
+
+    public void RestartButton()
+    {
+        Time.timeScale = 1f; // Reset time scale to normal
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex); // Reload current scene
+        isPaused = false; // Unpause the game
+        pauseMenuUI.SetActive(false); // Hide pause menu UI
+    }
+
+    public void OpenArcana()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(4); // Load arcana scene
     }
 
 
