@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c24acbcfd831b9498a9b9594da1058c, type: 3}
   m_Name: LotsOfYellows
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  enemyCount: 0
-  spawnInterval: 0
+  enemy: {fileID: 11400000, guid: 457703c84e63e01449b141fe19185493, type: 2}
+  enemyCount: 15
+  spawnInterval: 0.4

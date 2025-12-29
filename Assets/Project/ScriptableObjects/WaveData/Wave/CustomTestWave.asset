@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c098fef46992c345b87f6d31534e64f, type: 3}
   m_Name: CustomTestWave
   m_EditorClassIdentifier: 
-  waveChunks: []
+  waveChunks:
+  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
+  - {fileID: 11400000, guid: 1dfa8fc67584e874ba5598eb8715f4f7, type: 2}
+  - {fileID: 11400000, guid: 36220e2101f64af45b714823fd3ae792, type: 2}
+  - {fileID: 11400000, guid: b035e82ff878d56448c60ebbd0038262, type: 2}
   TimeBeforeNextWave: 5

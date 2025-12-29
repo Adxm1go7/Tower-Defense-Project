@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c24acbcfd831b9498a9b9594da1058c, type: 3}
   m_Name: MotherSlim
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  enemyCount: 0
-  spawnInterval: 0
+  enemy: {fileID: 11400000, guid: c451501f515a3ff4d97b6a6bc4b60a1b, type: 2}
+  enemyCount: 1
+  spawnInterval: 3

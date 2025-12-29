@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c098fef46992c345b87f6d31534e64f, type: 3}
   m_Name: Level1Wave1
   m_EditorClassIdentifier: 
-  entries:
-  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
-  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
+  waveChunks:
+  - {fileID: 11400000, guid: bb8147c07a1913e4090f237adc32c66c, type: 2}
   - {fileID: 11400000, guid: 06e263e895937b94cabf27da8ca03b28, type: 2}
+  - {fileID: 11400000, guid: bec143d779ada5f469e3161ca6f65259, type: 2}
+  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
   TimeBeforeNextWave: 5

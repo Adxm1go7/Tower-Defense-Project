@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LittleTanks
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: b5562ef0e2e80de45b9398d1d8d402c5, type: 2}
-  enemyCount: 3
-  spawnInterval: 2
+  enemyCount: 4
+  spawnInterval: 1.5

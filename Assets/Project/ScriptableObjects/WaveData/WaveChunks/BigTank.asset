@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c24acbcfd831b9498a9b9594da1058c, type: 3}
   m_Name: BigTank
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  enemyCount: 0
-  spawnInterval: 0
+  enemy: {fileID: 11400000, guid: c2291707d9719ff4b8c5799633a58b5b, type: 2}
+  enemyCount: 2
+  spawnInterval: 3
