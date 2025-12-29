@@ -22,12 +22,12 @@ public class EnemySummoner : MonoBehaviour
 
         spawnPoint = transform.position;
 
-        EnemyData[] Enemies = Resources.LoadAll<EnemyData>("Enemies"); //Going through all directories until it reaches resource folders and puts a "\"
+        EnemyStats[] Enemies = Resources.LoadAll<EnemyStats>("EnemyScriptableObjects"); //Going through all directories until it reaches resource folders and puts a "\"
 
-        foreach (EnemyData enemy in Enemies)
+        foreach (EnemyStats enemy in Enemies)
         {
-            EnemyPrefabs.Add(enemy.EnemyID, enemy.EnemyPrefab);
-            EnemyObjectPools.Add(enemy.EnemyID, new Queue<Enemy>());
+            EnemyPrefabs.Add(enemy.ID, enemy.EnemyPrefab);
+            EnemyObjectPools.Add(enemy.ID, new Queue<Enemy>());
         }
     }
 

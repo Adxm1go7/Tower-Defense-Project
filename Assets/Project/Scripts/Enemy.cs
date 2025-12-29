@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private EnemyStats enemyStats;
 
-    [SerializeField] private int ID;
-    [SerializeField] private float MaxHealth;
+    private int ID;
+    private float MaxHealth;
     private float Health;
-    [SerializeField] private float Speed;
-    [SerializeField] private int LivesWorth; // how much lives player loses if this enemy passes end node
-    [SerializeField] private float RegenHealth;
-    [SerializeField] private float RegenRate;
-    [SerializeField] private float RegenTime;
-    [SerializeField] private int SplitCount;
-    [SerializeField] Enemy SplitEnemy; // Enemy that comes out 
-    [SerializeField] private int CoinsWorth;
+    private float Speed;
+    private int LivesWorth; // how much lives player loses if this enemy passes end node
+    private float RegenHealth;
+    private float RegenRate;
+    private float RegenTime;
+    private int SplitCount;
+    Enemy SplitEnemy; // Enemy that comes out 
+    private int CoinsWorth;
 
     private string Element; //Could Change this to an ElementID Integer
 
@@ -33,13 +34,23 @@ public class Enemy : MonoBehaviour
     }
     
     public void Start(){
+        ID = enemyStats.ID;
+        MaxHealth = enemyStats.MaxHealth;
+        Speed = enemyStats.Speed;
+        LivesWorth = enemyStats.LivesWorth;
+        RegenHealth = enemyStats.RegenHealth;
+        RegenRate = enemyStats.RegenRate;
+        RegenTime = enemyStats.RegenTime;
+        SplitCount = enemyStats.SplitCount;
+        SplitEnemy = enemyStats.SplitEnemy;
+        CoinsWorth = enemyStats.CoinsWorth;
+
         canvas = transform.Find("Canvas");
         gameManager = GameManager.Instance;
         Health = MaxHealth;
         canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
         aliveTimer = 0f;
         lastRegenTime = 0f;
-        CoinsWorth = 10;
     }
 
     public void Update()

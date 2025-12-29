@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f1d02359e206e45962486335623f1c, type: 3}
-  m_Name: ChildSlime
+  m_Script: {fileID: 11500000, guid: 4c24acbcfd831b9498a9b9594da1058c, type: 3}
+  m_Name: MotherSlim
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 3270371702958780032, guid: b68b089238fa61d42a669f033d1dada5, type: 3}
-  EnemyID: 6
+  enemy: {fileID: 0}
+  enemyCount: 0
+  spawnInterval: 0
