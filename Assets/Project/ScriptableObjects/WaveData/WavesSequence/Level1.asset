@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c267831f2c6d445b6f102f8f37b67c, type: 3}
-  m_Name: ArcherTowerStats
+  m_Script: {fileID: 11500000, guid: 2c1cddff23f705547820279944da7aa4, type: 3}
+  m_Name: Level1
   m_EditorClassIdentifier: 
-  towerID: 0
-  towerName: Archer
-  towerRange: 8
-  towerDamage: 5
-  towerFireRate: 1
-  towerCost: 1
-  elementType: 
+  waves:
+  - {fileID: 11400000, guid: 3d27f5294a60b2e44b6348b0f518fa02, type: 2}
+  - {fileID: 11400000, guid: ca61032312f67bc4896b012afc9962d3, type: 2}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c267831f2c6d445b6f102f8f37b67c, type: 3}
   m_Name: BasicMeleeTower
   m_EditorClassIdentifier: 
-  towerID: 0
-  towerName: 
-  towerRange: 0
-  towerDamage: 0
-  towerFireRate: 0
-  towerCost: 0
+  towerID: 1
+  towerName: Melee
+  towerRange: 3
+  towerDamage: 3
+  towerFireRate: 0.3
+  towerCost: 1
   elementType: 

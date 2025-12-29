@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/DeathScreen.unity
     guid: ffa57796c1b324541bf4fbe1d9e436f5
+  - enabled: 1
+    path: Assets/Project/Scenes/Arcana.unity
+    guid: edbec0929670b50428a7d3383e5bb3c6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

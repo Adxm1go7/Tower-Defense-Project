@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f1d02359e206e45962486335623f1c, type: 3}
-  m_Name: Basic
+  m_Script: {fileID: 11500000, guid: 4c24acbcfd831b9498a9b9594da1058c, type: 3}
+  m_Name: LotsOfYellows
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 6997379684120590142, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
-  EnemyID: 0
+  enemy: {fileID: 0}
+  enemyCount: 0
+  spawnInterval: 0

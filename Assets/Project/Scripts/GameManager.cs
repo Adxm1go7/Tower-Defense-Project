@@ -41,11 +41,10 @@ public class GameManager : MonoBehaviour
     {
         health = 50;
         numRounds = 50;
-        currentRound = 0;
-        coins = 120;
-        setCurrentRound();
+        currentRound = 1;
+        coins = 150;
+        setCurrentRound(1);
         EnemyEndNode.GetComponent<Renderer>().enabled = false;
-
     }
 
     // Update is called once per frame
@@ -53,7 +52,6 @@ public class GameManager : MonoBehaviour
     {
         HealthText.text = "Health : " + health.ToString();
         CoinText.text = "Coins : " + coins.ToString();
-        setCurrentRound();
     }
 
     void Awake()
@@ -61,9 +59,10 @@ public class GameManager : MonoBehaviour
         Instance = this;   
     }
 
-    public void setCurrentRound()
+    public void setCurrentRound(int round) // sets UI round number
     {
-        RoundText.text = "Rounds : " + currentRound.ToString() + " / " + numRounds.ToString();
+        currentRound = round;
+        RoundText.text = "Rounds : " + round.ToString() + " / " + numRounds.ToString();
     }
 
     public void enemySuccess(Collider enemyCollider)

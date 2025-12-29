@@ -10,7 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6f1d02359e206e45962486335623f1c, type: 3}
-  m_Name: MotherSlime
+  m_Name: Basic
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 6633782558360897442, guid: 3f78ea389cb8d45448edfe2669ec9b2c, type: 3}
-  EnemyID: 5
+  EnemyPrefab: {fileID: 6997379684120590142, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+  ID: 0
+  MaxHealth: 10
+  LivesWorth: 1
+  Speed: 2
+  RegenHealth: 0
+  RegenRate: 0
+  RegenTime: 0
+  SplitCount: 0
+  SplitEnemy: {fileID: 0}
+  CoinsWorth: 1

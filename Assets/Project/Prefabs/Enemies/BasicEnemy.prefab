@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e214a9fc1dbac54fa558629b8f15e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: a15d6d47ce1530641911cc1a5a1bb07e, type: 2}
   ID: 0
   MaxHealth: 10
   Speed: 2

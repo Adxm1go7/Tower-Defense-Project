@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: LivesWorth
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7314957854431628256, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: enemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5572a3d1c87f875458298f43a10dfe35, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
