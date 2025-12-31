@@ -5,8 +5,6 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private WavesSequence levelData;
-
-    [SerializeField] private GameManager gameManager;
     
     private float timer;
 
@@ -72,7 +70,7 @@ public class WaveSpawner : MonoBehaviour
 
     void NextWave(){ // Switches to next wave
         currentWaveIndex ++;
-        gameManager.setCurrentRound(currentWaveIndex+1);
+        GameManager.Instance.setCurrentRound(currentWaveIndex+1);
         if (currentWaveIndex >= levelData.waves.Count){
             Debug.Log("Level Completed");
             levelPaused = true;

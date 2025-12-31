@@ -21,4 +21,6 @@ public class EnemyStats : ScriptableObject
     public int SplitCount;
     public Enemy SplitEnemy;
     public int CoinsWorth;
+
+    public float DodgeChance;
 }
