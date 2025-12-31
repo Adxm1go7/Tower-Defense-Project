@@ -17,13 +17,13 @@ public class Enemy : MonoBehaviour
     private int SplitCount;
     Enemy SplitEnemy; // Enemy that comes out 
     private int CoinsWorth;
+    private float DodgeChance;
 
     private string Element; //Could Change this to an ElementID Integer
 
     private float aliveTimer;
     private float lastDamageTime; // Alive time at which enemy last took damage
     private float lastRegenTime; // Alive time at which enemy regenerated last
-    public GameManager gameManager;
     Transform canvas;
 
 
@@ -35,8 +35,9 @@ public class Enemy : MonoBehaviour
     
     public void Start(){
         ID = enemyStats.ID;
-        MaxHealth = enemyStats.MaxHealth;
-        Speed = enemyStats.Speed;
+        MaxHealth = enemyStats.MaxHealth * GameManager.Instance.currentDifficulty.HealthMultiplier; // Difficulty multiplier
+        MaxHealth = Mathf.Round(MaxHealth); // Round to nearest INT
+        Speed = enemyStats.Speed * GameManager.Instance.currentDifficulty.SpeedMultiplier; // Difficulty multiplier
         LivesWorth = enemyStats.LivesWorth;
         RegenHealth = enemyStats.RegenHealth;
         RegenRate = enemyStats.RegenRate;
@@ -44,9 +45,9 @@ public class Enemy : MonoBehaviour
         SplitCount = enemyStats.SplitCount;
         SplitEnemy = enemyStats.SplitEnemy;
         CoinsWorth = enemyStats.CoinsWorth;
+        DodgeChance = enemyStats.DodgeChance;
 
         canvas = transform.Find("Canvas");
-        gameManager = GameManager.Instance;
         Health = MaxHealth;
         canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
         aliveTimer = 0f;
@@ -82,7 +83,12 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
+        if (DodgeChance > 0f){
+            if (Random.Range(0f, 1f) <= DodgeChance){
+                Debug.Log("Dodge");
+                return;
+            }
+        }
         Health -= damage;
         lastDamageTime = aliveTimer;
         canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
@@ -95,7 +101,7 @@ public class Enemy : MonoBehaviour
             if (SplitEnemy != null){
                 SplitUponDeath();
             }
-            gameManager.addCoins(CoinsWorth);
+            GameManager.Instance.addCoins(CoinsWorth);
 
             Destroy(this.gameObject);
         } 

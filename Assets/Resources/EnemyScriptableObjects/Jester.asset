@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f1d02359e206e45962486335623f1c, type: 3}
+  m_Name: Jester
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 6676047864338111574, guid: 9c95efb81018b3042b5a9a8cfe9b6b7b, type: 3}
+  ID: 8
+  MaxHealth: 2
+  LivesWorth: 10
+  Speed: 7
+  RegenHealth: 0
+  RegenRate: 0
+  RegenTime: 0
+  SplitCount: 0
+  SplitEnemy: {fileID: 0}
+  CoinsWorth: 15
+  DodgeChance: 0.8

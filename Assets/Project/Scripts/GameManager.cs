@@ -6,19 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int health;
-    private int numRounds;
-    private int currentRound;
-    private int coins;
-    public TextMeshProUGUI HealthText;
-    public TextMeshProUGUI CoinText;
-    public TextMeshProUGUI RoundText;
-    public GameObject EnemyEndNode;
     public static GameManager Instance;
 
-    private Enemy enemyScript;
+    public int numRounds;
+    public int currentRound;
+    public TextMeshProUGUI RoundText;
+    public GameObject EnemyEndNode;
 
-        
+    public Enemy enemyScript;
+
     public GameObject upgradePanel; // Reference to the upgrade panel UI
 
     public GameObject towerNameObject; // Reference to the tower name UI object
@@ -27,37 +23,52 @@ public class GameManager : MonoBehaviour
     public TextMeshPro nameOfTower; //Name of tower text object
     public TextMeshPro DDTower; //Damage dealt by tower text object
 
-
     public GameObject SpeedControlButton; // Reference to the speed control button
-    public float normalSpeed = 1f;
-    public float fastSpeed = 2f;
-    public float ultraSpeed = 3f;
-    private float currentSpeed = 1f;
+    public float normalSpeed;
+    public float fastSpeed;
+    public float ultraFastSpeed;
+    public float currentSpeed;
 
-    
+    public DifficultyStats currentDifficulty;
 
-    // Start is called before the first frame update
-    void Start()
+    public LevelManager levelManager; // Contains information and references to everything within the level
+
+    void Awake() // Singleton design pattern
     {
-        health = 50;
-        numRounds = 50;
-        currentRound = 1;
-        coins = 150;
+        // Prevent duplicates
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        // Stays across scenes
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void StartLevel(){
+        numRounds = levelManager.numRounds;
+        currentRound = levelManager.currentRound;
+        RoundText = levelManager.RoundText;
+        EnemyEndNode = levelManager.EnemyEndNode;
+        enemyScript = levelManager.enemyScript;
+        upgradePanel = levelManager.upgradePanel;
+        towerNameObject = levelManager.towerNameObject;
+        damageDealtObject = levelManager.damageDealtObject;
+        nameOfTower = levelManager.nameOfTower;
+        DDTower = levelManager.DDTower;
+        SpeedControlButton = levelManager.SpeedControlButton;
+        normalSpeed = levelManager.normalSpeed;
+        fastSpeed = levelManager.fastSpeed;
+        ultraFastSpeed = levelManager.ultraFastSpeed;
+        currentSpeed = levelManager.currentSpeed;
+
         setCurrentRound(1);
-        EnemyEndNode.GetComponent<Renderer>().enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        HealthText.text = "Health : " + health.ToString();
-        CoinText.text = "Coins : " + coins.ToString();
-    }
-
-    void Awake()
-    {
-        Instance = this;   
-    }
 
     public void setCurrentRound(int round) // sets UI round number
     {
@@ -71,33 +82,36 @@ public class GameManager : MonoBehaviour
         enemyScript = enemyCollider.GetComponentInParent<Enemy>(); // Gets Enemy.cs from passed enemy
         int deductLives = enemyScript.getLivesWorth();
 
-        if (health - deductLives <= 0)
+        if (levelManager.health - deductLives <= 0)
         {
-            health = 0;
+            levelManager.health = 0;
             Debug.Log("Game Over!");
             SceneManager.LoadScene(3); // Loads Death screen
         }
         else
         {
-            health -= deductLives;
+            levelManager.health -= deductLives;
         }
     }
 
     public void addCoins(int amount)
     {
-        coins += amount;
+        levelManager.coins += amount;
     }
 
     public bool canPlaceTower(int cost)
     {
-        return coins >= cost;
+        return levelManager.coins >= cost;
     }
     
     public void deductCoins(int amount)
     {
-        coins -= amount;
+        levelManager.coins -= amount;
     }
 
+    public void SetDifficulty(DifficultyStats difficulty){ // Called from Home screen
+        currentDifficulty = difficulty;
+    }
 
     public void ShowTowerInfo(TowerScript tower)
     {
@@ -128,7 +142,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentSpeed == fastSpeed)
         {
-            SetGameSpeed(ultraSpeed);
+            SetGameSpeed(ultraFastSpeed);
             SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "3x";
         }
         else
