@@ -23,7 +23,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        if (!GameManager.Instance.canPlaceTower(towerPrefab.towerCost))
+        if (!GameManager.Instance.canPlaceTower(towerPrefab.towerStats.towerCost))
         {
             Debug.Log("Not enough coins to place tower");
             return;
@@ -58,7 +58,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
 
-        if (GameManager.Instance.canPlaceTower(towerPrefab.towerCost))
+        if (GameManager.Instance.canPlaceTower(towerPrefab.towerStats.towerCost))
         {
 
             currentTowerPreview.transform.position = new Vector3(
@@ -75,7 +75,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                 return;
             }
 
-            GameManager.Instance.deductCoins(towerPrefab.towerCost);
+            GameManager.Instance.deductCoins(towerPrefab.towerStats.towerCost);
         }
         else
         {
