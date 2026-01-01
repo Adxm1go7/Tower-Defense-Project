@@ -11,14 +11,16 @@ public class ArcanaButtons : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(1); // Load home menu scene
     }
 
-    public void TowersButton()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(5); // Load tower selection scene
-    }
-
     public void EnemiesButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(6); // Load enemy selection scene
+        Debug.Log("Enemies Button Pressed");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(5); // Load enemy selection scene
+    }
+
+    public void TowersButton()
+    {
+        Debug.Log("Towers Button Pressed");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(6); // Load tower selection scene
     }
 
 }

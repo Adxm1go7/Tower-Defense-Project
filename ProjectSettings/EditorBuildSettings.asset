@@ -21,10 +21,10 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/Arcana.unity
     guid: edbec0929670b50428a7d3383e5bb3c6
   - enabled: 1
-    path: Assets/Project/Scenes/Arcana-Towers.unity
-    guid: b159a1669fb7fcc4c9cd8ff7ca12975b
-  - enabled: 1
     path: Assets/Project/Scenes/Arcana-Enemies.unity
     guid: a201b945e37552f4f8bc6fe6dd2edabb
+  - enabled: 1
+    path: Assets/Project/Scenes/Arcana-Towers.unity
+    guid: 934c970c4264ff646aa43c85587640a0
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
