@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c098fef46992c345b87f6d31534e64f, type: 3}
+  m_Name: Level1Wave1
+  m_EditorClassIdentifier: 
+  waveChunks:
+  - {fileID: 11400000, guid: 4abf254c4ecc079468a9ca63e8f292c1, type: 2}
+  - {fileID: 11400000, guid: e4ad6e9ade2a43d41b994435256c4bfd, type: 2}
+  - {fileID: 11400000, guid: bb8147c07a1913e4090f237adc32c66c, type: 2}
+  - {fileID: 11400000, guid: 06e263e895937b94cabf27da8ca03b28, type: 2}
+  - {fileID: 11400000, guid: bec143d779ada5f469e3161ca6f65259, type: 2}
+  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
+  TimeBeforeNextWave: 5

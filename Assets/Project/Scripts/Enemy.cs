@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private EnemyStats enemyStats;
 
-    [SerializeField] private int ID;
-    [SerializeField] private float MaxHealth;
+    private int ID;
+    private float MaxHealth;
     private float Health;
-    [SerializeField] private float Speed;
-    [SerializeField] private int LivesWorth; // how much lives player loses if this enemy passes end node
-    [SerializeField] private float RegenHealth;
-    [SerializeField] private float RegenRate;
-    [SerializeField] private float RegenTime;
-    [SerializeField] private int SplitCount;
-    [SerializeField] Enemy SplitEnemy; // Enemy that comes out 
-    [SerializeField] private int CoinsWorth;
+    private float Speed;
+    private int LivesWorth; // how much lives player loses if this enemy passes end node
+    private float RegenHealth;
+    private float RegenRate;
+    private float RegenTime;
+    private int SplitCount;
+    Enemy SplitEnemy; // Enemy that comes out 
+    private int CoinsWorth;
+    private float DodgeChance;
 
     private string Element; //Could Change this to an ElementID Integer
 
     private float aliveTimer;
     private float lastDamageTime; // Alive time at which enemy last took damage
     private float lastRegenTime; // Alive time at which enemy regenerated last
-    public GameManager gameManager;
     Transform canvas;
 
 
@@ -33,13 +34,24 @@ public class Enemy : MonoBehaviour
     }
     
     public void Start(){
+        ID = enemyStats.ID;
+        MaxHealth = enemyStats.MaxHealth * GameManager.Instance.currentDifficulty.HealthMultiplier; // Difficulty multiplier
+        MaxHealth = Mathf.Round(MaxHealth); // Round to nearest INT
+        Speed = enemyStats.Speed * GameManager.Instance.currentDifficulty.SpeedMultiplier; // Difficulty multiplier
+        LivesWorth = enemyStats.LivesWorth;
+        RegenHealth = enemyStats.RegenHealth;
+        RegenRate = enemyStats.RegenRate;
+        RegenTime = enemyStats.RegenTime;
+        SplitCount = enemyStats.SplitCount;
+        SplitEnemy = enemyStats.SplitEnemy;
+        CoinsWorth = enemyStats.CoinsWorth;
+        DodgeChance = enemyStats.DodgeChance;
+
         canvas = transform.Find("Canvas");
-        gameManager = GameManager.Instance;
         Health = MaxHealth;
         canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
         aliveTimer = 0f;
         lastRegenTime = 0f;
-        CoinsWorth = 10;
     }
 
     public void Update()
@@ -71,7 +83,12 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
+        if (DodgeChance > 0f){
+            if (Random.Range(0f, 1f) <= DodgeChance){
+                Debug.Log("Dodge");
+                return;
+            }
+        }
         Health -= damage;
         lastDamageTime = aliveTimer;
         canvas.GetComponent<EnemyHealthText>().setHealthText(Health);
@@ -84,7 +101,7 @@ public class Enemy : MonoBehaviour
             if (SplitEnemy != null){
                 SplitUponDeath();
             }
-            gameManager.addCoins(CoinsWorth);
+            GameManager.Instance.addCoins(CoinsWorth);
 
             Destroy(this.gameObject);
         } 

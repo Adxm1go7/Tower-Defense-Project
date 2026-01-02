@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f1d02359e206e45962486335623f1c, type: 3}
+  m_Name: ChildSlime
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 3270371702958780032, guid: b68b089238fa61d42a669f033d1dada5, type: 3}
+  ID: 6
+  MaxHealth: 12
+  LivesWorth: 2
+  Speed: 4
+  RegenHealth: 0
+  RegenRate: 0
+  RegenTime: 0
+  SplitCount: 0
+  SplitEnemy: {fileID: 0}
+  CoinsWorth: 1

@@ -6,19 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int health;
-    private int numRounds;
-    private int currentRound;
-    private int coins;
-    public TextMeshProUGUI HealthText;
-    public TextMeshProUGUI CoinText;
-    public TextMeshProUGUI RoundText;
-    public GameObject EnemyEndNode;
     public static GameManager Instance;
 
-    private Enemy enemyScript;
+    public int numRounds;
+    public int currentRound;
+    public TextMeshProUGUI RoundText;
+    public GameObject EnemyEndNode;
 
-        
+    public Enemy enemyScript;
+
     public GameObject upgradePanel; // Reference to the upgrade panel UI
 
     public GameObject towerNameObject; // Reference to the tower name UI object
@@ -27,62 +23,60 @@ public class GameManager : MonoBehaviour
     public TextMeshPro nameOfTower; //Name of tower text object
     public TextMeshPro DDTower; //Damage dealt by tower text object
 
-
     public GameObject SpeedControlButton; // Reference to the speed control button
-    public float normalSpeed = 1f;
-    public float fastSpeed = 2f;
-    public float ultraSpeed = 3f;
-    private float currentSpeed = 1f;
+    public float normalSpeed;
+    public float fastSpeed;
+    public float ultraFastSpeed;
+    public float currentSpeed;
+
+    public DifficultyStats currentDifficulty;
 
     public GameObject pauseMenuUI; // Reference to the pause menu UI
-    public bool isPaused = false; // boolean to track if the game is paused
+    public bool isPaused = false;
 
-    
+    public LevelManager levelManager; // Contains information and references to everything within the level
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake() // Singleton design pattern
     {
-        health = 50;
-        numRounds = 50;
-        currentRound = 0;
-        coins = 120;
-        setCurrentRound();
-        EnemyEndNode.GetComponent<Renderer>().enabled = false;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        HealthText.text = "Health : " + health.ToString();
-        CoinText.text = "Coins : " + coins.ToString();
-        setCurrentRound();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Prevent duplicates
+        if (Instance != null && Instance != this)
         {
-            if (isPaused)
-            {
-                pauseMenuUI.SetActive(false);
-                Time.timeScale = currentSpeed; // Resume game at current speed
-                isPaused = false;
-            }
-            else
-            {
-                pauseMenuUI.SetActive(true);
-                Time.timeScale = 0f; // Pause game
-                isPaused = true;
-            }
+            Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+
+        // Stays across scenes
+        DontDestroyOnLoad(gameObject);
     }
 
-    void Awake()
-    {
-        Instance = this;   
+    public void StartLevel(){
+        numRounds = levelManager.numRounds;
+        currentRound = levelManager.currentRound;
+        RoundText = levelManager.RoundText;
+        EnemyEndNode = levelManager.EnemyEndNode;
+        enemyScript = levelManager.enemyScript;
+        upgradePanel = levelManager.upgradePanel;
+        towerNameObject = levelManager.towerNameObject;
+        damageDealtObject = levelManager.damageDealtObject;
+        nameOfTower = levelManager.nameOfTower;
+        DDTower = levelManager.DDTower;
+        SpeedControlButton = levelManager.SpeedControlButton;
+        normalSpeed = levelManager.normalSpeed;
+        fastSpeed = levelManager.fastSpeed;
+        ultraFastSpeed = levelManager.ultraFastSpeed;
+        currentSpeed = levelManager.currentSpeed;
+
+        setCurrentRound(1);
     }
 
-    public void setCurrentRound()
+
+
+    public void setCurrentRound(int round) // sets UI round number
     {
-        RoundText.text = "Rounds : " + currentRound.ToString() + " / " + numRounds.ToString();
+        currentRound = round;
+        RoundText.text = "Rounds : " + round.ToString() + " / " + numRounds.ToString();
     }
 
     public void enemySuccess(Collider enemyCollider)
@@ -91,33 +85,38 @@ public class GameManager : MonoBehaviour
         enemyScript = enemyCollider.GetComponentInParent<Enemy>(); // Gets Enemy.cs from passed enemy
         int deductLives = enemyScript.getLivesWorth();
 
-        if (health - deductLives <= 0)
+        if (levelManager.health - deductLives <= 0)
         {
-            health = 0;
+            levelManager.health = 0;
             Debug.Log("Game Over!");
             SceneManager.LoadScene(3); // Loads Death screen
         }
         else
         {
-            health -= deductLives;
+            levelManager.health -= deductLives;
         }
     }
 
+    
+
     public void addCoins(int amount)
     {
-        coins += amount;
+        levelManager.coins += amount;
     }
 
     public bool canPlaceTower(int cost)
     {
-        return coins >= cost;
+        return levelManager.coins >= cost;
     }
     
     public void deductCoins(int amount)
     {
-        coins -= amount;
+        levelManager.coins -= amount;
     }
 
+    public void SetDifficulty(DifficultyStats difficulty){ // Called from Home screen
+        currentDifficulty = difficulty;
+    }
 
     public void ShowTowerInfo(TowerScript tower)
     {
@@ -132,61 +131,9 @@ public class GameManager : MonoBehaviour
         DDTower.transform.position = tower.transform.position + new Vector3(3f, 0, 0);
     }
 
-    public void SetGameSpeed(float speed)
+    public int getCoins()
     {
-        currentSpeed = speed;
-        Time.timeScale = speed;
-        Debug.Log("Game speed set to: " + speed + "x");
+        return levelManager.coins;
     }
-
-     public void CycleGameSpeed()
-    {
-        if (!isPaused){
-            if (currentSpeed == normalSpeed)
-            {
-                SetGameSpeed(fastSpeed);
-                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "2x";
-            }
-            else if (currentSpeed == fastSpeed)
-            {
-                SetGameSpeed(ultraSpeed);
-                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "3x";
-            }
-            else
-            {
-                SetGameSpeed(normalSpeed);
-                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "1x";
-            }
-        }
-    }
-
-    public void HomeButton()
-    {
-        Time.timeScale = 1f; // Reset time scale to normal
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0); // Load home menu scene
-    }
-
-    public void ResumeButton()
-    {
-        Time.timeScale = currentSpeed; // Resume time scale to current speed
-        isPaused = false; // Unpause the game
-        pauseMenuUI.SetActive(false); // Hide pause menu UI
-    }
-
-    public void RestartButton()
-    {
-        Time.timeScale = 1f; // Reset time scale to normal
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex); // Reload current scene
-        isPaused = false; // Unpause the game
-        pauseMenuUI.SetActive(false); // Hide pause menu UI
-    }
-
-    public void OpenArcana()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(4); // Load arcana scene
-    }
-
-
-
 }
 

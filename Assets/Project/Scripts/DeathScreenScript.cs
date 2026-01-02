@@ -8,6 +8,7 @@ public class DeathScreenScript : MonoBehaviour
 {
     public void RestartLevel()
     {
+        Time.timeScale = 1f; // Reset time scale to normal
         SceneManager.LoadScene(1);
     }
 
