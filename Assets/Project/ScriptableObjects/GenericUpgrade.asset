@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75c01bbb821e1e42b5e42bedb80a1e4, type: 3}
   m_Name: GenericUpgrade
   m_EditorClassIdentifier: 
-  name: 
+  name: Tal
   cost: 10
   damageInc: 10
   rangeInc: 10
   fireRate: 0.5
-  description: 
+  description: AAA

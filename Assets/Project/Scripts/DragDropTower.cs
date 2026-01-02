@@ -6,7 +6,7 @@ using System;
 
 public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    public TowerScript towerPrefab;
+    public GameObject towerPrefab;
     private GameObject currentTowerPreview;
     private TowerScript currentTowerScript;
     public GameObject map;
@@ -23,13 +23,13 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        if (!GameManager.Instance.canPlaceTower(towerPrefab.towerCost))
+        if (!GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerCost))
         {
             Debug.Log("Not enough coins to place tower");
             return;
         }
         
-        currentTowerPreview = Instantiate(towerPrefab.gameObject);
+        currentTowerPreview = Instantiate(towerPrefab);
         currentTowerScript = currentTowerPreview.GetComponent<TowerScript>();
         currentTowerScript.activeTower = false;
         currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -58,7 +58,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
 
-        if (GameManager.Instance.canPlaceTower(towerPrefab.towerCost))
+        if (GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerCost))
         {
 
             currentTowerPreview.transform.position = new Vector3(
@@ -75,7 +75,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                 return;
             }
 
-            GameManager.Instance.deductCoins(towerPrefab.towerCost);
+            GameManager.Instance.deductCoins(towerPrefab.GetComponent<TowerScript>().towerCost);
         }
         else
         {

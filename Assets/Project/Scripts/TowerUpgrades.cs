@@ -23,6 +23,7 @@ public class TowerUpgrades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         tower = GetComponent<TowerScript>();
 
     }
@@ -33,21 +34,43 @@ public class TowerUpgrades : MonoBehaviour
 
     public bool CanUpgradeA()
     {
-        
-        return currentALevel < maxAUpgrades && pathA.Length > currentALevel;
+        //Debug.Log("TESTINGINSIT WORKIGN??");
+        return pathA != null && currentALevel < maxAUpgrades && currentALevel<pathA.Length && pathA[currentALevel] != null;
+
 
     }
 
     public void upgradePathA()
     {
+        Debug.Log("TESTINGINSIT WORKIGN??");
         if (!CanUpgradeA())
         {
+            Debug.Log(pathA);
             return;
-
         }
-
         giveUpgrade(pathA[currentALevel]);
         currentALevel++;
+        
+    }
+
+    public bool CanUpgradeB()
+    {
+        //Debug.Log("TESTINGINSIT WORKIGN??");
+        return pathB != null && currentBLevel < maxBUpgrades && currentBLevel<pathB.Length && pathB[currentBLevel] != null;
+
+    }
+
+    public void upgradePathB()
+    {
+        Debug.Log("TESTINGINSIT WORKIGN??");
+        if (!CanUpgradeB())
+        {
+            Debug.Log("NO UPGRADES X???");
+            return;
+        }
+        giveUpgrade(pathB[currentBLevel]);
+        currentBLevel++;
+        
     }
 
 

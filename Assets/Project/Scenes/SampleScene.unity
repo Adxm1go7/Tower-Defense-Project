@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -621,7 +621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa006b28f2948447858cbe2234d38b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &235252966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +2072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelData: {fileID: 11400000, guid: 23384093ceb01d945a4f752213117816, type: 2}
-  gameManager: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,8 +2261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b8b0409b60fa54ab6da106a4df9c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  towerPrefab: {fileID: 9056948538415551285, guid: f4b4c57f09d77bc469a6d3aad1f462aa, type: 3}
+  towerPrefab: {fileID: 803415986045011492, guid: f4b4c57f09d77bc469a6d3aad1f462aa, type: 3}
   map: {fileID: 1909810119}
 --- !u!114 &769090930
 MonoBehaviour:
@@ -2849,8 +2846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b8b0409b60fa54ab6da106a4df9c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  towerPrefab: {fileID: 9076013216790060959, guid: bbd5aff3852e88341a0310c893ed2617, type: 3}
+  towerPrefab: {fileID: 820369606598216334, guid: bbd5aff3852e88341a0310c893ed2617, type: 3}
   map: {fileID: 1909810119}
 --- !u!1 &875192603
 GameObject:
@@ -4075,6 +4071,9 @@ PrefabInstance:
     - {fileID: 8358039694346914144, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2244617948622320693, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 2034091576}
+    - targetCorrespondingSourceObject: {fileID: 2244617948622320693, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       insertIndex: -1
       addedObject: {fileID: 405720191}
     - targetCorrespondingSourceObject: {fileID: 2244617948622320693, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
@@ -4251,7 +4250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1360031401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TowerUpgrades, Assembly-CSharp
+        m_MethodName: upgradePathA
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1360031401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6200,6 +6211,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002849680}
   m_CullTransparentMesh: 1
+--- !u!1 &2034091574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2034091576}
+  m_Layer: 5
+  m_Name: TowerUpgradeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2034091576
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034091574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1348194086}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2087099014
 GameObject:
   m_ObjectHideFlags: 0

@@ -233,7 +233,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathA:
   - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
-  pathB: []
+  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
+  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
+  pathB:
+  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
+  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
+  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
   maxAUpgrades: 3
   maxBUpgrades: 3
 --- !u!1 &609305815599553437
