@@ -1,3 +1,4 @@
+//TowerScript
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -164,7 +165,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     {
         // Passes the tower object that was clicked to the GameManager to show its info
         GameManager.Instance.ShowTowerInfo(this);
-        UpgradePanelController.Instance.
+        
 
         
     }
