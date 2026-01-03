@@ -135,6 +135,9 @@ public class GameManager : MonoBehaviour
         nameOfTower.transform.position = tower.transform.position + new Vector3(0.5f, 2f, 0);
         DDTower.text = "Δ" + tower.towerDamage.ToString();
         DDTower.transform.position = tower.transform.position + new Vector3(3f, 0, 0);
+
+        UpgradePanelController UpgradeController = upgradePanel.GetComponent<UpgradePanelController>();
+        UpgradeController.SetSelectedTower(tower);
     }
 
     public int getCoins()

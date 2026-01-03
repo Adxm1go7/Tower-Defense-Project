@@ -42,7 +42,6 @@ public class TowerUpgrades : MonoBehaviour
 
     public void upgradePathA()
     {
-        Debug.Log("TESTINGINSIT WORKIGN??");
         if (!CanUpgradeA())
         {
             Debug.Log(pathA);
@@ -50,6 +49,7 @@ public class TowerUpgrades : MonoBehaviour
         }
         giveUpgrade(pathA[currentALevel]);
         currentALevel++;
+        return;
         
     }
 
@@ -76,6 +76,7 @@ public class TowerUpgrades : MonoBehaviour
 
     private void giveUpgrade(TowerUpgradesObj upgrade)
     {
+        Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
         tower.towerDamage += upgrade.damageInc;
         tower.towerRange += upgrade.rangeInc;
         tower.towerFireRate *= upgrade.fireRate;
