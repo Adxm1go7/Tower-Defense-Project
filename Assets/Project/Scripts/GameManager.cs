@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
     {
         // Activate the upgrade panel
 
-        selectedTower = tower;
+
         upgradePanel.SetActive(true);
         towerNameObject.SetActive(true);
         damageDealtObject.SetActive(true);
