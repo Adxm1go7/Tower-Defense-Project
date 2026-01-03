@@ -17,14 +17,14 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public int sellValue;
     public string elementType;
     public bool activeTower; //Used by DragDropTower to disable tower attack functionality during placement
-    private Enemy currentEnemy;
+    protected Enemy currentEnemy;
     public float timeForNextAttack;
 
     public LayerMask enemyLayer;
 
     private int blockedContacts = 0;
         
-    void Start()
+    protected virtual void Start() // Can be overriden
     {
         // INITIALISE THE TOWER ATTRIBUTES FROM THE TOWERSTATS SCRIPTABLE OBJECT
         // UNIQUE FOR EACH TOWER
@@ -43,25 +43,29 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        //Debug.Log(currentEnemy);
         timeForNextAttack -= Time.deltaTime;
         if (currentEnemy == null || Vector3.Distance(transform.position, currentEnemy.transform.position) > towerRange)
         {
             FindTarget();
         }
+        if (currentEnemy != null){
+            AttackTiming();
+        }
 
-        if (currentEnemy != null && timeForNextAttack <= 0)
+    }
+
+    protected virtual void AttackTiming(){
+        if (timeForNextAttack <= 0f)
         {
             AttackEnemies();
             LookAtEnemies();
             timeForNextAttack = towerFireRate;
         }
-
     }
 
-    void FindTarget() // Finds the enemy with most progress made along the path
+    protected void FindTarget() // Finds the enemy with most progress made along the path
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, towerRange, enemyLayer);
         Enemy furthestEnemy = null;
@@ -82,7 +86,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         currentEnemy = furthestEnemy;
     }
     
-    void LookAtEnemies()
+    protected void LookAtEnemies()
     {
         Vector3 direction = currentEnemy.transform.position - transform.position;
         direction.y = 0f;
@@ -92,7 +96,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
     }
 
-    void AttackEnemies()
+    protected virtual void AttackEnemies()
     {
         if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
@@ -100,7 +104,6 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
         }
         Debug.Log("HIT HIT HIR");
-
     }
 
     //Implementing a click event to show tower info to user.
