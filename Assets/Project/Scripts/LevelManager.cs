@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     public GameObject damageDealtObject; // Reference to the damage dealt UI object 
     public TextMeshPro nameOfTower; //Name of tower text object
     public TextMeshPro DDTower; //Damage dealt by tower text object
-
+    private TowerScript selectedTower;
 
     public GameObject SpeedControlButton; // Reference to the speed control button
     public float normalSpeed = 1f;
@@ -132,4 +132,6 @@ public class LevelManager : MonoBehaviour
             towerButton.GetComponent<UnityEngine.UI.Image>().color = Color.red; // Not affordable - red color
         }
     }
+
+
 }

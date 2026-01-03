@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RoundText;
     public GameObject EnemyEndNode;
 
+
+
     public Enemy enemyScript;
 
     public GameObject upgradePanel; // Reference to the upgrade panel UI
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseMenuUI; // Reference to the pause menu UI
     public bool isPaused = false;
+
+
 
     public LevelManager levelManager; // Contains information and references to everything within the level
 
@@ -121,6 +125,8 @@ public class GameManager : MonoBehaviour
     public void ShowTowerInfo(TowerScript tower)
     {
         // Activate the upgrade panel
+
+        selectedTower = tower;
         upgradePanel.SetActive(true);
         towerNameObject.SetActive(true);
         damageDealtObject.SetActive(true);
@@ -135,5 +141,8 @@ public class GameManager : MonoBehaviour
     {
         return levelManager.coins;
     }
+
+
+
 }
 
