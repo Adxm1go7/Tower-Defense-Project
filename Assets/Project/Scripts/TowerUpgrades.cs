@@ -44,6 +44,7 @@ public class TowerUpgrades : MonoBehaviour
     {
         if (!CanUpgradeA())
         {
+            Debug.Log(tower.towerName + " cannot upgrade A anymore");
             Debug.Log(pathA);
             return;
         }
