@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RoundText;
     public GameObject EnemyEndNode;
 
+
+
     public Enemy enemyScript;
 
     public GameObject upgradePanel; // Reference to the upgrade panel UI
@@ -30,6 +32,11 @@ public class GameManager : MonoBehaviour
     public float currentSpeed;
 
     public DifficultyStats currentDifficulty;
+
+    public GameObject pauseMenuUI; // Reference to the pause menu UI
+    public bool isPaused = false;
+
+
 
     public LevelManager levelManager; // Contains information and references to everything within the level
 
@@ -68,7 +75,7 @@ public class GameManager : MonoBehaviour
         setCurrentRound(1);
     }
 
-    // Update is called once per frame
+
 
     public void setCurrentRound(int round) // sets UI round number
     {
@@ -94,6 +101,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+
     public void addCoins(int amount)
     {
         levelManager.coins += amount;
@@ -116,6 +125,8 @@ public class GameManager : MonoBehaviour
     public void ShowTowerInfo(TowerScript tower)
     {
         // Activate the upgrade panel
+
+        selectedTower = tower;
         upgradePanel.SetActive(true);
         towerNameObject.SetActive(true);
         damageDealtObject.SetActive(true);
@@ -126,30 +137,9 @@ public class GameManager : MonoBehaviour
         DDTower.transform.position = tower.transform.position + new Vector3(3f, 0, 0);
     }
 
-    public void SetGameSpeed(float speed)
+    public int getCoins()
     {
-        currentSpeed = speed;
-        Time.timeScale = speed;
-        Debug.Log("Game speed set to: " + speed + "x");
-    }
-
-     public void CycleGameSpeed()
-    {
-        if (currentSpeed == normalSpeed)
-        {
-            SetGameSpeed(fastSpeed);
-            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "2x";
-        }
-        else if (currentSpeed == fastSpeed)
-        {
-            SetGameSpeed(ultraFastSpeed);
-            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "3x";
-        }
-        else
-        {
-            SetGameSpeed(normalSpeed);
-            SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "1x";
-        }
+        return levelManager.coins;
     }
 
 

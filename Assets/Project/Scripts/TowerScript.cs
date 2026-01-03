@@ -19,6 +19,8 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public bool activeTower; //Used by DragDropTower to disable tower attack functionality during placement
     private Enemy currentEnemy;
     public float timeForNextAttack;
+    public GameManager gameManager; // Controls the flow of the game
+    public TowerUpgrades towerUppies;
 
     private int blockedContacts = 0;
         
@@ -36,6 +38,15 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         elementType = towerStats.elementType;
         sellValue = (int)(towerCost * 0.7f);
         timeForNextAttack = 0f;
+        gameManager = GameManager.Instance; 
+    }
+
+    void Awake()
+    {
+        if (towerUppies == null)
+        {
+            towerUppies = GetComponent<TowerUpgrades>();
+        }
     }
 
     // Update is called once per frame
@@ -57,6 +68,16 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         }
 
     }
+
+
+    // METHOD TO CHANGE THE ATTRIBUTES FOR UPGRADES 
+    void setAttributes()
+    {
+        
+
+    }
+
+    
     void FindTargetTest()
     {
         Enemy[] allEnemies = FindObjectsOfType<Enemy>();
@@ -113,7 +134,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
         }
         currentEnemy = nearest;
-        //Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
+        Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
 
     }
     
@@ -143,6 +164,8 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     {
         // Passes the tower object that was clicked to the GameManager to show its info
         GameManager.Instance.ShowTowerInfo(this);
+        UpgradePanelController.Instance.
+
         
     }
 
