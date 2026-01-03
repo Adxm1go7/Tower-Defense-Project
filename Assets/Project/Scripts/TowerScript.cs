@@ -1,3 +1,4 @@
+//TowerScript
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,8 +39,6 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         elementType = towerStats.elementType;
         sellValue = (int)(towerCost * 0.7f);
         timeForNextAttack = 0f;
-
-        enemyLayer = LayerMask.GetMask("EnemyLayer");
     }
 
     // Update is called once per frame
@@ -63,30 +62,69 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
             LookAtEnemies();
             timeForNextAttack = towerFireRate;
         }
-    }
 
-    protected void FindTarget() // Finds the enemy with most progress made along the path
+    }
+    void FindTargetTest()
     {
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, towerRange, enemyLayer);
-        Enemy furthestEnemy = null;
-        float bestProgress = 0f;
-        foreach (Collider enemyInRange in enemiesInRange)
+        Enemy[] allEnemies = FindObjectsOfType<Enemy>();
+
+        if (allEnemies.Length == 0)
         {
-            Enemy enemy = enemyInRange.GetComponentInParent<Enemy>();
-            if (enemy != null)
+            return;
+        }
+
+        Enemy nearest = null;
+        float smallest = Mathf.Infinity;
+
+        foreach (Enemy enemy in allEnemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
             {
-                if (enemy.GetComponentInParent<EnemyMovement>().getEnemyMovementProgress() > bestProgress)
-                {
-                    furthestEnemy = enemy;
-                    bestProgress = enemy.GetComponentInParent<EnemyMovement>().getEnemyMovementProgress();
-                }
+                smallest = distanceToEnemy;
+                nearest = enemy;
             }
         }
 
-        currentEnemy = furthestEnemy;
+        currentEnemy = nearest;
+
+    }
+
+    void FindTarget()
+    {
+
+        if (EnemySummoner.ExistingEnemies == null || EnemySummoner.ExistingEnemies.Count == 0)
+        {
+            FindTargetTest();
+            return;
+        }
+
+        EnemySummoner.ExistingEnemies.RemoveAll(e => e == null);
+        Enemy nearest = null;
+        float smallest = Mathf.Infinity;
+
+        // Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
+        foreach (Enemy enemy in EnemySummoner.ExistingEnemies)
+        {
+
+            if (enemy == null)
+            {
+                continue;
+            }
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
+            {
+                smallest = distanceToEnemy;
+                nearest = enemy;
+            }
+
+        }
+        currentEnemy = nearest;
+        //Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
+
     }
     
-    protected void LookAtEnemies()
+    void LookAtEnemies()
     {
         Vector3 direction = currentEnemy.transform.position - transform.position;
         direction.y = 0f;
@@ -110,8 +148,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         // Passes the tower object that was clicked to the GameManager to show its info
-        GameManager.Instance.ShowTowerInfo(this);
-        
+        GameManager.Instance.ShowTowerInfo(this);       
     }
 
     private void OnTriggerEnter(Collider other)

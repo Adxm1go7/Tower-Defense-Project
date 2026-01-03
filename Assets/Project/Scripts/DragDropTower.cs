@@ -6,7 +6,7 @@ using System;
 
 public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    public TowerScript towerPrefab;
+    public GameObject towerPrefab;
     private GameObject currentTowerPreview;
     private TowerScript currentTowerScript;
     public GameObject map;
@@ -28,29 +28,29 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             Debug.Log("Not enough coins to place tower");
             return;
         }
-        
+        // Instantiate a preview of the tower being dragged
         currentTowerPreview = Instantiate(towerPrefab.gameObject);
-        currentTowerScript = currentTowerPreview.GetComponent<TowerScript>();
-        currentTowerScript.activeTower = false;
-        currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        currentTowerScript = currentTowerPreview.GetComponent<TowerScript>(); //Get the TowerScript component of the preview
+        currentTowerScript.activeTower = false; //Disable tower acctack functionality during placement
+        currentTowerPreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Set initial position to cursor position
 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (currentTowerPreview != null)
+        if (currentTowerPreview != null) 
         {
-            Vector3 cursorPos = eventData.position;
-            Ray ray = Camera.main.ScreenPointToRay(cursorPos);
-            RaycastHit hit;
+            Vector3 cursorPos = eventData.position; //Get cursor position in screen space
+            Ray ray = Camera.main.ScreenPointToRay(cursorPos); //Create ray from camera to cursor position
+            RaycastHit hit; //Store information about what ray hits
 
-            if (map.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity))
+            if (map.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)) //If ray hits the map collider
             {
                 currentTowerPreview.transform.position = new Vector3(
                     hit.point.x,
                     1,
                     hit.point.z
-                );
+                ); //Move tower preview to hit point with y offset of 1 so that it is level with the map
             }
         }   
     }
@@ -58,7 +58,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
 
-        if (GameManager.Instance.canPlaceTower(towerPrefab.towerStats.towerCost))
+        if (GameManager.Instance.canPlaceTower(towerPrefab.towerCost))
         {
 
             currentTowerPreview.transform.position = new Vector3(
@@ -66,41 +66,24 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                     1,
                     Mathf.Round(currentTowerPreview.transform.position.z)
                 );
-            currentTowerScript.activeTower = true;
 
+
+
+            // Ensure Tower can be placed at location
             if (!currentTowerScript.CanBePlaced())
             {
                 Debug.Log("Invalid tower placement - cancelling placement");
-                Destroy(currentTowerPreview);
-                return;
+                Destroy(currentTowerPreview);//If it cannot be placed then destroy its instance
+                return; //Exit early to prevent money deduction
             }
 
-            GameManager.Instance.deductCoins(towerPrefab.towerStats.towerCost);
+            GameManager.Instance.deductCoins(towerPrefab.towerCost);
         }
-        else
+        else //prevent the tower placement as not enough coins
         {
-            Debug.Log("Not enough coins to place tower - cancelling placement");
+            Debug.Log("Not enough coins to place tower - cancelling placement"); 
         }
-        currentTowerPreview = null;
-    }
-
-    public bool isTowerPlacementAllowed(Vector3 position)
-    {
-        RaycastHit hit;
-        Debug.Log("Checking tower placement at position: " + position);
-        if (Physics.Raycast(position + Vector3.up * 5.0f, Vector3.down, out hit, 10f))
-        {
-            Debug.Log("Raycast hit: " + hit.collider.name);
-            if (hit.collider.CompareTag("EnemyPath"))
-            {
-                Debug.Log("Tower placement not allowed on EnemyPath");
-                return false;
-            }
-            Debug.Log("Tower placement allowed");
-            return true;
-
-        }
-        return false;
+        currentTowerPreview = null; //Reset the preview variable so no accidental deletions occur
     }
 
 }
