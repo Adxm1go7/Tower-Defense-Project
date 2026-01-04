@@ -4665,7 +4665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b8b0409b60fa54ab6da106a4df9c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
+  towerPrefab: {fileID: 4031847795373006163, guid: cd9faa6fec49da9418adeef9f3a9d161, type: 3}
   map: {fileID: 1909810119}
 --- !u!114 &1017979965
 MonoBehaviour:
@@ -7188,7 +7188,6 @@ MonoBehaviour:
   speed: 0
   stepRayUpper: {fileID: 792623865}
   stepRayLower: {fileID: 804704640}
-  stepHeight: 0.3
   stepSmooth: 0.1
 --- !u!114 &1584594057
 MonoBehaviour:

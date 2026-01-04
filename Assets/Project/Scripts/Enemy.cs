@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour
     private Coroutine burnCoroutine;
     private float burnEndTime;
 
+    private Coroutine freezeCoroutine;
+    private float freezeEndTime;
+
 
     public EnemyMovement movement;
 
@@ -141,6 +144,22 @@ public class Enemy : MonoBehaviour
         }
 
         burnCoroutine = null;
+    }
+
+    public void ApplySlowDown(float slowDownMult, float duration){
+        freezeEndTime = aliveTimer + duration;
+        if (freezeCoroutine == null){
+            freezeCoroutine = StartCoroutine(SlowDownEffect(slowDownMult));
+        }
+    }
+
+    private IEnumerator SlowDownEffect(float slowDownMult){
+        movement.slowDownMult = slowDownMult;
+        while (aliveTimer <= freezeEndTime){
+            yield return null;
+        }
+        movement.slowDownMult = 1f;
+        freezeCoroutine = null;
     }
 
 }
