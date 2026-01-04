@@ -19,6 +19,4 @@ public class TowerStats : ScriptableObject
     public float towerFireRate;
     public int towerCost;
     public string elementType;
-
-
 }

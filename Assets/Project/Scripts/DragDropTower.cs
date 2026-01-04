@@ -23,7 +23,8 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        if (!GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerCost) || GameManager.Instance.isPaused)
+
+        if (!GameManager.Instance.canPlaceTower(towerPrefab.towerStats.towerCost) || GameManager.Instance.isPaused)
         {
             Debug.Log("Not enough coins to place tower");
             return;
