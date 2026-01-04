@@ -15,5 +15,7 @@ MonoBehaviour:
   burstInterval: 2
   burstDuration: 1.5
   coneAngle: 60
-  flameDamagePerTick: 1
   flameTickLength: 0.2
+  flameBurnTickDuration: 2
+  flameBurnTickInterval: 0.7
+  flameBurnDamagePerTick: 1
