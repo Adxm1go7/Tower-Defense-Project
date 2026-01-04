@@ -26,6 +26,9 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public int enemyLayer;
 
     private int blockedContacts = 0;
+
+    protected Collider[] enemiesInRange;
+    protected Vector3 towerDirection;
         
     protected virtual void Start() // Can be overriden
     {
@@ -43,7 +46,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         timeForNextAttack = 0f;
         gameManager = GameManager.Instance; 
 
-        enemyLayer = 1 << LayerMask.NameToLayer("EnemyLayer");
+        enemyLayer = 1 << LayerMask.NameToLayer("EnemyLayer"); // Converts layer int to layermask
         Debug.Log(enemyLayer);
     }
 
@@ -87,7 +90,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
     protected virtual void FindTarget()
     {
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, towerRange, enemyLayer);
+        enemiesInRange = Physics.OverlapSphere(transform.position, towerRange, enemyLayer);
         Enemy furthestEnemy = null;
         float bestProgress = 0f;
 
@@ -111,9 +114,9 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     
     protected virtual void LookAtEnemies()
     {
-        Vector3 direction = currentEnemy.transform.position - transform.position;
-        direction.y = 0f;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        towerDirection = currentEnemy.transform.position - transform.position;
+        towerDirection.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(towerDirection);
         lookRotation *= Quaternion.Euler(0, 180f, 0);
         transform.rotation = lookRotation;
 
