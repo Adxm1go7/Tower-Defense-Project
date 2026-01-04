@@ -23,9 +23,12 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public GameManager gameManager; // Controls the flow of the game
     public TowerUpgrades towerUppies;
 
-    public LayerMask enemyLayer;
+    public int enemyLayer;
 
     private int blockedContacts = 0;
+
+    protected Collider[] enemiesInRange;
+    protected Vector3 towerDirection;
         
     protected virtual void Start() // Can be overriden
     {
@@ -42,6 +45,9 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         sellValue = (int)(towerCost * 0.7f);
         timeForNextAttack = 0f;
         gameManager = GameManager.Instance; 
+
+        enemyLayer = 1 << LayerMask.NameToLayer("EnemyLayer"); // Converts layer int to layermask
+        Debug.Log(enemyLayer);
     }
 
     void Awake()
@@ -58,10 +64,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     protected virtual void Update()
     {
         timeForNextAttack -= Time.deltaTime;
-        if (currentEnemy == null || Vector3.Distance(transform.position, currentEnemy.transform.position) > towerRange)
-        {
-            FindTarget();
-        }
+        FindTarget();
         if (currentEnemy != null){
             AttackTiming();
         }
@@ -75,13 +78,24 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
             LookAtEnemies();
             timeForNextAttack = towerFireRate;
         }
+
     }
 
-    protected void FindTarget() // Finds the enemy with most progress made along the path
+
+    // METHOD TO CHANGE THE ATTRIBUTES FOR UPGRADES 
+    void setAttributes()
     {
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, towerRange, enemyLayer);
+        
+
+    }
+
+
+    protected virtual void FindTarget()
+    {
+        enemiesInRange = Physics.OverlapSphere(transform.position, towerRange, enemyLayer);
         Enemy furthestEnemy = null;
         float bestProgress = 0f;
+
         foreach (Collider enemyInRange in enemiesInRange)
         {
             Enemy enemy = enemyInRange.GetComponentInParent<Enemy>();
@@ -94,15 +108,17 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
-
-        currentEnemy = furthestEnemy;
+        if (furthestEnemy != null)
+        {
+            currentEnemy = furthestEnemy;
+        }
     }
     
-    protected void LookAtEnemies()
+    protected virtual void LookAtEnemies()
     {
-        Vector3 direction = currentEnemy.transform.position - transform.position;
-        direction.y = 0f;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        towerDirection = currentEnemy.transform.position - transform.position;
+        towerDirection.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(towerDirection);
         lookRotation *= Quaternion.Euler(0, 180f, 0);
         transform.rotation = lookRotation;
 

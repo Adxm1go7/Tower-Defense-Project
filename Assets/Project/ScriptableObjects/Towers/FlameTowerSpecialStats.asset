@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burstInterval: 2
   burstDuration: 1.5
-  coneAngle: 0
+  coneAngle: 60
   flameDamagePerTick: 1
   flameTickLength: 0.2
