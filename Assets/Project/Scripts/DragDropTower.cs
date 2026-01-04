@@ -22,9 +22,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-
-
-        if (!GameManager.Instance.canPlaceTower(towerPrefab.towerStats.towerCost) || GameManager.Instance.isPaused)
+        if (!GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerStats.towerCost) || GameManager.Instance.isPaused)
         {
             Debug.Log("Not enough coins to place tower");
             return;
@@ -59,7 +57,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
 
-        if (GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerCost))
+        if (GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerStats.towerCost))
         {
 
             currentTowerPreview.transform.position = new Vector3(
@@ -78,7 +76,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                 return; //Exit early to prevent money deduction
             }
             currentTowerScript.activeTower = true; //Activate the tower attack functionality
-            GameManager.Instance.deductCoins(towerPrefab.GetComponent<TowerScript>().towerCost); //Deduct coins only if placement is valid
+            GameManager.Instance.deductCoins(towerPrefab.GetComponent<TowerScript>().towerStats.towerCost); //Deduct coins only if placement is valid
         }
         else //prevent the tower placement as not enough coins
         {

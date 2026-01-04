@@ -7,6 +7,8 @@ public class EndNode : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.Instance.enemySuccess(other);
+        if (other.gameObject.layer == LayerMask.NameToLayer("EnemyLayer")){
+            GameManager.Instance.enemySuccess(other);
+        }
     }
 }
