@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b8b0409b60fa54ab6da106a4df9c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
+  towerPrefab: {fileID: 4586800811908833764, guid: 69dc5bff8519fa8489db824fc311f36a, type: 3}
   map: {fileID: 1909810119}
 --- !u!114 &51254742
 MonoBehaviour:
