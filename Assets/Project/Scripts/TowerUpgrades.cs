@@ -7,8 +7,12 @@ public class TowerUpgrades : MonoBehaviour
 
 
     //Two different paths, damage and speed or damage and 
+
+    //Creating a list of upgrades, so it is easier to manage
     public TowerUpgradesObj[] pathA;
     public TowerUpgradesObj[] pathB;
+
+    //public GameManager manager;
 
 
     // Maximum amount of upgrades each path can do
@@ -40,15 +44,16 @@ public class TowerUpgrades : MonoBehaviour
 
     }
 
+    //Upgrade path A
     public void upgradePathA()
     {
         if (!CanUpgradeA())
         {
-            Debug.Log(tower.towerName + " cannot upgrade A anymore");
-            Debug.Log(pathA);
+            //Debug.Log(tower.towerName + " cannot upgrade A anymore");
+            //Debug.Log(pathA);
             return;
         }
-        giveUpgrade(pathA[currentALevel]);
+        giveUpgrade(pathA[currentALevel], "A");
         currentALevel++;
         return;
         
@@ -61,26 +66,63 @@ public class TowerUpgrades : MonoBehaviour
 
     }
 
+    //Upgrade path B
     public void upgradePathB()
     {
-        Debug.Log("TESTINGINSIT WORKIGN??");
+        //Debug.Log("TESTINGINSIT WORKIGN??");
         if (!CanUpgradeB())
         {
-            Debug.Log("NO UPGRADES X???");
+            //Debug.Log("NO UPGRADES X???");
             return;
         }
-        giveUpgrade(pathB[currentBLevel]);
+        giveUpgrade(pathB[currentBLevel], "B");
         currentBLevel++;
         
     }
 
 
-    private void giveUpgrade(TowerUpgradesObj upgrade)
+    private void giveUpgrade(TowerUpgradesObj upgrade, string path)
     {
-        Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
+        //Adding upgrades
+
+        //Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
         tower.towerDamage += upgrade.damageInc;
         tower.towerRange += upgrade.rangeInc;
         tower.towerFireRate *= upgrade.fireRate;
+        GameManager.Instance.deductCoins(upgrade.cost);
+        
+        //Investor tower upgrade specific
+        ifInvestor(path);
+
+
+
+
+    }
+
+    private void ifInvestor(string path)
+    { 
+        if (tower.towerName == "Investor")
+        {
+            //Debug.Log("TESTTTT");
+            InvestorTowerAbility investor = tower.GetComponent<InvestorTowerAbility>();
+            if (investor != null)
+            {
+                if (path == "A")
+                {
+                    investor.incomeData.timeInterval *= 0.8f;
+                }
+                else if (path == "B")
+                {
+                    investor.incomeData.coinsGenerated *= 2;
+                    investor.incomeData.timeInterval *= 1.9f;
+                    
+                }
+
+            }
+            investor.incomeData.maxStoredCoins += 25;
+            //Debug.Log(investor.incomeData.timeInterval);
+            //Debug.Log(investor.incomeData.coinsGenerated);
+        }
 
     }
 }
