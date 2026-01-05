@@ -26,6 +26,12 @@ public class Enemy : MonoBehaviour
     private float lastRegenTime; // Alive time at which enemy regenerated last
     Transform canvas;
 
+    private Coroutine burnCoroutine;
+    private float burnEndTime;
+
+    private Coroutine freezeCoroutine;
+    private float freezeEndTime;
+
 
     public EnemyMovement movement;
 
@@ -123,4 +129,37 @@ public class Enemy : MonoBehaviour
             e.GetComponent<EnemyMovement>().setWaypointIndex(wIndex);
         }
     }
+
+    public void ApplyBurn(int damagePerTick, float tickInterval, float duration){
+        burnEndTime = aliveTimer + duration;
+        if (burnCoroutine == null){
+            burnCoroutine = StartCoroutine(Burn(damagePerTick, tickInterval));
+        }
+    }
+
+    private IEnumerator Burn(int damagePerTick, float tickInterval){
+        while (aliveTimer <=  burnEndTime){
+            yield return new WaitForSeconds(tickInterval); // Pauses coroutine and returns after timeout
+            TakeDamage(damagePerTick);
+        }
+
+        burnCoroutine = null;
+    }
+
+    public void ApplySlowDown(float slowDownMult, float duration){
+        freezeEndTime = aliveTimer + duration;
+        if (freezeCoroutine == null){
+            freezeCoroutine = StartCoroutine(SlowDownEffect(slowDownMult));
+        }
+    }
+
+    private IEnumerator SlowDownEffect(float slowDownMult){
+        movement.slowDownMult = slowDownMult;
+        while (aliveTimer <= freezeEndTime){
+            yield return null;
+        }
+        movement.slowDownMult = 1f;
+        freezeCoroutine = null;
+    }
+
 }

@@ -93,10 +93,87 @@ public class TowerUpgrades : MonoBehaviour
         
         //Investor tower upgrade specific
         ifInvestor(path);
+        //Debug.Log("TEST");
+        ifFlamethrower(path);
+        ifFreeze(path);
 
 
 
+    }
 
+
+    //Lightning Tower
+    private void ifLightning(string path)
+    {
+        if (tower.towerName == "Lightning")
+        {
+            LightningTowerScript lightning = tower.GetComponent<LightningTowerScript>();
+
+            if (lightning != null)
+            {
+                if (path == "A")
+                {
+                    lightning.maxChains += 2;
+
+                }
+                else if (path == "B")
+                {
+                    lightning.chainRadius += 0.5f;
+                }
+            }
+        }
+    }
+
+    //Freeze tower specific
+    private void ifFreeze(string path)
+    {
+        if (tower.towerName == "Freeze")
+        {
+            FreezeTowerScript freeze = tower.GetComponent<FreezeTowerScript>();
+            if (freeze != null)
+            {
+                if (path == "A")
+                {
+                    freeze.coneAngle += 10f;
+                    freeze.slowDownMult -= 0.05f;
+                    freeze.towerFireRate = 1f;
+                    
+                }
+                else if (path == "B")
+                {
+                    freeze.slowDuration += 0.33f;
+                    freeze.towerFireRate = 1f;
+                }
+            }
+        }
+    }
+
+    private void ifFlamethrower(string path)
+    {
+        //Debug.Log("TEST");
+        if (tower.towerName == "Flame Thrower")
+        {
+            FlameThrowerTowerScript flame = tower.GetComponent<FlameThrowerTowerScript>();
+            if (flame != null)
+            {
+                if (path == "A")
+                {
+                    flame.burstDuration *= 1.1f;
+                    flame.burstInterval *= 0.9f;
+                }
+                else if (path == "B")
+                {
+                    flame.coneAngle += 8;
+                    flame.burstInterval *= 0.7f;
+                    flame.flameBurnDamagePerTick += 1;
+                    
+
+                }
+                Debug.Log(flame.burstInterval);
+            
+            }
+            
+        }
     }
 
     private void ifInvestor(string path)

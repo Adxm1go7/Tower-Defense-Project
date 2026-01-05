@@ -14,20 +14,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: pathA.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: pathB.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathA.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: b976b0d6617b8a0429dc5786b0a5e5e0, type: 2}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathA.Array.data[1]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: b976b0d6617b8a0429dc5786b0a5e5e0, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathA.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b976b0d6617b8a0429dc5786b0a5e5e0, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathB.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 85fb2994cbf4e7445aba686850a4e32b, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathB.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 85fb2994cbf4e7445aba686850a4e32b, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathB.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 85fb2994cbf4e7445aba686850a4e32b, type: 2}
     - target: {fileID: 3066900021596824741, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

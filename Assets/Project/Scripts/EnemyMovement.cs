@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     private float distanceToNextWaypoint;
     private float enemyMovementProgress; // A value showing how close enemies are to endNode
 
+    public float slowDownMult;
+
     void Awake()
     {
         EnemyScript = GetComponent<Enemy>();
@@ -23,13 +25,15 @@ public class EnemyMovement : MonoBehaviour
     {
         target = Waypoints.waypointsArray[waypointIndex];
         speed = EnemyScript.getSpeed();
+
+        slowDownMult = 1f; 
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * speed * slowDownMult * Time.deltaTime, Space.World);
 
         distanceToNextWaypoint = Vector3.Distance(transform.position, target.position);
         if (distanceToNextWaypoint <= 0.3f)

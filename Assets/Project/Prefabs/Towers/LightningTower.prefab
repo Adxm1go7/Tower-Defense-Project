@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4429398163502998551
+--- !u!1001 &4298922526879363107
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 292523194535711175, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: m_Name
-      value: FlameThrowerTower
+      value: LightningTower
       objectReference: {fileID: 0}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: pathA.Array.size
@@ -23,27 +23,27 @@ PrefabInstance:
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathA.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 612ff87f9ff3bfc47873b0c6d72ff055, type: 2}
+      objectReference: {fileID: 11400000, guid: b98cf117d746b0a49993343d6c22ef73, type: 2}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathA.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 612ff87f9ff3bfc47873b0c6d72ff055, type: 2}
+      objectReference: {fileID: 11400000, guid: b98cf117d746b0a49993343d6c22ef73, type: 2}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathA.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 612ff87f9ff3bfc47873b0c6d72ff055, type: 2}
+      objectReference: {fileID: 11400000, guid: b98cf117d746b0a49993343d6c22ef73, type: 2}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathB.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 7bbdf219531b71448b581db82fce5102, type: 2}
+      objectReference: {fileID: 11400000, guid: 45e5c3621ed8f054796d09abc89121ea, type: 2}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathB.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 7bbdf219531b71448b581db82fce5102, type: 2}
+      objectReference: {fileID: 11400000, guid: 45e5c3621ed8f054796d09abc89121ea, type: 2}
     - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: 'pathB.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 7bbdf219531b71448b581db82fce5102, type: 2}
+      objectReference: {fileID: 11400000, guid: 45e5c3621ed8f054796d09abc89121ea, type: 2}
     - target: {fileID: 3066900021596824741, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -91,28 +91,28 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 292523194535711175, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -9164088366010022021}
+      addedObject: {fileID: 195855132541266468}
   m_SourcePrefab: {fileID: 100100000, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
---- !u!1 &4140816189955782096 stripped
+--- !u!1 &4586800811908833764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 292523194535711175, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
-  m_PrefabInstance: {fileID: 4429398163502998551}
+  m_PrefabInstance: {fileID: 4298922526879363107}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-9164088366010022021
+--- !u!114 &195855132541266468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4140816189955782096}
+  m_GameObject: {fileID: 4586800811908833764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad69115928f18e4398a5814046bb908, type: 3}
+  m_Script: {fileID: 11500000, guid: 92f2e8c467448154cb09291783a32011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerStats: {fileID: 11400000, guid: ba0a32d751f33b646bcf09129e950202, type: 2}
-  towerID: 3
-  towerName: Flame Thrower
+  towerStats: {fileID: 11400000, guid: 2d11efacb9ff0834d9de8100187ae363, type: 2}
+  towerID: 0
+  towerName: 
   towerRange: 0
   towerDamage: 0
   towerFireRate: 0
@@ -124,11 +124,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   towerUppies: {fileID: 0}
   enemyLayer: 0
-  flameThrowerTowerStats: {fileID: 11400000, guid: 9ad3e88e75f22684fa79c3106cb5c33f, type: 2}
-  burstInterval: 0
-  burstDuration: 0
-  coneAngle: 0
-  flameTickLength: 0
-  flameBurnDamagePerTick: 0
-  flameBurnTickInterval: 0
-  flameBurnTickDuration: 0
+  lightningTowerStats: {fileID: 11400000, guid: faf340807d353c44ea07603f01b150df, type: 2}
+  chainRadius: 0
+  maxChains: 0
+  damageFallOff: 0
+  chainInterval: 0

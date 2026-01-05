@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd71a1c112b4ae54fae0efabc12f8536, type: 3}
-  m_Name: FlameTowerSpecialStats
+  m_Script: {fileID: 11500000, guid: c75c01bbb821e1e42b5e42bedb80a1e4, type: 3}
+  m_Name: LightningUpgradeA1
   m_EditorClassIdentifier: 
-  burstInterval: 2
-  burstDuration: 1.5
-  coneAngle: 60
-  flameTickLength: 0.2
-  flameBurnTickDuration: 2
-  flameBurnTickInterval: 0.7
-  flameBurnDamagePerTick: 1
+  name: 
+  cost: 0
+  damageInc: 0
+  rangeInc: 0
+  fireRate: 0
+  description: 

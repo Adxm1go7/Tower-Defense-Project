@@ -9,11 +9,14 @@ public class FlameThrowerTowerScript : TowerScript // Inherits original tower be
     public float burstInterval;
     public float burstDuration;
     public float coneAngle;
-    public float flameDamagePerTick;
     public float flameTickLength;
 
     bool flameBurstActive;
     float flameTimer;
+
+    public int flameBurnDamagePerTick;
+    public float flameBurnTickInterval;
+    public float flameBurnTickDuration;
 
     protected override void Start()
     {
@@ -21,11 +24,14 @@ public class FlameThrowerTowerScript : TowerScript // Inherits original tower be
         burstInterval = flameThrowerTowerStats.burstInterval;
         burstDuration = flameThrowerTowerStats.burstDuration;
         coneAngle = flameThrowerTowerStats.coneAngle;
-        flameDamagePerTick = flameThrowerTowerStats.flameDamagePerTick;
         flameTickLength = flameThrowerTowerStats.flameTickLength;
 
         flameBurstActive = false;
         flameTimer = 0f;
+
+        flameBurnTickDuration = flameThrowerTowerStats.flameBurnTickDuration;
+        flameBurnTickInterval = flameThrowerTowerStats.flameBurnTickInterval;
+        flameBurnDamagePerTick = flameThrowerTowerStats.flameBurnDamagePerTick;
     }
 
     protected override void Update(){
@@ -51,14 +57,14 @@ public class FlameThrowerTowerScript : TowerScript // Inherits original tower be
         if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
             if (flameTimer >= flameTickLength){
-                Debug.Log("Attacking Stage");
                 foreach (Collider enemyInRange in enemiesInRange){
                     Vector3 directionToEnemy = (enemyInRange.transform.position - transform.position).normalized;
                     float angleToEnemy = Vector3.Angle(towerDirection, directionToEnemy);
                     
                     if (angleToEnemy <= coneAngle / 2f){
-                        Debug.Log("Found enemy in cone");
+
                         enemyInRange.GetComponentInParent<Enemy>().TakeDamage(towerDamage);
+                        enemyInRange.GetComponentInParent<Enemy>().ApplyBurn(flameBurnDamagePerTick, flameBurnTickInterval, flameBurnTickDuration);
                     }
                         
                 }
