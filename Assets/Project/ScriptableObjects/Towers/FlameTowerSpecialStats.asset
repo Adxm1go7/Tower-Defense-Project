@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c267831f2c6d445b6f102f8f37b67c, type: 3}
-  m_Name: BasicMeleeTower
+  m_Script: {fileID: 11500000, guid: cd71a1c112b4ae54fae0efabc12f8536, type: 3}
+  m_Name: FlameTowerSpecialStats
   m_EditorClassIdentifier: 
-  towerID: 1
-  towerName: Melee
-  towerRange: 3
-  towerDamage: 3
-  towerFireRate: 0.3
-  towerCost: 1
-  elementType: 
+  burstInterval: 2
+  burstDuration: 1.5
+  coneAngle: 60
+  flameTickLength: 0.2
+  flameBurnTickDuration: 2
+  flameBurnTickInterval: 0.7
+  flameBurnDamagePerTick: 1

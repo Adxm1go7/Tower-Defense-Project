@@ -18,14 +18,19 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public int sellValue;
     public string elementType;
     public bool activeTower; //Used by DragDropTower to disable tower attack functionality during placement
-    private Enemy currentEnemy;
+    protected Enemy currentEnemy;
     public float timeForNextAttack;
     public GameManager gameManager; // Controls the flow of the game
     public TowerUpgrades towerUppies;
 
+    public int enemyLayer;
+
     private int blockedContacts = 0;
+
+    protected Collider[] enemiesInRange;
+    protected Vector3 towerDirection;
         
-    void Start()
+    protected virtual void Start() // Can be overriden
     {
         // INITIALISE THE TOWER ATTRIBUTES FROM THE TOWERSTATS SCRIPTABLE OBJECT
         // UNIQUE FOR EACH TOWER
@@ -40,6 +45,9 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         sellValue = (int)(towerCost * 0.7f);
         timeForNextAttack = 0f;
         gameManager = GameManager.Instance; 
+
+        enemyLayer = 1 << LayerMask.NameToLayer("EnemyLayer"); // Converts layer int to layermask
+        Debug.Log(enemyLayer);
     }
 
     void Awake()
@@ -48,20 +56,23 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         {
             towerUppies = GetComponent<TowerUpgrades>();
         }
+
+        enemyLayer = LayerMask.GetMask("EnemyLayer");
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        //Debug.Log(currentEnemy);
         timeForNextAttack -= Time.deltaTime;
-        if (currentEnemy == null || Vector3.Distance(transform.position, currentEnemy.transform.position) > towerRange)
-        {
-
-            FindTarget();
+        FindTarget();
+        if (currentEnemy != null){
+            AttackTiming();
         }
 
-        if (currentEnemy != null && timeForNextAttack <= 0)
+    }
+
+    protected virtual void AttackTiming(){
+        if (timeForNextAttack <= 0f)
         {
             AttackEnemies();
             LookAtEnemies();
@@ -78,78 +89,42 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
     }
 
-    
-    void FindTargetTest()
+
+    protected virtual void FindTarget()
     {
-        Enemy[] allEnemies = FindObjectsOfType<Enemy>();
+        enemiesInRange = Physics.OverlapSphere(transform.position, towerRange, enemyLayer);
+        Enemy furthestEnemy = null;
+        float bestProgress = 0f;
 
-        if (allEnemies.Length == 0)
+        foreach (Collider enemyInRange in enemiesInRange)
         {
-            return;
-        }
-
-        Enemy nearest = null;
-        float smallest = Mathf.Infinity;
-
-        foreach (Enemy enemy in allEnemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
+            Enemy enemy = enemyInRange.GetComponentInParent<Enemy>();
+            if (enemy != null)
             {
-                smallest = distanceToEnemy;
-                nearest = enemy;
+                if (enemy.GetComponentInParent<EnemyMovement>().getEnemyMovementProgress() > bestProgress)
+                {
+                    furthestEnemy = enemy;
+                    bestProgress = enemy.GetComponentInParent<EnemyMovement>().getEnemyMovementProgress();
+                }
             }
         }
-
-        currentEnemy = nearest;
-
-    }
-
-    void FindTarget()
-    {
-
-        if (EnemySummoner.ExistingEnemies == null || EnemySummoner.ExistingEnemies.Count == 0)
+        if (furthestEnemy != null)
         {
-            FindTargetTest();
-            return;
+            currentEnemy = furthestEnemy;
         }
-
-        EnemySummoner.ExistingEnemies.RemoveAll(e => e == null);
-        Enemy nearest = null;
-        float smallest = Mathf.Infinity;
-
-        // Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
-        foreach (Enemy enemy in EnemySummoner.ExistingEnemies)
-        {
-
-            if (enemy == null)
-            {
-                continue;
-            }
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < smallest && distanceToEnemy <= towerRange && enemy.getHealth() > 0)
-            {
-                smallest = distanceToEnemy;
-                nearest = enemy;
-            }
-
-        }
-        currentEnemy = nearest;
-        Debug.Log($"Enemies in scene: {EnemySummoner.ExistingEnemies.Count}");
-
     }
     
-    void LookAtEnemies()
+    protected virtual void LookAtEnemies()
     {
-        Vector3 direction = currentEnemy.transform.position - transform.position;
-        direction.y = 0f;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        towerDirection = currentEnemy.transform.position - transform.position;
+        towerDirection.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(towerDirection);
         lookRotation *= Quaternion.Euler(0, 180f, 0);
         transform.rotation = lookRotation;
 
     }
 
-    void AttackEnemies()
+    protected virtual void AttackEnemies()
     {
         if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
@@ -157,7 +132,6 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
         }
         Debug.Log("HIT HIT HIR");
-
     }
 
     //Implementing a click event to show tower info to user.

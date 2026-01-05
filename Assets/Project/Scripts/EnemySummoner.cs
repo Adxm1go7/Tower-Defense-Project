@@ -13,7 +13,6 @@ public class EnemySummoner : MonoBehaviour
 
     public int enemyIDToSpawn = 0; // Which enemy ID to spawn
     public float spawnInterval = 2f; // How often to spawn (seconds)
-    private float spawnTimer = 0f;
     void Awake()
     {
         EnemyPrefabs = new Dictionary<int, GameObject>();
@@ -66,19 +65,4 @@ public class EnemySummoner : MonoBehaviour
     public static Vector3 getSpawnPoint(){
         return spawnPoint;
     }
-
-    /*
-    void Update()
-    {
-        spawnTimer += Time.deltaTime;
-
-        if (spawnTimer >= spawnInterval)
-        {
-            spawnTimer = 0f;
-
-            // Call SummonEnemy to spawn one enemy
-            SummonEnemy(enemyIDToSpawn);
-        }
-    }
-    */
 }

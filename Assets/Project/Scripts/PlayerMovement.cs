@@ -12,12 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] GameObject stepRayUpper;
     [SerializeField] GameObject stepRayLower;
-    [SerializeField] float stepHeight = 0.3f;
+    //[SerializeField] float stepHeight = 0.3f;
     [SerializeField] float stepSmooth = 0.1f;
-
-
-
-
 
 
     // Start is called before the first frame update
