@@ -11,10 +11,17 @@ public class HomeMenu : MonoBehaviour
     public DifficultyStats mediumDifficulty;
     public DifficultyStats hardDifficulty;
     public DifficultyStats impossibleDifficulty;
+
+    bool optionsPanelVisibility;
+    public GameObject optionsPanel;
     
     void Awake(){
         difficultyPanelVisibility = false;
         difficultyPanel.SetActive(difficultyPanelVisibility);
+
+        optionsPanelVisibility = false;
+        optionsPanel.SetActive(optionsPanelVisibility);
+        
     }
 
     public void StartGame()
@@ -24,8 +31,32 @@ public class HomeMenu : MonoBehaviour
 
     public void ToggleDifficultyPanel()
     {
+        if (!difficultyPanelVisibility)
+        {
+            // Close options panel if it's open
+            optionsPanelVisibility = false;
+            optionsPanel.SetActive(optionsPanelVisibility);
+        }
         difficultyPanelVisibility = !difficultyPanelVisibility;
         difficultyPanel.SetActive(difficultyPanelVisibility); 
+    }
+
+    public void openArcana()
+    {
+        SceneManager.LoadScene(4); // Loads Arcana scene
+    }
+
+    public void ToggleOptions()
+    {
+        if (!optionsPanelVisibility)
+        {
+            // Close difficulty panel if it's open
+            difficultyPanelVisibility = false;
+            difficultyPanel.SetActive(difficultyPanelVisibility);
+        }
+
+        optionsPanelVisibility = !optionsPanelVisibility;
+        optionsPanel.SetActive(optionsPanelVisibility);
     }
 
     public void QuitGame()
