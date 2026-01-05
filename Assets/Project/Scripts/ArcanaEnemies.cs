@@ -56,6 +56,6 @@ public class ArcanaEnemies : MonoBehaviour
     public void ReturnButton()
     {
         CloseInfoPanels();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(4); // Load home menu scene
+        SceneStackManager.Instance.ReturnToPreviousScene(); // Load home menu scene
     }
 }

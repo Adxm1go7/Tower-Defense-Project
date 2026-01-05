@@ -34,7 +34,10 @@ public class GameManager : MonoBehaviour
     public DifficultyStats currentDifficulty;
 
     public GameObject pauseMenuUI; // Reference to the pause menu UI
-    public bool isPaused = false;
+    public bool isPaused = false; // To track if the game is paused
+
+    public int currentScene;
+    public int previousScene;
 
 
 
