@@ -8,6 +8,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public AudioSource musicSource;
+    public AudioSource sfxSource;
+
+
     public AudioClip backgroundMusic;
 
 
@@ -34,6 +37,21 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
         musicSource.Play();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
     }
 
 
