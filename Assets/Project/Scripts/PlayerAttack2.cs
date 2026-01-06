@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerAttack2 : MonoBehaviour
 {
-    private float areaAttackRadius = 1.8f;
-    private int areaDamage = 1;
-    private float areaTimeToAttack = 1.2f;
+    public HeroStats heroStats;
 
-    private float singleAttackRadius = 6f;
-    private int singleDamage = 4;
-    private float singleTimeToAttack = 1.5f;
+    private float areaAttackRadius;
+    private int areaDamage;
+    private float areaTimeToAttack;
+
+    private float singleAttackRadius;
+    private int singleDamage;
+    private float singleTimeToAttack;
     public LayerMask enemyLayer;
     private float time;
 
@@ -20,6 +22,14 @@ public class PlayerAttack2 : MonoBehaviour
     {
         time = 0;
         attackType = 2;
+
+        areaDamage = heroStats.areaAttackDamage;
+        areaAttackRadius = heroStats.areaAttackRadius;
+        areaTimeToAttack = heroStats.areaAttackRate;
+
+        singleDamage = heroStats.singleAttackDamage;
+        singleAttackRadius = heroStats.singleAttackRadius;
+        singleTimeToAttack = heroStats.singleAttackRate;
     }
 
     // Update is called once per frame

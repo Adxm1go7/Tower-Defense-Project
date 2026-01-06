@@ -15971,6 +15971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b91b6b9f8927274d800f8e2178487a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroStats: {fileID: 11400000, guid: a98ce386c0b1c2b4e81f8c2877655381, type: 2}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
