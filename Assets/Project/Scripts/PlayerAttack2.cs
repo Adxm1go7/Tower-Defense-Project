@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerAttack2 : MonoBehaviour
 {
-    [SerializeField] private float areaAttackRadius = 3f;
-    [SerializeField] private int areaDamage = 2;
-    [SerializeField] private float areaTimeToAttack = 1f;
+    public HeroStats heroStats;
 
-    [SerializeField] private float singleAttackRadius = 6f;
-    [SerializeField] private int singleDamage = 10;
-    [SerializeField] private float singleTimeToAttack = 2f;
+    private float areaAttackRadius;
+    private int areaDamage;
+    private float areaTimeToAttack;
+
+    private float singleAttackRadius;
+    private int singleDamage;
+    private float singleTimeToAttack;
     public LayerMask enemyLayer;
     private float time;
 
@@ -20,6 +22,14 @@ public class PlayerAttack2 : MonoBehaviour
     {
         time = 0;
         attackType = 2;
+
+        areaDamage = heroStats.areaAttackDamage;
+        areaAttackRadius = heroStats.areaAttackRadius;
+        areaTimeToAttack = heroStats.areaAttackRate;
+
+        singleDamage = heroStats.singleAttackDamage;
+        singleAttackRadius = heroStats.singleAttackRadius;
+        singleTimeToAttack = heroStats.singleAttackRate;
     }
 
     // Update is called once per frame

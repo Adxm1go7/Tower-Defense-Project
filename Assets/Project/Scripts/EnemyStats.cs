@@ -19,7 +19,7 @@ public class EnemyStats : ScriptableObject
     public float RegenTime;
 
     public int SplitCount;
-    public Enemy SplitEnemy;
+    public EnemyStats SplitEnemy;
     public int CoinsWorth;
 
     public float DodgeChance;

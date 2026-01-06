@@ -15,11 +15,12 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 3270371702958780032, guid: b68b089238fa61d42a669f033d1dada5, type: 3}
   ID: 6
   MaxHealth: 12
-  LivesWorth: 2
+  LivesWorth: 5
   Speed: 4
   RegenHealth: 0
   RegenRate: 0
   RegenTime: 0
   SplitCount: 0
   SplitEnemy: {fileID: 0}
-  CoinsWorth: 1
+  CoinsWorth: 6
+  DodgeChance: 0

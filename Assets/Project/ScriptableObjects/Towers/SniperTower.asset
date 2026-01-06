@@ -15,7 +15,7 @@ MonoBehaviour:
   towerID: 1
   towerName: Sniper
   towerRange: 1000
-  towerDamage: 12
-  towerFireRate: 3
-  towerCost: 1
+  towerDamage: 9
+  towerFireRate: 2.5
+  towerCost: 45
   elementType: 

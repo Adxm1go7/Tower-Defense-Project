@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c267831f2c6d445b6f102f8f37b67c, type: 3}
-  m_Name: LightningTowerStats
+  m_Script: {fileID: 11500000, guid: 960f43a2516f74e488e4a7d258dc6bba, type: 3}
+  m_Name: HeroStats
   m_EditorClassIdentifier: 
-  towerID: 6
-  towerName: Lightning
-  towerRange: 5
-  towerDamage: 10
-  towerFireRate: 2
-  towerCost: 90
-  elementType: 
+  areaAttackDamage: 2
+  areaAttackRadius: 2
+  areaAttackRate: 1.2
+  singleAttackDamage: 4
+  singleAttackRadius: 6
+  singleAttackRate: 1.4

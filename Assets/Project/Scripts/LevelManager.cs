@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] public int health = 50;
-    [SerializeField] public int numRounds = 50;
+    [SerializeField] public int health = 200;
+    [SerializeField] public int numRounds = 25;
     [SerializeField] public int currentRound = 1;
-    [SerializeField] public int coins = 150;
+    [SerializeField] public int coins = 0;
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI CoinText;
     public TextMeshProUGUI RoundText;

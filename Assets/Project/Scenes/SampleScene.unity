@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_LocalScale.z
@@ -2992,7 +2992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_LocalScale.z
@@ -4543,7 +4543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 792623866}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StepRayUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4574,7 +4574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 804704641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StepRayLower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7484,7 +7484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_LocalScale.z
@@ -9881,7 +9881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_LocalScale.z
@@ -10343,7 +10343,8 @@ GameObject:
   - component: {fileID: 1584594054}
   - component: {fileID: 1584594056}
   - component: {fileID: 1584594057}
-  m_Layer: 0
+  - component: {fileID: 1584594058}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10423,15 +10424,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b91b6b9f8927274d800f8e2178487a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaAttackRadius: 3
-  areaDamage: 2
-  areaTimeToAttack: 1
-  singleAttackRadius: 8
-  singleDamage: 6
-  singleTimeToAttack: 1.5
+  heroStats: {fileID: 11400000, guid: a98ce386c0b1c2b4e81f8c2877655381, type: 2}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1584594058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584594052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c1cf0aa297b94464385f976159e2f4ba, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &1605908610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
@@ -10596,7 +10622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_LocalScale.z
@@ -12009,7 +12035,7 @@ GameObject:
   - component: {fileID: 1806143554}
   - component: {fileID: 1806143553}
   - component: {fileID: 1806143552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13313,7 +13339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_LocalScale.z
@@ -13652,7 +13678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16162,11 +16188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088015001129836739, guid: 2a107a556b1b8cd488e1a06c1b52b5f2, type: 3}
       propertyPath: coins
-      value: 150
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7088015001129836739, guid: 2a107a556b1b8cd488e1a06c1b52b5f2, type: 3}
       propertyPath: health
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7088015001129836739, guid: 2a107a556b1b8cd488e1a06c1b52b5f2, type: 3}
       propertyPath: DDTower
@@ -16190,7 +16216,7 @@ PrefabInstance:
       objectReference: {fileID: 454831907}
     - target: {fileID: 7088015001129836739, guid: 2a107a556b1b8cd488e1a06c1b52b5f2, type: 3}
       propertyPath: numRounds
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7088015001129836739, guid: 2a107a556b1b8cd488e1a06c1b52b5f2, type: 3}
       propertyPath: HealthText
@@ -16282,6 +16308,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884809298167054031, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
+      propertyPath: m_ProvidesContacts
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7842465222884084229, guid: 7bbfc69e188998b4e82f02107a137a20, type: 3}
