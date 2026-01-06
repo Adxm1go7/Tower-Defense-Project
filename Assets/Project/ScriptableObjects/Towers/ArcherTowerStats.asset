@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerID: 0
   towerName: Archer
-  towerRange: 8
+  towerRange: 7
   towerDamage: 4
-  towerFireRate: 0.9
-  towerCost: 1
+  towerFireRate: 1.3
+  towerCost: 20
   elementType: 

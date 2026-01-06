@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd71a1c112b4ae54fae0efabc12f8536, type: 3}
   m_Name: FlameTowerSpecialStats
   m_EditorClassIdentifier: 
-  burstInterval: 2
-  burstDuration: 1.5
+  burstInterval: 2.5
+  burstDuration: 2.5
   coneAngle: 60
-  flameTickLength: 0.2
-  flameBurnTickDuration: 2
-  flameBurnTickInterval: 0.7
+  flameTickLength: 0.5
+  flameBurnTickDuration: 3
+  flameBurnTickInterval: 1
   flameBurnDamagePerTick: 1

@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ArcanaButtons : MonoBehaviour
 {
+    SceneStackManager sceneStackManager = SceneStackManager.Instance;
     public void ReturnButton()
     {
-        // NEED TO STORE PREVIOUS SCENE INDEX SOMEWHERE TO RETURN TO IT
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1); // Load home menu scene
+        sceneStackManager.ReturnToPreviousScene();
     }
 
     public void EnemiesButton()

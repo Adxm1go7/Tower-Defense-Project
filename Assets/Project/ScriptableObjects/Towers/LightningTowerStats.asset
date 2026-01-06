@@ -15,7 +15,7 @@ MonoBehaviour:
   towerID: 6
   towerName: Lightning
   towerRange: 5
-  towerDamage: 8
-  towerFireRate: 1
-  towerCost: 1
+  towerDamage: 10
+  towerFireRate: 2
+  towerCost: 90
   elementType: 

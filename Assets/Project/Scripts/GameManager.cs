@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
     public TextMeshPro nameOfTower; //Name of tower text object
     public TextMeshPro DDTower; //Damage dealt by tower text object
 
-    public GameObject SpeedControlButton; // Reference to the speed control button
+    public Slider GameSpeedSlider; // Reference to the speed control button
     public float normalSpeed;
     public float fastSpeed;
     public float ultraFastSpeed;
@@ -34,7 +35,10 @@ public class GameManager : MonoBehaviour
     public DifficultyStats currentDifficulty;
 
     public GameObject pauseMenuUI; // Reference to the pause menu UI
-    public bool isPaused = false;
+    public bool isPaused = false; // To track if the game is paused
+
+    public int currentScene;
+    public int previousScene;
 
 
 
@@ -66,7 +70,7 @@ public class GameManager : MonoBehaviour
         damageDealtObject = levelManager.damageDealtObject;
         nameOfTower = levelManager.nameOfTower;
         DDTower = levelManager.DDTower;
-        SpeedControlButton = levelManager.SpeedControlButton;
+        GameSpeedSlider = levelManager.GameSpeedSlider;
         normalSpeed = levelManager.normalSpeed;
         fastSpeed = levelManager.fastSpeed;
         ultraFastSpeed = levelManager.ultraFastSpeed;

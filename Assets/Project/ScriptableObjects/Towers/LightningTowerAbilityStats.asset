@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainRadius: 3
   maxChains: 4
-  damageFallOff: 1
+  damageFallOff: 2
   chainInterval: 0.1

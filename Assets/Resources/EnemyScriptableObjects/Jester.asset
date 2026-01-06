@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 6676047864338111574, guid: 9c95efb81018b3042b5a9a8cfe9b6b7b, type: 3}
   ID: 8
-  MaxHealth: 2
-  LivesWorth: 10
+  MaxHealth: 10
+  LivesWorth: 15
   Speed: 7
   RegenHealth: 0
   RegenRate: 0
   RegenTime: 0
   SplitCount: 0
   SplitEnemy: {fileID: 0}
-  CoinsWorth: 15
+  CoinsWorth: 25
   DodgeChance: 0.8
