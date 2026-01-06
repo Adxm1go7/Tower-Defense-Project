@@ -45,7 +45,7 @@ public class FlameThrowerTowerScript : TowerScript // Inherits original tower be
             timeForNextAttack = burstDuration;
         }
         else if (flameBurstActive == true &&  timeForNextAttack > 0f){
-            AttackEnemies();
+            AttackSequence();
             LookAtEnemies();     
         }else if (flameBurstActive == true && timeForNextAttack <= 0f){
             flameBurstActive = false;
@@ -53,7 +53,7 @@ public class FlameThrowerTowerScript : TowerScript // Inherits original tower be
         }
     }
 
-    protected override void AttackEnemies(){
+    protected override IEnumerator AttackSequence(){
         if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
             if (flameTimer >= flameTickLength){
@@ -71,5 +71,6 @@ public class FlameThrowerTowerScript : TowerScript // Inherits original tower be
                 flameTimer = 0f;
             }
         }
+        yield break;
     }
 }

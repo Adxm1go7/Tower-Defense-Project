@@ -23,13 +23,14 @@ public class LightningTowerScript : TowerScript
         chainInterval = lightningTowerStats.chainInterval;
     }
 
-    protected override void AttackEnemies()
+    protected override IEnumerator AttackSequence()
     {
         if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
             FireLightning(currentEnemy);
 
         }
+        yield break;
     }
 
 

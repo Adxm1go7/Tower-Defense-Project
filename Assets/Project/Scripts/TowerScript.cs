@@ -6,6 +6,10 @@ using UnityEngine.EventSystems;
 
 public class TowerScript : MonoBehaviour, IPointerClickHandler
 {
+
+    [Header("Visual Setup")]
+    public Animator animator;
+    public float shootDelay = 24f;
     // Start is called before the first frame update
     //WE CALL THE TOWERSTATS SCRIPTABLE OBJECT 
     public TowerStats towerStats;
@@ -74,8 +78,8 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     protected virtual void AttackTiming(){
         if (timeForNextAttack <= 0f)
         {
-            AttackEnemies();
             LookAtEnemies();
+            StartCoroutine(AttackSequence());
             timeForNextAttack = towerFireRate;
         }
 
@@ -119,19 +123,24 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
         towerDirection = currentEnemy.transform.position - transform.position;
         towerDirection.y = 0f;
         Quaternion lookRotation = Quaternion.LookRotation(towerDirection);
-        lookRotation *= Quaternion.Euler(0, 180f, 0);
+        // lookRotation *= Quaternion.Euler(0, 180f, 0);
         transform.rotation = lookRotation;
 
     }
 
-    protected virtual void AttackEnemies()
+    protected virtual IEnumerator AttackSequence()
     {
-        if (currentEnemy != null && activeTower==true) //Only attack if tower is active
+        // 1. Trigger Animation
+        if (animator != null) animator.SetTrigger("Shoot");
+
+        // 2. Wait for visual sync
+        yield return new WaitForSeconds(shootDelay);
+
+        // 3. Deal Damage
+        if (currentEnemy != null && activeTower == true)
         {
             currentEnemy.TakeDamage(towerDamage);
-
         }
-        Debug.Log("HIT HIT HIR");
     }
 
     //Implementing a click event to show tower info to user.
