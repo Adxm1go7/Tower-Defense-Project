@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -26,13 +27,18 @@ public class LevelManager : MonoBehaviour
     public TextMeshPro DDTower; //Damage dealt by tower text object
     private TowerScript selectedTower;
 
-    public GameObject SpeedControlButton; // Reference to the speed control button
+    public Slider GameSpeedSlider; // Reference to the speed control Slider
     public float normalSpeed = 1f;
     public float fastSpeed = 2f;
     public float ultraFastSpeed = 3f;
     public float currentSpeed = 1f;
 
     public GameObject pauseMenuUI; // Reference to the pause menu UI
+
+    public GameObject GameLevel;
+    public GameObject TheArcana;
+    public GameObject ArcanaTowers;
+    public GameObject ArcanaEnemies;
 
     // Start is called before the first frame update
     void Awake()
@@ -88,50 +94,63 @@ public class LevelManager : MonoBehaviour
 
     public void OpenArcana()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(4); // Load arcana scene
+        CloseAllPanels();
+        TheArcana.SetActive(true);
     }
 
-     public void SetGameSpeed(float speed)
+    public void CloseArcana()
     {
-        GameManager.Instance.currentSpeed = speed;
-        Time.timeScale = speed;
-        Debug.Log("Game speed set to: " + speed + "x");
+        CloseAllPanels();
+        GameLevel.SetActive(true);
     }
 
-     public void CycleGameSpeed()
+    public void ArcanaTowersInfo()
     {
-        if (!GameManager.Instance.isPaused){
-            if (GameManager.Instance.currentSpeed == normalSpeed)
-            {
-                SetGameSpeed(fastSpeed);
-                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "2x";
-            }
-            else if (GameManager.Instance.currentSpeed == fastSpeed)
-            {
-                SetGameSpeed(ultraFastSpeed);
-                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "3x";
-            }
-            else
-            {
-                SetGameSpeed(normalSpeed);
-                SpeedControlButton.GetComponentInChildren<TextMeshProUGUI>().text = "1x";
-            }
-        }
+        CloseAllPanels();
+        ArcanaTowers.SetActive(true);
+
     }
 
-    // Dynamic UI changing button colors depending on money available for building towers
-
-    public void TowerButtonColor(GameObject towerButton, int towerCost)
+    public void ArcanaEnemiesInfo()
     {
-        if (coins >= towerCost)
+        CloseAllPanels();
+        ArcanaEnemies.SetActive(true);
+    }
+
+
+    public void CloseAllPanels()
+    {
+        ArcanaEnemies.SetActive(false);
+        ArcanaTowers.SetActive(false);
+        TheArcana.SetActive(false);
+        GameLevel.SetActive(true);
+    }
+
+    public void SetGameSpeed()
+    {
+        Debug.Log("Game Speed Slider Value: " + GameSpeedSlider.value);
+        GameSpeedSlider.onValueChanged.AddListener(delegate { UpdateGameSpeed(GameSpeedSlider.value); });
+    }
+
+    public void UpdateGameSpeed(float value)
+    {
+        if (value == 1)
         {
-            towerButton.GetComponent<UnityEngine.UI.Image>().color = Color.white; // Affordable - normal color
+            currentSpeed = normalSpeed;
         }
-        else
+        else if (value == 2)
         {
-            towerButton.GetComponent<UnityEngine.UI.Image>().color = Color.red; // Not affordable - red color
+            currentSpeed = fastSpeed;
         }
+        else if (value == 3)
+        {
+            currentSpeed = ultraFastSpeed;
+        }
+
+        GameManager.Instance.currentSpeed = currentSpeed;
     }
+
+
 
 
 }

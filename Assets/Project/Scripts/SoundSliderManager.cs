@@ -16,5 +16,7 @@ public class SoundSliderManager : MonoBehaviour
 
         MusicSlider.onValueChanged.AddListener(AudioManager.Instance.SetMusicVolume);
         SFXSlider.onValueChanged.AddListener(AudioManager.Instance.SetSFXVolume);
-    }    
+    }
+
+    
 }
