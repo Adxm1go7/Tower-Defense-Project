@@ -30,6 +30,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public int enemyLayer;
 
     private int blockedContacts = 0;
+    private bool isShooting = false; // to check if tower is still aiming
 
     protected Collider[] enemiesInRange;
     protected Vector3 towerDirection;
@@ -67,9 +68,16 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     protected virtual void Update()
     {
+        if (!activeTower) return;
         timeForNextAttack -= Time.deltaTime;
         FindTarget();
         if (currentEnemy != null){
+            
+            if (isShooting)
+            {
+                LookAtEnemies();
+            }
+
             AttackTiming();
         }
 
@@ -128,15 +136,13 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
     }
 
-    protected virtual IEnumerator AttackSequence()
+    protected virtual IEnumerator AttackSequence() // Trigger anim, wait, deal damage
     {
-        // 1. Trigger Animation
+        isShooting = true;
         if (animator != null) animator.SetTrigger("Shoot");
-
-        // 2. Wait for visual sync
         yield return new WaitForSeconds(shootDelay);
+        isShooting = false;
 
-        // 3. Deal Damage
         if (currentEnemy != null && activeTower == true)
         {
             currentEnemy.TakeDamage(towerDamage);
