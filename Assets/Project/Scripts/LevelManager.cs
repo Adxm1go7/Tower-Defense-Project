@@ -51,8 +51,8 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        HealthText.text = "Health : " + health.ToString();
-        CoinText.text = "Coins : " + coins.ToString();
+        HealthText.text = health.ToString();
+        CoinText.text = coins.ToString();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

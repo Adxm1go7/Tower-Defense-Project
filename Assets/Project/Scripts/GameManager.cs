@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     public void setCurrentRound(int round) // sets UI round number
     {
         currentRound = round;
-        RoundText.text = "Rounds : " + round.ToString() + " / " + numRounds.ToString();
+        RoundText.text = round.ToString() + " / " + numRounds.ToString();
     }
 
     public void enemySuccess(Collider enemyCollider)
