@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     private float RegenRate;
     private float RegenTime;
     private int SplitCount;
-    Enemy SplitEnemy; // Enemy that comes out 
+    EnemyStats SplitEnemy; // Enemy that comes out 
     private int CoinsWorth;
     private float DodgeChance;
 
@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
         int wIndex = movement.getWaypointIndex();
         for (int i = 0; i < SplitCount; i++)
         {
-            Enemy e = EnemySummoner.SummonEnemy(SplitEnemy.getID(), transform.position);
+            Enemy e = EnemySummoner.SummonEnemy(SplitEnemy.ID, transform.position);
             e.GetComponent<EnemyMovement>().setWaypointIndex(wIndex);
         }
     }
