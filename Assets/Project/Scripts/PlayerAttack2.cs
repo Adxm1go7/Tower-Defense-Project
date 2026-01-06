@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerAttack2 : MonoBehaviour
 {
-    [SerializeField] private float areaAttackRadius = 3f;
-    [SerializeField] private int areaDamage = 2;
-    [SerializeField] private float areaTimeToAttack = 1f;
+    private float areaAttackRadius = 1.8f;
+    private int areaDamage = 1;
+    private float areaTimeToAttack = 1.2f;
 
-    [SerializeField] private float singleAttackRadius = 6f;
-    [SerializeField] private int singleDamage = 10;
-    [SerializeField] private float singleTimeToAttack = 2f;
+    private float singleAttackRadius = 6f;
+    private int singleDamage = 4;
+    private float singleTimeToAttack = 1.5f;
     public LayerMask enemyLayer;
     private float time;
 

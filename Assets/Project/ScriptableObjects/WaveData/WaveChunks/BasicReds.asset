@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BasicReds
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: a15d6d47ce1530641911cc1a5a1bb07e, type: 2}
-  enemyCount: 5
-  spawnInterval: 0.3
+  enemyCount: 100
+  spawnInterval: 0.5

@@ -16,10 +16,11 @@ MonoBehaviour:
   ID: 3
   MaxHealth: 100
   LivesWorth: 20
-  Speed: 2
+  Speed: 3
   RegenHealth: 0
   RegenRate: 0
   RegenTime: 0
   SplitCount: 0
   SplitEnemy: {fileID: 0}
-  CoinsWorth: 5
+  CoinsWorth: 30
+  DodgeChance: 0

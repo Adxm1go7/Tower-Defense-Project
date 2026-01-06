@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c267831f2c6d445b6f102f8f37b67c, type: 3}
-  m_Name: LightningTowerStats
+  m_Script: {fileID: 11500000, guid: 4c24acbcfd831b9498a9b9594da1058c, type: 3}
+  m_Name: BasicJester
   m_EditorClassIdentifier: 
-  towerID: 6
-  towerName: Lightning
-  towerRange: 5
-  towerDamage: 10
-  towerFireRate: 2
-  towerCost: 90
-  elementType: 
+  enemy: {fileID: 11400000, guid: 6451f5a519944594981a8a52e403f810, type: 2}
+  enemyCount: 2
+  spawnInterval: 1

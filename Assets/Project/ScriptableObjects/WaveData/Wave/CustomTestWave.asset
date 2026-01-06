@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveChunks:
   - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
-  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
-  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
-  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
-  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
+  - {fileID: 11400000, guid: 14935b16697eef44cac5887d90a3fe34, type: 2}
+  - {fileID: 11400000, guid: ba147c404ae090448b52d54bfbfb2c2f, type: 2}
+  - {fileID: 11400000, guid: dcb2b70f827ca0847b5a836a23ec4cfd, type: 2}
+  - {fileID: 11400000, guid: 7df2d7fe86a03324e856373675d78f72, type: 2}
+  - {fileID: 11400000, guid: 4b4a0d2b55efaad41a23be3be1c95012, type: 2}
+  - {fileID: 11400000, guid: c549dc2332c83e2439a176d0ea820bbd, type: 2}
+  - {fileID: 11400000, guid: 8cf350e3c4387f7489ce00b8ad329ea3, type: 2}
+  - {fileID: 11400000, guid: 1796cd553ca563f47bcf0b7b5090fdbb, type: 2}
   TimeBeforeNextWave: 5
