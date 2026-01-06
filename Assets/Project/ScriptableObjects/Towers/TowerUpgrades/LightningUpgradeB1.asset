@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c75c01bbb821e1e42b5e42bedb80a1e4, type: 3}
-  m_Name: ArcherUpgradeA1
+  m_Name: LightningUpgradeB1
   m_EditorClassIdentifier: 
   name: 
-  cost: 25
-  damageInc: 2
-  rangeInc: 1
+  cost: 0
+  damageInc: 0
+  rangeInc: 0
   fireRate: 0
   description: 

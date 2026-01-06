@@ -169,6 +169,9 @@ MonoBehaviour:
   elementType: 
   activeTower: 0
   timeForNextAttack: 0
+  gameManager: {fileID: 0}
+  towerUppies: {fileID: 0}
+  enemyLayer: 0
 --- !u!136 &7230958924995746166
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -231,14 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07db354a7beeed74599f083ffc412138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathA:
-  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
-  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
-  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
-  pathB:
-  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
-  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
-  - {fileID: 11400000, guid: 125a8984a512dcb46bac011cac56023e, type: 2}
+  pathA: []
+  pathB: []
   maxAUpgrades: 3
   maxBUpgrades: 3
 --- !u!1 &609305815599553437

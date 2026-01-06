@@ -12,6 +12,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlameThrowerTower
       objectReference: {fileID: 0}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: pathA.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: pathB.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathA.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 612ff87f9ff3bfc47873b0c6d72ff055, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathA.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 612ff87f9ff3bfc47873b0c6d72ff055, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathA.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 612ff87f9ff3bfc47873b0c6d72ff055, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathB.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bbdf219531b71448b581db82fce5102, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathB.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bbdf219531b71448b581db82fce5102, type: 2}
+    - target: {fileID: 2980565071888545179, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
+      propertyPath: 'pathB.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bbdf219531b71448b581db82fce5102, type: 2}
     - target: {fileID: 3066900021596824741, guid: 07ee13e3bfba79646b94bf7c17b9275b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -89,12 +121,14 @@ MonoBehaviour:
   elementType: 
   activeTower: 0
   timeForNextAttack: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  gameManager: {fileID: 0}
+  towerUppies: {fileID: 0}
+  enemyLayer: 0
   flameThrowerTowerStats: {fileID: 11400000, guid: 9ad3e88e75f22684fa79c3106cb5c33f, type: 2}
   burstInterval: 0
   burstDuration: 0
   coneAngle: 0
-  flameDamagePerTick: 0
   flameTickLength: 0
+  flameBurnDamagePerTick: 0
+  flameBurnTickInterval: 0
+  flameBurnTickDuration: 0
