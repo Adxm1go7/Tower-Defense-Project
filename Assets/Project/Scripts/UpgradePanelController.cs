@@ -6,24 +6,29 @@ using TMPro;
 public class UpgradePanelController : MonoBehaviour
 {
     public GameObject upgradePanel; // Reference to the upgrade panel UI
-    public GameObject towerNameObject; // Reference to the tower name UI object
-    public GameObject damageDealtObject; // Reference to the damage dealt UI object
-    public TextMeshPro DDTower; //Damage dealt by tower text object
+    public TextMeshProUGUI DDTower; //Name of tower text object
+    public TextMeshProUGUI SpecialAtk; //Damage dealt by tower text object
 
+    public TextMeshProUGUI Upgrade1Text; // Upgrade path A text object
+    public TextMeshProUGUI Upgrade2Text; // Upgrade path B text object
 
     private TowerScript selectedTower; // Currently selected tower
 
     void Update()
     {
-        // This method can be used to initialize or update the upgrade panel if needed
-        DDTower.text = "Δ" + selectedTower.towerDamage.ToString();
+        if (selectedTower != null)
+        {
+            DDTower.text = "Damage: " + selectedTower.towerDamage.ToString();
+            SpecialAtk.text = "Special: ";
+        }
     }
+
 
     public void OnButtonClick()
     {
         upgradePanel.SetActive(false);
-        towerNameObject.SetActive(false);
-        damageDealtObject.SetActive(false);
+        GameManager.Instance.levelManager.OpenSidePanel();
+        GameManager.Instance.cameraController.ResetCamera();
 
     }
 
