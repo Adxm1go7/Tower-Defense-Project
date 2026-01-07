@@ -93,7 +93,8 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     {
         if (currentLevelIndex == 0) {
             SceneManager.LoadScene(level1Scene);
-            }else if(currentLevelIndex == 1){
+        }
+        else if(currentLevelIndex == 1){
                 SceneManager.LoadScene(level2Scene);
         }
     } 
