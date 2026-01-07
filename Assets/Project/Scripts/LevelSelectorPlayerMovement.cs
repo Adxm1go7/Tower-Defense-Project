@@ -40,31 +40,15 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (currentLevelIndex < waypointsArray.Length - 1)
-            {
-                currentLevelIndex++;
-                target = waypointsArray[currentLevelIndex];
-                movingPlayer = true;
-                direction = target.position - transform.position;
-                direction.y = 0f;
-            }
+            nextLevel();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            if (currentLevelIndex > 0)
-            {
-                currentLevelIndex--;
-                target = waypointsArray[currentLevelIndex];
-                movingPlayer = true;
-                direction = target.position - transform.position;
-                direction.y = 0f;
-            }
+            PreviousLevel();
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
-            if (currentLevelIndex == 0) {
-                SceneManager.LoadScene(level1Scene);
-            }
+            PlayGame();
         }
     }
     void movePlayer()
@@ -77,5 +61,37 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
         {
             movingPlayer = false;
         }
-    }  
+    }
+
+    public void nextLevel()
+    {
+        Debug.Log("Next Level");
+        if (currentLevelIndex < waypointsArray.Length - 1)
+            {
+                currentLevelIndex++;
+                target = waypointsArray[currentLevelIndex];
+                movingPlayer = true;
+                direction = target.position - transform.position;
+                direction.y = 0f;
+            }
+    }
+
+    public void PreviousLevel()
+    {
+        if (currentLevelIndex > 0)
+            {
+                currentLevelIndex--;
+                target = waypointsArray[currentLevelIndex];
+                movingPlayer = true;
+                direction = target.position - transform.position;
+                direction.y = 0f;
+            }
+    }
+
+    public void PlayGame()
+    {
+        if (currentLevelIndex == 0) {
+            SceneManager.LoadScene(level1Scene);
+        }
+    } 
 }
