@@ -47,7 +47,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             {
                 currentTowerPreview.transform.position = new Vector3(
                     hit.point.x,
-                    1,
+                    1+1,
                     hit.point.z
                 ); //Move tower preview to hit point with y offset of 1 so that it is level with the map
             }
@@ -62,7 +62,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
             currentTowerPreview.transform.position = new Vector3(
                     Mathf.Round(currentTowerPreview.transform.position.x),
-                    1,
+                    1+1,
                     Mathf.Round(currentTowerPreview.transform.position.z)
                 );
 
