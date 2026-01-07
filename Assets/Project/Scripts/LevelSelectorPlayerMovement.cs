@@ -16,6 +16,7 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     private float moveSpeed = 6f;
 
     private int level1Scene = 1;
+    private int level2Scene = 7;
 
     void Start()
     {
@@ -64,6 +65,8 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
         {
             if (currentLevelIndex == 0) {
                 SceneManager.LoadScene(level1Scene);
+            }else if(currentLevelIndex == 1){
+                SceneManager.LoadScene(level2Scene);
             }
         }
     }
