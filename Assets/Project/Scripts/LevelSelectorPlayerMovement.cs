@@ -63,7 +63,7 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             if (currentLevelIndex == 0) {
-                SceneManager.LoadScene(level1Scene);
+                SceneManager.LoadScene(7);
             }
         }
     }
