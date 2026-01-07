@@ -13,7 +13,7 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     private bool movingPlayer;
     private Vector3 direction;
 
-    private float moveSpeed = 6f;
+    private float moveSpeed = 12f;
 
     private int level1Scene = 1;
     private int level2Scene = 7;
