@@ -9,6 +9,9 @@ public class UpgradePanelController : MonoBehaviour
     public TextMeshProUGUI DDTower; //Name of tower text object
     public TextMeshProUGUI SpecialAtk; //Damage dealt by tower text object
 
+    public TextMeshProUGUI Upgrade1Text; // Upgrade path A text object
+    public TextMeshProUGUI Upgrade2Text; // Upgrade path B text object
+
     private TowerScript selectedTower; // Currently selected tower
 
     void Update()

@@ -7885,6 +7885,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3663521776094590548}
+    - target: {fileID: 2682469862955537442, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_Name
+      value: Upgrade2Text
+      objectReference: {fileID: 0}
     - target: {fileID: 2711169914042062030, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7900,6 +7904,10 @@ PrefabInstance:
     - target: {fileID: 2711169914042062030, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795320235092677461, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_Name
+      value: Upgrade1Text
       objectReference: {fileID: 0}
     - target: {fileID: 2960888242087484177, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchorMax.y

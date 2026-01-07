@@ -11,9 +11,12 @@ public class OptionsScript : MonoBehaviour
         {
             homeMenu.ToggleOptions();
         }
-        Time.timeScale = GameManager.Instance.currentSpeed; // Resume time scale to current speed
-        GameManager.Instance.isPaused = false; // Unpause the game
-        this.gameObject.SetActive(false); // Hide options menu UI
+        else
+        {
+            Time.timeScale = GameManager.Instance.currentSpeed; // Resume time scale to current speed
+            GameManager.Instance.isPaused = false; // Unpause the game
+            this.gameObject.SetActive(false); // Hide options menu UI
+        }
     }
 
 
