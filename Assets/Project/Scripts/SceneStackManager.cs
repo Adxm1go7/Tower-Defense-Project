@@ -43,7 +43,6 @@ public class SceneStackManager : MonoBehaviour
         else
         {
             isReturning = false; // Reset flag
-            Debug.Log("Returned to scene: " + scene.buildIndex);
             DisplayStack();
         }
     }
@@ -58,7 +57,6 @@ public class SceneStackManager : MonoBehaviour
             PushScene(currentSceneIndex);
         }
         
-        Debug.Log("Scene Changed to: " + currentSceneIndex);
         DisplayStack();
     }
 
@@ -68,7 +66,6 @@ public class SceneStackManager : MonoBehaviour
         {
             SceneBuildIndices[SceneIndexPointer] = sceneIndex;
             SceneIndexPointer++;
-            Debug.Log("Pushed scene: " + sceneIndex);
         }
         else
         {
@@ -91,7 +88,6 @@ public class SceneStackManager : MonoBehaviour
         {
             SceneIndexPointer--;
             int poppedScene = SceneBuildIndices[SceneIndexPointer];
-            Debug.Log("Popped scene: " + poppedScene);
             return poppedScene;
         }
         return -1;
@@ -108,7 +104,6 @@ public class SceneStackManager : MonoBehaviour
         if (previousSceneIndex != -1)
         {
             isReturning = true; // Set flag so we don't push again
-            Debug.Log("Returning to scene: " + previousSceneIndex);
             SceneManager.LoadScene(previousSceneIndex);
         }
         else
@@ -129,7 +124,6 @@ public class SceneStackManager : MonoBehaviour
             }
         }
         stackContents += "]";
-        Debug.Log(stackContents + " (Size: " + SceneIndexPointer + ")");
     }
     
     void OnDestroy()
