@@ -116,11 +116,13 @@ public class TowerUpgrades : MonoBehaviour
                 if (path == "A")
                 {
                     lightning.maxChains += 2;
+                    lightning.towerDamage += 2;
 
                 }
                 else if (path == "B")
                 {
                     lightning.chainRadius += 0.5f;
+                    lightning.towerDamage += 2;
                 }
             }
         }
@@ -138,13 +140,12 @@ public class TowerUpgrades : MonoBehaviour
                 {
                     freeze.coneAngle += 10f;
                     freeze.slowDownMult -= 0.05f;
-                    freeze.towerFireRate = 1f;
                     
                 }
                 else if (path == "B")
                 {
                     freeze.slowDuration += 0.33f;
-                    freeze.towerFireRate = 1f;
+                    freeze.towerFireRate *= 0.95f;
                 }
             }
         }
@@ -160,11 +161,13 @@ public class TowerUpgrades : MonoBehaviour
             {
                 if (path == "A")
                 {
+                    flame.towerDamage += 1;
                     flame.burstDuration *= 1.1f;
                     flame.burstInterval *= 0.9f;
                 }
                 else if (path == "B")
                 {
+                    flame.towerDamage += 1;
                     flame.coneAngle += 8;
                     flame.burstInterval *= 0.7f;
                     flame.flameBurnDamagePerTick += 1;

@@ -17,4 +17,4 @@ MonoBehaviour:
   areaAttackRate: 1.2
   singleAttackDamage: 4
   singleAttackRadius: 6
-  singleAttackRate: 1.4
+  singleAttackRate: 1.2

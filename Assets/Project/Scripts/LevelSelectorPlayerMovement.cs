@@ -15,10 +15,15 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
 
     private float moveSpeed = 12f;
 
-    private int level1Scene = 1;
+    private int level1Scene = 9;
     private int level2Scene = 7;
     private int level3Scene = 8;
 
+
+    public Light Level1Light;
+    public Light Level2Light;
+    public Light Level3Light;
+    public Light Level4Light;
 
     void Start()
     {
@@ -37,6 +42,35 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
         {
             movePlayer();
         }
+
+        if (currentLevelIndex == 0)
+        {
+            DisableLights();
+            Level1Light.enabled = true;
+        }
+        else if (currentLevelIndex == 1)
+        {
+            DisableLights();
+            Level2Light.enabled = true;
+        }
+        else if (currentLevelIndex == 2)
+        {
+            DisableLights();
+            Level3Light.enabled = true;
+        }
+        else if (currentLevelIndex == 3)
+        {
+            DisableLights();
+            Level4Light.enabled = true;
+        }
+    }
+
+    void DisableLights()
+    {
+        Level1Light.enabled = false;
+        Level2Light.enabled = false;
+        Level3Light.enabled = false;
+        Level4Light.enabled = false;
     }
 
     void CheckForMove()

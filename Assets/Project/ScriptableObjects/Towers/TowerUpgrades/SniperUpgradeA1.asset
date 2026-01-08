@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SniperUpgradeA1
   m_EditorClassIdentifier: 
   name: 
-  cost: 0
+  cost: 35
   damageInc: 6
   rangeInc: 0
   fireRate: 1

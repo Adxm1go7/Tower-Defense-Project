@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InvestorUpgradeB1
   m_EditorClassIdentifier: 
   name: 
-  cost: 10
+  cost: 20
   damageInc: 0
   rangeInc: 0
   fireRate: 1
