@@ -147,9 +147,11 @@ public class Enemy : MonoBehaviour
     }
 
     public void ApplySlowDown(float slowDownMult, float duration){
-        freezeEndTime = aliveTimer + duration;
-        if (freezeCoroutine == null){
-            freezeCoroutine = StartCoroutine(SlowDownEffect(slowDownMult));
+        if (ID != 9){ // Bosses are immune to slow down
+            freezeEndTime = aliveTimer + duration;
+            if (freezeCoroutine == null){
+                freezeCoroutine = StartCoroutine(SlowDownEffect(slowDownMult));
+            }
         }
     }
 
