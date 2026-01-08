@@ -52,6 +52,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2678417928508667699, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a851b160c60b68749ad6255c636b57f9, type: 2}
+    - target: {fileID: 4200880112711704032, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200880112711704032, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200880112711704032, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6997379684120590142, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_Name
       value: ChildSlimeEnemy

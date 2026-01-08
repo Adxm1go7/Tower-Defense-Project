@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CustomTestWave
   m_EditorClassIdentifier: 
   waveChunks:
-  - {fileID: 11400000, guid: 95b046e2e30d0fb48ad832669f5c494c, type: 2}
-  - {fileID: 11400000, guid: 14935b16697eef44cac5887d90a3fe34, type: 2}
+  - {fileID: 11400000, guid: cf69c51e49b680645a96a91a94e09715, type: 2}
+  - {fileID: 11400000, guid: be72dc89db165544e90bd7d907d5e88e, type: 2}
   - {fileID: 11400000, guid: ba147c404ae090448b52d54bfbfb2c2f, type: 2}
   - {fileID: 11400000, guid: dcb2b70f827ca0847b5a836a23ec4cfd, type: 2}
   - {fileID: 11400000, guid: 7df2d7fe86a03324e856373675d78f72, type: 2}

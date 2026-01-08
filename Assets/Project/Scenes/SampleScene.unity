@@ -10378,6 +10378,9 @@ MonoBehaviour:
   stepRayUpper: {fileID: 792623865}
   stepRayLower: {fileID: 804704640}
   stepSmooth: 0.1
+  pathLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &1584594057
 MonoBehaviour:
   m_ObjectHideFlags: 0
