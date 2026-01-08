@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/InnerCastleLevel.unity
     guid: fcfa4c86922d97645bed1477b53350af
   - enabled: 1
-    path: Assets/Project/Scenes/Level1.unity
+    path: Assets/Project/Scenes/MountainValleyLevel.unity
     guid: 89efdfd1b551ed34b9c0c8f7a1b0315b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
