@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 960f43a2516f74e488e4a7d258dc6bba, type: 3}
-  m_Name: HeroStats
+  m_Script: {fileID: 11500000, guid: 1c098fef46992c345b87f6d31534e64f, type: 3}
+  m_Name: Wave14
   m_EditorClassIdentifier: 
-  areaAttackDamage: 2
-  areaAttackRadius: 2
-  areaAttackRate: 1.2
-  singleAttackDamage: 4
-  singleAttackRadius: 6
-  singleAttackRate: 1.2
+  waveChunks:
+  - {fileID: 11400000, guid: 7b54fe42484fef746aa1edeff175498b, type: 2}
+  - {fileID: 11400000, guid: 7b54fe42484fef746aa1edeff175498b, type: 2}
+  TimeBeforeNextWave: 7

@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 960f43a2516f74e488e4a7d258dc6bba, type: 3}
-  m_Name: HeroStats
+  m_Script: {fileID: 11500000, guid: 4c24acbcfd831b9498a9b9594da1058c, type: 3}
+  m_Name: 10MotherSlimesBossTiming
   m_EditorClassIdentifier: 
-  areaAttackDamage: 2
-  areaAttackRadius: 2
-  areaAttackRate: 1.2
-  singleAttackDamage: 4
-  singleAttackRadius: 6
-  singleAttackRate: 1.2
+  enemy: {fileID: 11400000, guid: c451501f515a3ff4d97b6a6bc4b60a1b, type: 2}
+  enemyCount: 10
+  spawnInterval: 1

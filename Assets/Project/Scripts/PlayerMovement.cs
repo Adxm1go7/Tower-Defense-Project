@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Vector3 dir in directions)
         {
             RaycastHit hitLower;
-            if (Physics.Raycast(stepRayLower.transform.position, dir, out hitLower, 0.3f))
+            if (Physics.Raycast(stepRayLower.transform.position, dir, out hitLower, 0.5f))
             {
                 RaycastHit hitUpper;
                 if (!Physics.Raycast(stepRayUpper.transform.position, dir, out hitUpper, 0.4f))

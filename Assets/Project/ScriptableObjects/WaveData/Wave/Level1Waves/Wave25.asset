@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c098fef46992c345b87f6d31534e64f, type: 3}
+  m_Name: Wave25
+  m_EditorClassIdentifier: 
+  waveChunks:
+  - {fileID: 11400000, guid: cf69c51e49b680645a96a91a94e09715, type: 2}
+  - {fileID: 11400000, guid: ba6eead03e843b34b8cb965630862ba9, type: 2}
+  - {fileID: 11400000, guid: 7986f479f084dd04abd747d108f2c60a, type: 2}
+  - {fileID: 11400000, guid: 4b8b649ef16cfc949bec50fa51cdd054, type: 2}
+  - {fileID: 11400000, guid: ba6eead03e843b34b8cb965630862ba9, type: 2}
+  - {fileID: 11400000, guid: 7986f479f084dd04abd747d108f2c60a, type: 2}
+  - {fileID: 11400000, guid: ba6eead03e843b34b8cb965630862ba9, type: 2}
+  - {fileID: 11400000, guid: 4b8b649ef16cfc949bec50fa51cdd054, type: 2}
+  - {fileID: 11400000, guid: 653f71e1d9bee7f45846f80415ba16d3, type: 2}
+  TimeBeforeNextWave: 7
