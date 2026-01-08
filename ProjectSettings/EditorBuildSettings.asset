@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/CastleGameLevel.unity
     guid: ef74f6097ed22824fbba0f2ac76ef54e
+  - enabled: 1
+    path: Assets/Project/Scenes/InnerCastleLevel.unity
+    guid: fcfa4c86922d97645bed1477b53350af
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

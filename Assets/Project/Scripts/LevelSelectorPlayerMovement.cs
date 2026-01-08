@@ -17,6 +17,8 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
 
     private int level1Scene = 1;
     private int level2Scene = 7;
+    private int level3Scene = 8;
+
 
     public Light Level1Light;
     public Light Level2Light;
@@ -130,6 +132,8 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
         }
         else if(currentLevelIndex == 1){
                 SceneManager.LoadScene(level2Scene);
+        }else if (currentLevelIndex == 2){
+            SceneManager.LoadScene(level3Scene);
         }
     } 
 }
