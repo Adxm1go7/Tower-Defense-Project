@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2678417928508667699, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d42ed31e8fc6c964896fe66f21b87c5e, type: 2}
     - target: {fileID: 6997379684120590142, guid: af0eafb7caa97e74f9edc891713b737b, type: 3}
       propertyPath: m_Name
       value: SuperSpeederEnemy
