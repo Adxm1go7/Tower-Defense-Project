@@ -18,7 +18,7 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     private int level1Scene = 9;
     private int level2Scene = 7;
     private int level3Scene = 8;
-    private int level4Scene = 1;
+    private int level4Scene = 10;
 
 
     public Light Level1Light;
