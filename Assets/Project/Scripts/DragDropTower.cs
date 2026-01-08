@@ -7,6 +7,7 @@ using System;
 
 public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    [SerializeField] private AudioClip placeTowerSound;
     public GameObject towerPrefab;
     private GameObject currentTowerPreview;
     private TowerScript currentTowerScript;
@@ -84,6 +85,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             }
             currentTowerScript.activeTower = true; //Activate the tower attack functionality
             GameManager.Instance.deductCoins(towerPrefab.GetComponent<TowerScript>().towerStats.towerCost); //Deduct coins only if placement is valid
+            AudioManager.Instance.PlaySFX(placeTowerSound); //Play tower placement sound
         }
         else //prevent the tower placement as not enough coins
         {
