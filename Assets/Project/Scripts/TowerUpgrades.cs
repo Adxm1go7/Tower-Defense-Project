@@ -84,19 +84,21 @@ public class TowerUpgrades : MonoBehaviour
     private void giveUpgrade(TowerUpgradesObj upgrade, string path)
     {
         //Adding upgrades
-
-        //Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
-        tower.towerDamage += upgrade.damageInc;
-        tower.towerRange += upgrade.rangeInc;
-        tower.towerFireRate *= upgrade.fireRate;
-        GameManager.Instance.deductCoins(upgrade.cost);
+        //Check coins are above upgrade cost
+        if (GameManager.Instance.canPlaceTower(upgrade.cost))
+        {
+            //Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
+            tower.towerDamage += upgrade.damageInc;
+            tower.towerRange += upgrade.rangeInc;
+            tower.towerFireRate *= upgrade.fireRate;
+            GameManager.Instance.deductCoins(upgrade.cost);
         
-        //Investor tower upgrade specific
-        ifInvestor(path);
-        //Debug.Log("TEST");
-        ifFlamethrower(path);
-        ifFreeze(path);
-
+            //Investor tower upgrade specific
+            ifInvestor(path);
+            //Debug.Log("TEST");
+            ifFlamethrower(path);
+            ifFreeze(path);
+        }
 
 
     }

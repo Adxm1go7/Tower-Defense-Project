@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c098fef46992c345b87f6d31534e64f, type: 3}
-  m_Name: Wave
+  m_Name: Wave 4
   m_EditorClassIdentifier: 
   waveChunks:
   - {fileID: 11400000, guid: a7afa6ac06ac7b34d8a3202d83b89202, type: 2}
   - {fileID: 11400000, guid: a7afa6ac06ac7b34d8a3202d83b89202, type: 2}
+  - {fileID: 11400000, guid: 34a88e01e50935c4d9c0e39b13f14f15, type: 2}
+  - {fileID: 11400000, guid: 34a88e01e50935c4d9c0e39b13f14f15, type: 2}
+  - {fileID: 11400000, guid: 34a88e01e50935c4d9c0e39b13f14f15, type: 2}
+  - {fileID: 11400000, guid: 34a88e01e50935c4d9c0e39b13f14f15, type: 2}
   TimeBeforeNextWave: 5
