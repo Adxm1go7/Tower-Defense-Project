@@ -1165,9 +1165,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenGigaTankSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenHammerTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2048,9 +2048,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenTankSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenFlameTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2357,7 +2357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4337382427308124692}
-  - component: {fileID: 1071130298219669080}
+  - component: {fileID: 3810611069535302626}
   m_Layer: 5
   m_Name: TowersButton
   m_TagString: Untagged
@@ -2392,7 +2392,7 @@ RectTransform:
   m_AnchoredPosition: {x: -95, y: 95}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1071130298219669080
+--- !u!114 &3810611069535302626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2401,15 +2401,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4101823394236360839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008ba17ca39b1c74b90ccf83ba74eeaa, type: 3}
+  m_Script: {fileID: 11500000, guid: d429508de9364c64fa5adb192a148c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicSlymeInfo: {fileID: 305490784536402177}
-  SpeederSlymeInfo: {fileID: 6635655958269491236}
-  TankSlymeInfo: {fileID: 8082960001976717567}
-  AllomancerSlymeInfo: {fileID: 5916289272499835646}
-  GigaTankSlymeInfo: {fileID: 2959757936467331556}
-  MotherSlymeInfo: {fileID: 8538953200251120125}
+  ArcherTowerInfo: {fileID: 8241190898631912288}
+  SniperTowerInfo: {fileID: 6244281979062589359}
+  FlameTowerInfo: {fileID: 3740482166346328975}
+  FreezeTowerInfo: {fileID: 6029926634500085113}
+  HammerTowerInfo: {fileID: 1887629723379393068}
+  LightningTowerInfo: {fileID: 6902896281654205521}
+  InvestorTowerInfo: {fileID: 5737770274667641356}
+  SwordTowerInfo: {fileID: 8044506539765277157}
 --- !u!1 &4358153750240186602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,9 +3371,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenMotherSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenInvestorTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3556,9 +3558,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenSpeederSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenFreezeTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3782,9 +3784,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenAllomancerSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenSniperTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4582,9 +4584,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenSpeederSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenLightningTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5561,9 +5563,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenGigaTankSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenSwordTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5748,9 +5750,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071130298219669080}
-        m_TargetAssemblyTypeName: ArcanaEnemies, Assembly-CSharp
-        m_MethodName: OpenBasicSlymeInfo
+      - m_Target: {fileID: 3810611069535302626}
+        m_TargetAssemblyTypeName: ArcanaTowers, Assembly-CSharp
+        m_MethodName: OpenArcherTowerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
