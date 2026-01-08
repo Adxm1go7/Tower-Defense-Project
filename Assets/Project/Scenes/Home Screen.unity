@@ -3958,7 +3958,7 @@ PrefabInstance:
     - target: {fileID: 8174213988992883431, guid: 66c1656a86b9edd4aa0fe64b350e2226, type: 3}
       propertyPath: currentDifficulty
       value: 
-      objectReference: {fileID: 11400000, guid: 655f8327911bb7144be57780bd948a11, type: 2}
+      objectReference: {fileID: 11400000, guid: 01f929566e27bf74783ed8b4ccb0163a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

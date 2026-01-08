@@ -25,16 +25,21 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     public Light Level3Light;
     public Light Level4Light;
 
+    public GameObject LoadingScreenOverlay;
+    public bool loadScene = false;
+
     void Start()
     {
         waypointsArray = Waypoints.waypointsArray;
         currentLevelIndex = 0;
         movingPlayer = false;
+        loadScene = false;
+        LoadingScreenOverlay.SetActive(false);
     }
 
     void Update()
     {
-        if (movingPlayer == false)
+        if (movingPlayer == false && loadScene == false)
         {
             CheckForMove();
         }
@@ -75,7 +80,7 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
 
     void CheckForMove()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             nextLevel();
         }
@@ -90,7 +95,8 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     }
     void movePlayer()
     {
-        
+        if (loadScene) return;
+
         transform.Translate(direction.normalized * moveSpeed * Time.deltaTime, Space.World);
         Vector3 playerPosition = new Vector3(transform.position.x, 0f, transform.position.z);
         Vector3 nodePosition = new Vector3(target.position.x, 0f, target.position.z);
@@ -127,13 +133,18 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
 
     public void PlayGame()
     {
-        if (currentLevelIndex == 0) {
-            SceneManager.LoadScene(level1Scene);
+        loadScene = true;
+        LoadingScreenOverlay.SetActive(true);
+        if (currentLevelIndex == 0) 
+        {
+            LoadingScreenOverlay.GetComponent<LoadingScene>().LoadScene(level1Scene);
         }
-        else if(currentLevelIndex == 1){
-                SceneManager.LoadScene(level2Scene);
-        }else if (currentLevelIndex == 2){
-            SceneManager.LoadScene(level3Scene);
+        else if(currentLevelIndex == 1)
+        {
+            LoadingScreenOverlay.GetComponent<LoadingScene>().LoadScene(level2Scene);
+        }else if (currentLevelIndex == 2)
+        {
+            LoadingScreenOverlay.GetComponent<LoadingScene>().LoadScene(level3Scene);
         }
     } 
 }
