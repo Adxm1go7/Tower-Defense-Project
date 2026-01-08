@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1cddff23f705547820279944da7aa4, type: 3}
   m_Name: LevelTalhah
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - {fileID: 11400000, guid: 78a9138e613ec3543aeb8577d23af162, type: 2}
+  - {fileID: 11400000, guid: 78a9138e613ec3543aeb8577d23af162, type: 2}
