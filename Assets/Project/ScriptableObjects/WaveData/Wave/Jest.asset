@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Jest
   m_EditorClassIdentifier: 
   waveChunks:
-  - {fileID: 11400000, guid: a0ac1c205562dff47a6bfcb1a1edec5f, type: 2}
-  - {fileID: 11400000, guid: a0ac1c205562dff47a6bfcb1a1edec5f, type: 2}
-  - {fileID: 11400000, guid: a0ac1c205562dff47a6bfcb1a1edec5f, type: 2}
+  - {fileID: 11400000, guid: cf69c51e49b680645a96a91a94e09715, type: 2}
   TimeBeforeNextWave: 5

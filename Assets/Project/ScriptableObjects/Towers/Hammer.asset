@@ -17,5 +17,5 @@ MonoBehaviour:
   towerRange: 2.5
   towerDamage: 8
   towerFireRate: 1.3
-  towerCost: 40
+  towerCost: 75
   elementType: 
