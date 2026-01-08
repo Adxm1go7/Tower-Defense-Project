@@ -197,4 +197,12 @@ public class TowerUpgrades : MonoBehaviour
         }
 
     }
+
+    public int GetALevel(){
+        return currentALevel;
+    }
+
+    public int GetBLevel(){
+        return currentBLevel;
+    }
 }
