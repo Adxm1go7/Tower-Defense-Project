@@ -554,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: c6b38fd59aae6e84a9bdf7d13942db8d, type: 3}
+  hoverSoundEnabled: 0
 --- !u!114 &183754353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,6 +2373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: c6b38fd59aae6e84a9bdf7d13942db8d, type: 3}
+  hoverSoundEnabled: 0
 --- !u!114 &952793072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,6 +2639,9 @@ MonoBehaviour:
   AllomancerSlymeInfo: {fileID: 1154604448}
   GigaTankSlymeInfo: {fileID: 300367182}
   MotherSlymeInfo: {fileID: 599225307}
+  SuperSpeederInfo: {fileID: 0}
+  JesterSlymeInfo: {fileID: 0}
+  BossSlymeInfo: {fileID: 0}
 --- !u!224 &1114936423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3028,6 +3033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: c6b38fd59aae6e84a9bdf7d13942db8d, type: 3}
+  hoverSoundEnabled: 0
 --- !u!114 &1222872767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3384,6 +3390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 347984c67cf480b47814009af36a21ec, type: 3}
+  hoverSoundEnabled: 0
 --- !u!114 &1270916270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3689,6 +3696,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304741640}
   m_CullTransparentMesh: 1
+--- !u!1001 &1349196905
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -254.69945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 48.32456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 162.50797
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512920410788079457, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171147340162434798, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_Name
+      value: ArcanaEnemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171147340162434798, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054414498872787148, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1349196906}
+    - target: {fileID: 9054414498872787148, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054414498872787148, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ArcanaEnemies, Assembly-CSharp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+--- !u!114 &1349196906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 334409800048789780, guid: 95f36472735ad294bad75f8941e0f300, type: 3}
+  m_PrefabInstance: {fileID: 1349196905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008ba17ca39b1c74b90ccf83ba74eeaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1401012096
 GameObject:
   m_ObjectHideFlags: 0
@@ -4127,6 +4218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: c6b38fd59aae6e84a9bdf7d13942db8d, type: 3}
+  hoverSoundEnabled: 0
 --- !u!114 &1475939110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4503,6 +4595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: c6b38fd59aae6e84a9bdf7d13942db8d, type: 3}
+  hoverSoundEnabled: 0
 --- !u!114 &1530355349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5447,6 +5540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: c6b38fd59aae6e84a9bdf7d13942db8d, type: 3}
+  hoverSoundEnabled: 0
 --- !u!114 &2041903959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5693,7 +5787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2143833099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5785,4 +5879,5 @@ SceneRoots:
   - {fileID: 1504228637}
   - {fileID: 638239790}
   - {fileID: 2143833102}
+  - {fileID: 1349196905}
   - {fileID: 42656317}

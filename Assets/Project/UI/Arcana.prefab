@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 8740881615852812437}
   - component: {fileID: 7665173335102812922}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Arcana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
