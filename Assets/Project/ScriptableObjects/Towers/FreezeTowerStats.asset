@@ -16,6 +16,6 @@ MonoBehaviour:
   towerName: Freeze
   towerRange: 4
   towerDamage: 1
-  towerFireRate: 1
-  towerCost: 275
+  towerFireRate: 2
+  towerCost: 200
   elementType: 

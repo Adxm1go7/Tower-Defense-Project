@@ -2946,6 +2946,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7046739298895817529, guid: e2a8e16e4564cc246b72afe49e9b3597, type: 3}
   m_PrefabInstance: {fileID: 132811733}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &135656065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135656066}
+  - component: {fileID: 135656067}
+  m_Layer: 5
+  m_Name: TowersButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &135656066
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135656065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 678989868}
+  - {fileID: 1792627344}
+  - {fileID: 1002006172}
+  - {fileID: 620384415}
+  - {fileID: 1441101972}
+  - {fileID: 1610646319}
+  - {fileID: 662798073}
+  - {fileID: 325536743}
+  m_Father: {fileID: 829375623}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -95, y: 95}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &135656067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135656065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008ba17ca39b1c74b90ccf83ba74eeaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BasicSlymeInfo: {fileID: 117521206}
+  SpeederSlymeInfo: {fileID: 457481204}
+  TankSlymeInfo: {fileID: 1146091610}
+  AllomancerSlymeInfo: {fileID: 1204017916}
+  GigaTankSlymeInfo: {fileID: 775308887}
+  MotherSlymeInfo: {fileID: 1644655948}
+  SuperSpeederInfo: {fileID: 0}
+  JesterSlymeInfo: {fileID: 0}
+  BossSlymeInfo: {fileID: 0}
 --- !u!1001 &137292683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4507,6 +4572,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7046739298895817529, guid: e2a8e16e4564cc246b72afe49e9b3597, type: 3}
   m_PrefabInstance: {fileID: 238406631}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &238742888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238742889}
+  - component: {fileID: 238742890}
+  m_Layer: 5
+  m_Name: EnemiesButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &238742889
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238742888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2078730498}
+  - {fileID: 360454840}
+  - {fileID: 693018416}
+  - {fileID: 1182239756}
+  - {fileID: 1272315758}
+  - {fileID: 164913537}
+  m_Father: {fileID: 1947264168}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -95, y: 95}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &238742890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238742888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008ba17ca39b1c74b90ccf83ba74eeaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BasicSlymeInfo: {fileID: 913710805}
+  SpeederSlymeInfo: {fileID: 1488125501}
+  TankSlymeInfo: {fileID: 1848944807}
+  AllomancerSlymeInfo: {fileID: 630802664}
+  GigaTankSlymeInfo: {fileID: 1355175163}
+  MotherSlymeInfo: {fileID: 125647178}
+  SuperSpeederInfo: {fileID: 0}
+  JesterSlymeInfo: {fileID: 0}
+  BossSlymeInfo: {fileID: 0}
 --- !u!1001 &242311190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27884,6 +28012,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerName
       objectReference: {fileID: 0}
+    - target: {fileID: 1975382716063930995, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975382716063930995, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975382716063930995, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975382716063930995, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2029026764149225036, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -28086,6 +28230,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2765931522018495212, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765931522018495212, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765931522018495212, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765931522018495212, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2795320235092677461, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_Name
       value: Upgrade1Text
@@ -28103,6 +28263,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2822973867228115583, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872656491398990771, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872656491398990771, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872656491398990771, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872656491398990771, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -28208,11 +28384,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4684399414775715790, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -150
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4684399414775715790, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 4702149001303444841, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchorMax.x
@@ -28434,6 +28610,22 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b0999143721c7fe4eba0ce1d47594c7e, type: 2}
     - target: {fileID: 7162749590580839083, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206822533637901458, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206822533637901458, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206822533637901458, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206822533637901458, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7393101705062087732, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
