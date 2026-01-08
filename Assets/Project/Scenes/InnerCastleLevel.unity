@@ -16190,6 +16190,9 @@ MonoBehaviour:
   stepRayUpper: {fileID: 1294648917}
   stepRayLower: {fileID: 2059533149}
   stepSmooth: 0.1
+  pathLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!54 &1684584876
 Rigidbody:
   m_ObjectHideFlags: 0
