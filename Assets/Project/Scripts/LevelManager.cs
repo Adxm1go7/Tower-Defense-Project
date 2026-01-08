@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     public float currentSpeed = 1f;
 
     public GameObject pauseMenuUI; // Reference to the pause menu UI
+    public GameObject UpgradePanelUI; // Reference to the upgrade panel UI
 
     public GameObject GameLevel;
     public GameObject TheArcana;
@@ -52,6 +53,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         pauseMenuUI.SetActive(false);
+        UpgradePanelUI.SetActive(false);
     }
 
     void Update()

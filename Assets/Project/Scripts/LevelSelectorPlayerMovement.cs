@@ -13,9 +13,12 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     private bool movingPlayer;
     private Vector3 direction;
 
-    private float moveSpeed = 6f;
+    private float moveSpeed = 12f;
 
     private int level1Scene = 1;
+    private int level2Scene = 7;
+    private int level3Scene = 8;
+
 
     void Start()
     {
@@ -40,31 +43,15 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (currentLevelIndex < waypointsArray.Length - 1)
-            {
-                currentLevelIndex++;
-                target = waypointsArray[currentLevelIndex];
-                movingPlayer = true;
-                direction = target.position - transform.position;
-                direction.y = 0f;
-            }
+            nextLevel();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            if (currentLevelIndex > 0)
-            {
-                currentLevelIndex--;
-                target = waypointsArray[currentLevelIndex];
-                movingPlayer = true;
-                direction = target.position - transform.position;
-                direction.y = 0f;
-            }
+            PreviousLevel();
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
-            if (currentLevelIndex == 0) {
-                SceneManager.LoadScene(7);
-            }
+            PlayGame();
         }
     }
     void movePlayer()
@@ -77,5 +64,42 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
         {
             movingPlayer = false;
         }
-    }  
+    }
+
+    public void nextLevel()
+    {
+        Debug.Log("Next Level");
+        if (currentLevelIndex < waypointsArray.Length - 1)
+            {
+                currentLevelIndex++;
+                target = waypointsArray[currentLevelIndex];
+                movingPlayer = true;
+                direction = target.position - transform.position;
+                direction.y = 0f;
+            }
+    }
+
+    public void PreviousLevel()
+    {
+        if (currentLevelIndex > 0)
+            {
+                currentLevelIndex--;
+                target = waypointsArray[currentLevelIndex];
+                movingPlayer = true;
+                direction = target.position - transform.position;
+                direction.y = 0f;
+            }
+    }
+
+    public void PlayGame()
+    {
+        if (currentLevelIndex == 0) {
+            SceneManager.LoadScene(level1Scene);
+        }
+        else if(currentLevelIndex == 1){
+                SceneManager.LoadScene(level2Scene);
+        }else if (currentLevelIndex == 2){
+            SceneManager.LoadScene(level3Scene);
+        }
+    } 
 }

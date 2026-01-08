@@ -7,15 +7,45 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float transitionTime = 0.4f;
 
+    [SerializeField] private Vector3 followOffset = new Vector3(0, 6, -6);
+    [SerializeField] private float followSmoothSpeed = 6f;
+
     private Vector3 defaultPosition;
     private Quaternion defaultRotation;
     private Coroutine transitionRoutine;
+
+    public Transform followTarget;
+
 
     void Awake()
     {
         // Store the default camera position and rotation
         defaultPosition = mainCamera.transform.position;
         defaultRotation = mainCamera.transform.rotation;
+    }
+
+    void LateUpdate()
+    {
+        // Follow hero if one is set
+        if (followTarget == null)
+            return;
+
+        Vector3 desiredPosition = followTarget.position + followOffset;
+
+        mainCamera.transform.position = Vector3.Lerp(
+            mainCamera.transform.position,
+            desiredPosition,
+            followSmoothSpeed * Time.deltaTime
+        );
+
+        Quaternion targetRotation =
+            Quaternion.LookRotation(followTarget.position - mainCamera.transform.position);
+
+        mainCamera.transform.rotation = Quaternion.Slerp(
+            mainCamera.transform.rotation,
+            targetRotation,
+            followSmoothSpeed * Time.deltaTime
+        );
     }
 
     public void FocusOnTower(Transform tower)

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &136670873
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &499141843
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &562885574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &1050721307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &1220140925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2137491198718672749, guid: bc86f5ba56b20c94c9dde17dd568055d, type: 3}
@@ -1916,6 +1921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &1510104589
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,6 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &2029576947
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,6 +3229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &2104855617
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,6 +3377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1 &2112974887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,6 +3659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 54bbce67cf1ddb74cb1bb274340bc842, type: 3}
+  hoverSoundEnabled: 1
 --- !u!1001 &1104332376376910864
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class UpgradePanelController : MonoBehaviour
 
     private TowerScript selectedTower; // Currently selected tower
 
+
     void Update()
     {
         if (selectedTower != null)
@@ -35,6 +36,12 @@ public class UpgradePanelController : MonoBehaviour
     public void SetSelectedTower(TowerScript tower)
     {
         selectedTower = tower;
+        if (selectedTower.towerName == "Archer")
+        {
+            Upgrade1Text.text = "Increase Damage";
+            Upgrade2Text.text = "Increase Range";
+            SpecialAtk.enabled = false;
+        }
     }
 
     public void UpgradeTowerPathA()

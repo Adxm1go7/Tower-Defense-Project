@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BasicBoss
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 8ef7e7ff2b5392340a141b094bb6aa19, type: 2}
-  enemyCount: 1
+  enemyCount: 100
   spawnInterval: 3
