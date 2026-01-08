@@ -16,5 +16,5 @@ MonoBehaviour:
   cost: 0
   damageInc: 0
   rangeInc: 0
-  fireRate: 0
+  fireRate: 1
   description: 
