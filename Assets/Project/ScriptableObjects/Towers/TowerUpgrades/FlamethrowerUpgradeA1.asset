@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FlamethrowerUpgradeA1
   m_EditorClassIdentifier: 
   name: 
-  cost: 0
-  damageInc: 0
-  rangeInc: 0
-  fireRate: 1
+  cost: 75
+  damageInc: 1
+  rangeInc: 0.2
+  fireRate: 0
   description: 
