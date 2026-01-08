@@ -11,6 +11,9 @@ public class ArcanaEnemies : MonoBehaviour
     public GameObject AllomancerSlymeInfo;
     public GameObject GigaTankSlymeInfo;
     public GameObject MotherSlymeInfo;
+    public GameObject SuperSpeederInfo;
+    public GameObject JesterSlymeInfo;
+    public GameObject BossSlymeInfo;
 
     public void OpenBasicSlymeInfo()
     {
@@ -42,6 +45,21 @@ public class ArcanaEnemies : MonoBehaviour
         CloseInfoPanels();
         MotherSlymeInfo.SetActive(true);
     }
+    public void OpenSuperSpeederInfo()
+    {
+        CloseInfoPanels();
+        SuperSpeederInfo.SetActive(true);
+    }
+    public void OpenJesterSlymeInfo()
+    {
+        CloseInfoPanels();
+        JesterSlymeInfo.SetActive(true);
+    }
+    public void OpenBossSlymeInfo()
+    {
+        CloseInfoPanels();
+        BossSlymeInfo.SetActive(true);
+    }
     
     public void CloseInfoPanels()
     {
@@ -51,6 +69,9 @@ public class ArcanaEnemies : MonoBehaviour
         AllomancerSlymeInfo.SetActive(false);
         GigaTankSlymeInfo.SetActive(false);
         MotherSlymeInfo.SetActive(false);
+        SuperSpeederInfo.SetActive(false);
+        JesterSlymeInfo.SetActive(false);
+        BossSlymeInfo.SetActive(false);
     }
 
     public void ReturnButton()

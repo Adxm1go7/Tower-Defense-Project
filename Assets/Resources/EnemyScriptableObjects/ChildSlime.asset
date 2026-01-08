@@ -22,5 +22,5 @@ MonoBehaviour:
   RegenTime: 0
   SplitCount: 0
   SplitEnemy: {fileID: 0}
-  CoinsWorth: 6
+  CoinsWorth: 2
   DodgeChance: 0

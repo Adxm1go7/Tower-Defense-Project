@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetDifficulty(DifficultyStats difficulty){ // Called from Home screen
+        Debug.Log(difficulty.name + " Recieved at gameManager");
         currentDifficulty = difficulty;
     }
 
