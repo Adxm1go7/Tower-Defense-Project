@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 
+
 public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public GameObject towerPrefab;
@@ -12,6 +13,8 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public GameObject map;
     private RectTransform rectTransform;
     private Canvas canvas;
+
+    public float OffsetY;
     
     private void Awake()
     {
@@ -26,6 +29,11 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         {
             Debug.Log("Not enough coins to place tower");
             return;
+        }
+        OffsetY = 1; //Offset to ensure tower is placed above ground level
+        if (SceneStackManager.Instance.Peek() == 9)
+        {
+            OffsetY +=1.02f;
         }
         // Instantiate a preview of the tower being dragged
         currentTowerPreview = Instantiate(towerPrefab.gameObject);
@@ -47,7 +55,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             {
                 currentTowerPreview.transform.position = new Vector3(
                     hit.point.x,
-                    1+1.02f,
+                    OffsetY,
                     hit.point.z
                 ); //Move tower preview to hit point with y offset of 1 so that it is level with the map
             }
@@ -59,10 +67,9 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
         if (GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerStats.towerCost))
         {
-
             currentTowerPreview.transform.position = new Vector3(
                     Mathf.Round(currentTowerPreview.transform.position.x),
-                    1+1.02f,
+                    OffsetY,
                     Mathf.Round(currentTowerPreview.transform.position.z)
                 );
 
