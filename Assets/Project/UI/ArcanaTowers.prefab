@@ -498,7 +498,7 @@ MonoBehaviour:
 
     Fire Rate: 0
 
-    Cost: 125
+    Cost: 180
 
     Target:
     Multi burst projectile'
@@ -2550,9 +2550,9 @@ MonoBehaviour:
 
     Damage: 3
 
-    Fire Rate: 0.5
+    Fire Rate: 0.7
 
-    Cost: 20
+    Cost: 45
 
     Target:
     Single'
@@ -5861,7 +5861,7 @@ MonoBehaviour:
 
     Fire Rate: 2
 
-    Cost: 150
+    Cost: 145
 
     Target:
     Multi Chain Lock'
@@ -6002,12 +6002,12 @@ MonoBehaviour:
 
     Damage: 1
 
-    Fire Rate: 1
+    Fire Rate: 2
 
-    Cost: 50
+    Cost: 150
 
-    Target: Multi
-    burst projectile'
+    Target:
+    Multi burst projectile'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6426,11 +6426,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Range: 2.5
 
-    Damage: 10
+    Damage: 9
 
     Fire Rate: 1.5
 
-    Cost: 40
+    Cost: 55
 
     Target:
     Single'
