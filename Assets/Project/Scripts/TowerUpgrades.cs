@@ -181,17 +181,16 @@ public class TowerUpgrades : MonoBehaviour
             {
                 if (path == "A")
                 {
-                    investor.incomeData.timeInterval -= 0.7f;
+                    investor.incomeData.timeInterval -= 0.75f;
                 }
                 else if (path == "B")
                 {
-                    investor.incomeData.coinsGenerated += 2;
+                    investor.incomeData.coinsGenerated += 1;
                     investor.incomeData.maxStoredCoins += 10;
                     
                 }
 
             }
-            investor.incomeData.maxStoredCoins += 25;
             //Debug.Log(investor.incomeData.timeInterval);
             //Debug.Log(investor.incomeData.coinsGenerated);
         }
