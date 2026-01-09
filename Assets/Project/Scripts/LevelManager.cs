@@ -75,7 +75,13 @@ public class LevelManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameManager.Instance.isPaused)
+            openOptions();
+        } 
+    }
+
+    public void openOptions()
+    {
+        if (GameManager.Instance.isPaused)
             {
                 pauseMenuUI.SetActive(false);
                 ContinueGame();
@@ -85,7 +91,6 @@ public class LevelManager : MonoBehaviour
                 pauseMenuUI.SetActive(true);
                 PauseGame();
             }
-        } 
     }
 
     public void ContinueGame()
