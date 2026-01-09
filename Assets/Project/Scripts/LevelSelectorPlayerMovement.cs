@@ -98,13 +98,27 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
     {
         if (loadScene) return;
 
-        transform.Translate(direction.normalized * moveSpeed * Time.deltaTime, Space.World);
-        Vector3 playerPosition = new Vector3(transform.position.x, 0f, transform.position.z);
-        Vector3 nodePosition = new Vector3(target.position.x, 0f, target.position.z);
-        if (Vector3.Distance(playerPosition, nodePosition) <= 0.3f)
+        Vector3 pos = transform.position;
+        Vector3 targetPos = target.position;
+
+        pos.y = 0f;
+        targetPos.y = 0f;
+
+        Vector3 toTarget = targetPos - pos;
+        float sqrDistance = toTarget.sqrMagnitude;
+
+        // Move
+        Vector3 move = toTarget.normalized * moveSpeed * Time.deltaTime;
+
+        // Clamp so we never overshoot
+        if (move.sqrMagnitude >= sqrDistance)
         {
+            transform.position = target.position;
             movingPlayer = false;
+            return;
         }
+
+        transform.position += move;
     }
 
     public void nextLevel()
