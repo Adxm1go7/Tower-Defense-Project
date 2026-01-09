@@ -9,7 +9,7 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
 
     [Header("Visual Setup")]
     public Animator animator;
-    public float shootDelay = 24f;
+    public float shootDelay;
     // Start is called before the first frame update
     //WE CALL THE TOWERSTATS SCRIPTABLE OBJECT 
     public TowerStats towerStats;
