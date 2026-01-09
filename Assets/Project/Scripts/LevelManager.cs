@@ -52,6 +52,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        CloseAllPanels();
+        GameLevel.SetActive(true);
         pauseMenuUI.SetActive(false);
         UpgradePanelUI.SetActive(false);
     }

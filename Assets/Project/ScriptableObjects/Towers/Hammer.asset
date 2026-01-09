@@ -15,7 +15,7 @@ MonoBehaviour:
   towerID: 5
   towerName: Hammer
   towerRange: 2.5
-  towerDamage: 8
-  towerFireRate: 1.3
-  towerCost: 75
+  towerDamage: 9
+  towerFireRate: 1.5
+  towerCost: 65
   elementType: 

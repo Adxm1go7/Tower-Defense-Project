@@ -15,6 +15,6 @@ MonoBehaviour:
   name: 
   cost: 20
   damageInc: 1
-  rangeInc: 1
-  fireRate: 0.9
+  rangeInc: 0.4
+  fireRate: 0
   description: 
