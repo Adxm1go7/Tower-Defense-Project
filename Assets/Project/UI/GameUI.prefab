@@ -927,7 +927,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Swordsman
 
-    *Cost'
+    $20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -960,7 +960,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1249,7 +1249,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'FlameThrower
 
-    *Cost'
+    $125'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1276,13 +1276,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2824,6 +2824,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: 6a2853afc4d824848b75f5e8d03c1120, type: 3}
   towerPrefab: {fileID: 4140816189955782096, guid: 03e411c219ad95f4aaf1b4b67afda970, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &2611742734880838402
 GameObject:
@@ -5057,6 +5058,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: aa546be13a3170e4cbba2aa40d604a2b, type: 3}
   towerPrefab: {fileID: 4031847795373006163, guid: cd9faa6fec49da9418adeef9f3a9d161, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &4276104163456739573
 GameObject:
@@ -5200,7 +5202,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sniper
 
-    *Cost'
+    $45'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5233,7 +5235,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5408,6 +5410,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: 24383d4ae43d8844d9b20ffe96eda342, type: 3}
   towerPrefab: {fileID: 803415986045011492, guid: f4b4c57f09d77bc469a6d3aad1f462aa, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &4567554825089746105
 GameObject:
@@ -5750,6 +5753,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: 770eff2cdad673e4d869fbf13f6c5142, type: 3}
   towerPrefab: {fileID: 434289805978554490, guid: a8a4049513bcc5f4284ddf4bed43f0cc, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &5115402704568728380
 GameObject:
@@ -6962,6 +6966,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: fa968587ace724e4ab4d0e96453dd131, type: 3}
   towerPrefab: {fileID: 820369606598216334, guid: bbd5aff3852e88341a0310c893ed2617, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &5979870618045759548
 GameObject:
@@ -7385,6 +7390,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: 096f3b48e4910c74d9a96d5448164644, type: 3}
   towerPrefab: {fileID: 4586800811908833764, guid: 69dc5bff8519fa8489db824fc311f36a, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &6786568093510789238
 GameObject:
@@ -7453,7 +7459,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Freeze
 
-    *Cost'
+    $50'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7486,7 +7492,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -7625,7 +7631,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lightning
 
-    *Cost'
+    $150'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7658,7 +7664,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -8224,6 +8230,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: 8e5dfeb4ad9171f49b18b78c4c24ea43, type: 3}
   towerPrefab: {fileID: 762890769320387682, guid: a63bbafcf7f86944291a7526c9107824, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &7710645747612419415
 GameObject:
@@ -8367,7 +8374,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Investor
 
-    *Cost'
+    $40'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8400,7 +8407,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -8539,7 +8546,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Hammer
 
-    *Cost'
+    $40'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8572,7 +8579,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -9081,6 +9088,7 @@ MonoBehaviour:
   placeTowerSound: {fileID: 8300000, guid: 3282952b0633fe646bc1c87a90c43495, type: 3}
   towerPrefab: {fileID: 1192720667145627910, guid: 07bd892d854e42d4e8ec6944e4659f65, type: 3}
   map: {fileID: 0}
+  rock: {fileID: 0}
   OffsetY: 0
 --- !u!1 &8248872180539646559
 GameObject:
@@ -9517,7 +9525,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Archer
 
-    *Cost'
+    $20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9550,7 +9558,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
