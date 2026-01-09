@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     public int currentScene;
     public int previousScene;
 
+    public GameObject deathScreen;
+    public GameObject winScreen;
+
 
 
     public LevelManager levelManager; // Contains information and references to everything within the level
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartLevel(){
+        isPaused = false;
         numRounds = levelManager.numRounds;
         currentRound = levelManager.currentRound;
         RoundText = levelManager.RoundText;
@@ -73,6 +77,10 @@ public class GameManager : MonoBehaviour
         ultraFastSpeed = levelManager.ultraFastSpeed;
         currentSpeed = levelManager.currentSpeed;
         cameraController = levelManager.mainCamera.GetComponent<CameraController>();
+        deathScreen = levelManager.DeathScreen;
+        winScreen = levelManager.WinScreen;
+
+
 
         setCurrentRound(1);
     }
@@ -95,7 +103,11 @@ public class GameManager : MonoBehaviour
         {
             levelManager.health = 0;
             Debug.Log("Game Over!");
-            SceneManager.LoadScene(3); // Loads Death screen
+            levelManager.SidePanel.SetActive(false);
+            deathScreen.SetActive(true);
+            levelManager.PauseGame();
+            Debug.Log("OtherSide");
+
         }
         else
         {

@@ -41,6 +41,9 @@ public class LevelManager : MonoBehaviour
     public GameObject ArcanaTowers;
     public GameObject ArcanaEnemies;
 
+    public GameObject DeathScreen;
+    public GameObject WinScreen;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -68,16 +71,25 @@ public class LevelManager : MonoBehaviour
             if (GameManager.Instance.isPaused)
             {
                 pauseMenuUI.SetActive(false);
-                Time.timeScale = GameManager.Instance.currentSpeed; // Resume game at current speed
-                GameManager.Instance.isPaused = false;
+                ContinueGame();
             }
             else
             {
                 pauseMenuUI.SetActive(true);
-                Time.timeScale = 0f; // Pause game
-                GameManager.Instance.isPaused = true;
+                PauseGame();
             }
         } 
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = GameManager.Instance.currentSpeed; // Resume game at current speed
+        GameManager.Instance.isPaused = false;
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; // Pause game
+        GameManager.Instance.isPaused = true;
     }
 
     public void HomeButton()
@@ -99,6 +111,10 @@ public class LevelManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex); // Reload current scene
         GameManager.Instance.isPaused = false; // Unpause the game
         pauseMenuUI.SetActive(false); // Hide pause menu UI
+    }
+    public void StagesButton()
+    {
+        SceneManager.LoadScene(2);
     }
 
     public void OpenArcana()
@@ -133,6 +149,8 @@ public class LevelManager : MonoBehaviour
         ArcanaTowers.SetActive(false);
         TheArcana.SetActive(false);
         GameLevel.SetActive(true);
+        DeathScreen.SetActive(false);
+        WinScreen.SetActive(false);
     }
 
     public void CloseSidePanel()
