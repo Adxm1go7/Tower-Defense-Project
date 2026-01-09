@@ -104,7 +104,7 @@ public class UpgradePanelController : MonoBehaviour
 
     public void UpgradeHeroPathA()
     {
-        Debug.Log("UpgradeHeroPathA CLICKED");
+        //Debug.Log("UpgradeHeroPathA CLICKED");
         if (heroUpgrades != null)
         {
             heroUpgrades.UpgradeA();

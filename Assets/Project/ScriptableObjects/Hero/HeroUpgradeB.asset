@@ -15,6 +15,6 @@ MonoBehaviour:
   cost: 50
   singleDamageInc: 0
   areaDamageInc: 0
-  singleRateDec: 0.05
-  areaRateDec: 0.05
-  aoeRadiusInc: 0
+  singleRateDec: 0.15
+  areaRateDec: 0.15
+  aoeRadiusInc: 1

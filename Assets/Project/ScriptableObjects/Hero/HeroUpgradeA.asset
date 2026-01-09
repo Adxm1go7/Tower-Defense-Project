@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HeroUpgradeA
   m_EditorClassIdentifier: 
   cost: 50
-  singleDamageInc: 3
-  areaDamageInc: 3
+  singleDamageInc: 2
+  areaDamageInc: 2
   singleRateDec: 0
   areaRateDec: 0
   aoeRadiusInc: 0
