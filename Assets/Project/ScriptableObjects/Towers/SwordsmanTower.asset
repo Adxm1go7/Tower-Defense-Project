@@ -16,6 +16,6 @@ MonoBehaviour:
   towerName: Swordsman
   towerRange: 3
   towerDamage: 3
-  towerFireRate: 0.5
-  towerCost: 55
+  towerFireRate: 0.7
+  towerCost: 45
   elementType: 

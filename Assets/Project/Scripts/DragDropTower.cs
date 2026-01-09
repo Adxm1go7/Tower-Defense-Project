@@ -12,6 +12,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private GameObject currentTowerPreview;
     private TowerScript currentTowerScript;
     public GameObject map;
+    public GameObject rock;
     private RectTransform rectTransform;
     private Canvas canvas;
 
@@ -36,6 +37,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         {
             OffsetY +=1.02f;
         }
+
         // Instantiate a preview of the tower being dragged
         currentTowerPreview = Instantiate(towerPrefab.gameObject);
         currentTowerScript = currentTowerPreview.GetComponent<TowerScript>(); //Get the TowerScript component of the preview
@@ -52,14 +54,21 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             Ray ray = Camera.main.ScreenPointToRay(cursorPos); //Create ray from camera to cursor position
             RaycastHit hit; //Store information about what ray hits
 
+            if (SceneStackManager.Instance.Peek() == 10)
+            {
+                ;
+            }
+
             if (map.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)) //If ray hits the map collider
             {
+            
                 currentTowerPreview.transform.position = new Vector3(
                     hit.point.x,
                     OffsetY,
                     hit.point.z
                 ); //Move tower preview to hit point with y offset of 1 so that it is level with the map
             }
+        
         }   
     }
 
@@ -68,6 +77,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
         if (GameManager.Instance.canPlaceTower(towerPrefab.GetComponent<TowerScript>().towerStats.towerCost))
         {
+
             currentTowerPreview.transform.position = new Vector3(
                     Mathf.Round(currentTowerPreview.transform.position.x),
                     OffsetY,
