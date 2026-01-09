@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: InvestorTowerIncomeStats
   m_EditorClassIdentifier: 
   coinsGenerated: 1
-  timeInterval: 5
-  maxStoredCoins: 10
+  timeInterval: 4
+  maxStoredCoins: 25
