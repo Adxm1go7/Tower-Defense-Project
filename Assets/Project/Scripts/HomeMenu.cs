@@ -43,7 +43,7 @@ public class HomeMenu : MonoBehaviour
 
     public void openArcana()
     {
-        SceneManager.LoadScene(4); // Loads Arcana scene
+        SceneManager.LoadScene(3); // Loads Arcana scene
     }
 
     public void ToggleOptions()

@@ -14,13 +14,13 @@ public class ArcanaButtons : MonoBehaviour
     public void EnemiesButton()
     {
         Debug.Log("Enemies Button Pressed");
-        UnityEngine.SceneManagement.SceneManager.LoadScene(5); // Load enemy selection scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(4); // Load enemy selection scene
     }
 
     public void TowersButton()
     {
         Debug.Log("Towers Button Pressed");
-        UnityEngine.SceneManagement.SceneManager.LoadScene(6); // Load tower selection scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(5); // Load tower selection scene
     }
 
 }
