@@ -56,34 +56,19 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
             if (SceneStackManager.Instance.Peek() == 10)
             {
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-                {
-                    // Only allow placement preview on map or rock
-                    if (hit.collider.gameObject == map || hit.collider.gameObject == rock)
-                    {
-
-                        OffsetY = hit.point.y;
-                        
-
-                        float placementOffset = 0.5f; // tweak based on tower size
-
-                        currentTowerPreview.transform.position =
-                        hit.point + hit.normal * placementOffset;
-                        }
-                    }
-                }
-
-            else{
-                if (map.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)) //If ray hits the map collider
-                {
-                
-                    currentTowerPreview.transform.position = new Vector3(
-                        hit.point.x,
-                        OffsetY,
-                        hit.point.z
-                    ); //Move tower preview to hit point with y offset of 1 so that it is level with the map
-                }
+                ;
             }
+
+            if (map.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)) //If ray hits the map collider
+            {
+            
+                currentTowerPreview.transform.position = new Vector3(
+                    hit.point.x,
+                    OffsetY,
+                    hit.point.z
+                ); //Move tower preview to hit point with y offset of 1 so that it is level with the map
+            }
+        
         }   
     }
 
