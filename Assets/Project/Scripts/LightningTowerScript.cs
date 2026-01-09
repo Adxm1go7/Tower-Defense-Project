@@ -13,8 +13,6 @@ public class LightningTowerScript : TowerScript
 
     private Coroutine lightningCoroutine;
 
-    public Animator animator;
-
     // Start is called before the first frame update
     protected override void Start()
     {
