@@ -40,8 +40,6 @@ public class TowerUpgrades : MonoBehaviour
     {
         //Debug.Log("TESTINGINSIT WORKIGN??");
         return pathA != null && currentALevel < maxAUpgrades && currentALevel<pathA.Length && pathA[currentALevel] != null;
-
-
     }
 
     //Upgrade path A
@@ -53,8 +51,9 @@ public class TowerUpgrades : MonoBehaviour
             //Debug.Log(pathA);
             return;
         }
-        giveUpgrade(pathA[currentALevel], "A");
-        currentALevel++;
+        if (giveUpgrade(pathA[currentALevel], "A")){
+            currentALevel++;
+        }
         return;
         
     }
@@ -75,30 +74,34 @@ public class TowerUpgrades : MonoBehaviour
             //Debug.Log("NO UPGRADES X???");
             return;
         }
-        giveUpgrade(pathB[currentBLevel], "B");
-        currentBLevel++;
+        if (giveUpgrade(pathB[currentBLevel], "B")){  
+            currentBLevel++;
+        }
         
     }
 
 
-    private void giveUpgrade(TowerUpgradesObj upgrade, string path)
+    private bool giveUpgrade(TowerUpgradesObj upgrade, string path)
     {
         //Adding upgrades
         //Check coins are above upgrade cost
-        if (GameManager.Instance.canPlaceTower(upgrade.cost))
-        {
-            //Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
-            tower.towerDamage += upgrade.damageInc;
-            tower.towerRange += upgrade.rangeInc;
-            tower.towerFireRate -= upgrade.fireRate;
-            GameManager.Instance.deductCoins(upgrade.cost);
+        if (!GameManager.Instance.canPlaceTower(upgrade.cost))
+        return false;
         
-            //Investor tower upgrade specific
-            ifInvestor(path);
-            //Debug.Log("TEST");
-            ifFlamethrower(path);
-            ifFreeze(path);
-        }
+        //Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
+        tower.towerDamage += upgrade.damageInc;
+        tower.towerRange += upgrade.rangeInc;
+        tower.towerFireRate -= upgrade.fireRate;
+        GameManager.Instance.deductCoins(upgrade.cost);
+    
+        //Investor tower upgrade specific
+        ifInvestor(path);
+        //Debug.Log("TEST");
+        ifFlamethrower(path);
+        ifFreeze(path);
+
+        return true;
+        
     }
 
 
