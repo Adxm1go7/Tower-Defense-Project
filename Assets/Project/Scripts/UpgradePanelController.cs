@@ -107,19 +107,25 @@ public class UpgradePanelController : MonoBehaviour
         //Debug.Log("UpgradeHeroPathA CLICKED");
         if (heroUpgrades != null)
         {
-            heroUpgrades.UpgradeA();
+            bool succ = heroUpgrades.UpgradeA();
+            if (succ)
+            {
+                GameManager.Instance.ShowHeroInfo(selectedHero);
+            }
         }
-        else
-        {
-            Debug.Log("NULLLLL");
-        }
+
     }
 
     public void UpgradeHeroPathB()
     {
         if (heroUpgrades != null)
         {
-            heroUpgrades.UpgradeB();
+            bool succ = heroUpgrades.UpgradeB();
+            if (succ)
+            {
+                GameManager.Instance.ShowHeroInfo(selectedHero);
+            }
+            
         }
     }
 

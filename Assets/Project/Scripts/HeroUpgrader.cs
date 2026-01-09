@@ -57,8 +57,15 @@ public class HeroUpgrader : MonoBehaviour
         GameManager.Instance.deductCoins(he.cost);
 
         level++;
+        return true;
     }
-    public int GetLevelA() => currentLevelA;
-    public int GetLevelB() => currentLevelB;
+    public int GetLevelA()
+    {
+        return currentLevelA;
+    }
+    public int GetLevelB()
+    {
+        return currentLevelB;
+    }
     
 }
