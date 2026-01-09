@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PlayerAttack2 : MonoBehaviour
+public class PlayerAttack2 : MonoBehaviour, IPointerClickHandler
 {
     public HeroStats heroStats;
     private Animator anim;
@@ -59,6 +60,20 @@ public class PlayerAttack2 : MonoBehaviour
         
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameManager.Instance.ShowHeroInfo(this);
+    }
+    public int GetSingleDamage()
+    {
+        return singleDamage;
+    }
+    
+    public int GetAoeDamage()
+    {
+        return areaDamage;
+    }
+
     public void AreaAttack() // Fireboots attacks area around hero, multi target
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, areaAttackRadius, enemyLayer);
@@ -106,5 +121,16 @@ public class PlayerAttack2 : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, singleAttackRadius);
+    }
+
+    public void ApplyUpgrade(HeroUpgrades up)
+    {
+        singleDamage += up.singleDamageInc;
+        areaDamage += up.areaDamageInc;
+        singleTimeToAttack = singleTimeToAttack - up.singleRateDec;
+        areaTimeToAttack = areaTimeToAttack - up.areaRateDec;
+
+        areaAttackRadius += up.aoeRadiusInc;
+
     }
 }

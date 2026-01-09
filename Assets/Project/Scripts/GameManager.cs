@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     public int previousScene;
 
 
-
     public LevelManager levelManager; // Contains information and references to everything within the level
 
     void Awake() // Singleton design pattern
@@ -58,6 +57,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartLevel(){
+        isPaused = false;
         numRounds = levelManager.numRounds;
         currentRound = levelManager.currentRound;
         RoundText = levelManager.RoundText;
@@ -82,7 +82,14 @@ public class GameManager : MonoBehaviour
     public void setCurrentRound(int round) // sets UI round number
     {
         currentRound = round;
-        RoundText.text = round.ToString() + " / " + numRounds.ToString();
+        if (currentRound >= 26)
+        {
+            levelManager.allRoundsPlayed = true;
+        }
+        else
+        {
+            RoundText.text = round.ToString() + " / " + numRounds.ToString();
+        }
     }
 
     public void enemySuccess(Collider enemyCollider)
@@ -93,15 +100,16 @@ public class GameManager : MonoBehaviour
 
         if (levelManager.health - deductLives <= 0)
         {
-            levelManager.health = 0;
-            Debug.Log("Game Over!");
-            SceneManager.LoadScene(3); // Loads Death screen
+            levelManager.GameOver();
+
         }
         else
         {
             levelManager.health -= deductLives;
         }
     }
+
+
 
     
 
@@ -143,6 +151,25 @@ public class GameManager : MonoBehaviour
 
         UpgradePanelController UpgradeController = upgradePanel.GetComponent<UpgradePanelController>();
         UpgradeController.SetSelectedTower(tower);
+    }
+
+    public void ShowHeroInfo(PlayerAttack2 hero)
+    {
+        
+        levelManager.CloseSidePanel();
+
+        //Debug.Log("Showing info for tower: " + tower.towerName);
+
+        cameraController.FocusOnTower(hero.transform);
+        
+        upgradePanel.SetActive(true);
+
+        nameOfTower.text = "Hero";
+        DDTower.text = "Damage: " + hero.GetSingleDamage().ToString();
+        SpecialAtk.text = "AOE: " + hero.GetAoeDamage().ToString();
+
+        UpgradePanelController UpgradeController = upgradePanel.GetComponent<UpgradePanelController>();
+        UpgradeController.SetSelectedHero(hero);
     }
 
     public int getCoins()

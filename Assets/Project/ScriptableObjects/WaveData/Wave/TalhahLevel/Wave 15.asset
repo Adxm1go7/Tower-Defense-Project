@@ -15,4 +15,4 @@ MonoBehaviour:
   waveChunks:
   - {fileID: 11400000, guid: 31b92c93e5f31ed49b6959fdf150c9ea, type: 2}
   - {fileID: 11400000, guid: 31b92c93e5f31ed49b6959fdf150c9ea, type: 2}
-  TimeBeforeNextWave: 5
+  TimeBeforeNextWave: 7

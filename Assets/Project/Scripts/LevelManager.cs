@@ -41,6 +41,11 @@ public class LevelManager : MonoBehaviour
     public GameObject ArcanaTowers;
     public GameObject ArcanaEnemies;
 
+    public GameObject DeathScreen;
+    public GameObject WinScreen;
+    public bool allRoundsPlayed;
+    public bool noEnemiesAlive;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -56,6 +61,9 @@ public class LevelManager : MonoBehaviour
         GameLevel.SetActive(true);
         pauseMenuUI.SetActive(false);
         UpgradePanelUI.SetActive(false);
+        allRoundsPlayed = false;
+        noEnemiesAlive = false;
+
     }
 
     void Update()
@@ -63,21 +71,37 @@ public class LevelManager : MonoBehaviour
         HealthText.text = health.ToString();
         CoinText.text = coins.ToString();
 
+        checkForVictory();
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameManager.Instance.isPaused)
+            openOptions();
+        } 
+    }
+
+    public void openOptions()
+    {
+        if (GameManager.Instance.isPaused)
             {
                 pauseMenuUI.SetActive(false);
-                Time.timeScale = GameManager.Instance.currentSpeed; // Resume game at current speed
-                GameManager.Instance.isPaused = false;
+                ContinueGame();
             }
             else
             {
                 pauseMenuUI.SetActive(true);
-                Time.timeScale = 0f; // Pause game
-                GameManager.Instance.isPaused = true;
+                PauseGame();
             }
-        } 
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = GameManager.Instance.currentSpeed; // Resume game at current speed
+        GameManager.Instance.isPaused = false;
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; // Pause game
+        GameManager.Instance.isPaused = true;
     }
 
     public void HomeButton()
@@ -99,6 +123,10 @@ public class LevelManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex); // Reload current scene
         GameManager.Instance.isPaused = false; // Unpause the game
         pauseMenuUI.SetActive(false); // Hide pause menu UI
+    }
+    public void StagesButton()
+    {
+        SceneManager.LoadScene(2);
     }
 
     public void OpenArcana()
@@ -133,6 +161,8 @@ public class LevelManager : MonoBehaviour
         ArcanaTowers.SetActive(false);
         TheArcana.SetActive(false);
         GameLevel.SetActive(true);
+        DeathScreen.SetActive(false);
+        WinScreen.SetActive(false);
     }
 
     public void CloseSidePanel()
@@ -167,5 +197,23 @@ public class LevelManager : MonoBehaviour
         }
 
         GameManager.Instance.currentSpeed = currentSpeed;
+    }
+
+    public void checkForVictory()
+    {
+        if (allRoundsPlayed && noEnemiesAlive)
+        {
+            SidePanel.SetActive(false);
+            WinScreen.SetActive(true);
+            PauseGame();
+        }
+    }
+
+    public void GameOver()
+    {
+        health = 0;
+        SidePanel.SetActive(false);
+        DeathScreen.SetActive(true);
+        PauseGame();
     }
 }

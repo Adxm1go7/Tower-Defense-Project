@@ -13,6 +13,8 @@ public class LightningTowerScript : TowerScript
 
     private Coroutine lightningCoroutine;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -35,6 +37,9 @@ public class LightningTowerScript : TowerScript
 
 
     void FireLightning (Enemy initialTarget){
+        animator.SetTrigger("Attack");
+        //animator.Play("Attack");
+        Debug.Log("Attack Animation Triggered");
         HashSet<Enemy> hitEnemies = new HashSet<Enemy>();
         if (lightningCoroutine == null){
             lightningCoroutine = StartCoroutine(ChainLightning(initialTarget, towerDamage, maxChains, hitEnemies));

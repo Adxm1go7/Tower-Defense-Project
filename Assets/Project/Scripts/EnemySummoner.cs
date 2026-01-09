@@ -30,6 +30,24 @@ public class EnemySummoner : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (AliveEnemyCount())
+        {
+            GameManager.Instance.levelManager.noEnemiesAlive = true;
+        }
+        else
+        {
+            GameManager.Instance.levelManager.noEnemiesAlive = false;
+        }
+    }
+
+    public static bool AliveEnemyCount()
+    {
+        ExistingEnemies.RemoveAll(e => e == null);
+        return ExistingEnemies.Count == 0;
+    }
+
     public static Enemy SummonEnemy(int EnemyID, Vector3 spawnPoint)
     {
         Enemy SummonedEnemy = null;
