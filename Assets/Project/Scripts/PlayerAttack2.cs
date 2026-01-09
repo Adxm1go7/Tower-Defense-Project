@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class PlayerAttack2 : MonoBehaviour, IPointerClickHandler
 {
     public HeroStats heroStats;
+    private Animator anim;
+    [SerializeField] private float damageDelay = 0.5f;
 
     private float areaAttackRadius;
     private int areaDamage;
@@ -21,6 +23,7 @@ public class PlayerAttack2 : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         time = 0;
         attackType = 2;
 
@@ -38,6 +41,7 @@ public class PlayerAttack2 : MonoBehaviour, IPointerClickHandler
     {
         if (time <= 0)
         {
+            
             if (attackType == 1)
             {
                 AreaAttack();
@@ -45,7 +49,7 @@ public class PlayerAttack2 : MonoBehaviour, IPointerClickHandler
             }
             else if (attackType == 2)
             {
-                SingleAttack();
+                StartCoroutine(SingleAttack());
                 time = singleTimeToAttack;
             }
         }
@@ -84,7 +88,7 @@ public class PlayerAttack2 : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void SingleAttack() // Attacks single target that is furthest along the track
+    IEnumerator SingleAttack() // Attacks single target that is furthest along the track
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, singleAttackRadius, enemyLayer);
         Enemy furthestEnemy = null;
@@ -104,6 +108,11 @@ public class PlayerAttack2 : MonoBehaviour, IPointerClickHandler
 
         if (furthestEnemy != null)
         {
+            if (anim != null)
+            {
+                anim.SetTrigger("Jump");
+            }
+            yield return new WaitForSeconds(damageDelay);
             furthestEnemy.TakeDamage(singleDamage);
         }
     }
