@@ -18,7 +18,7 @@ unique maps.
 - WebGL build
 
 To the run the game:
-https://adxm1go7.github.io/Tower-Defense-Project/Build/index.html
+https://adxm1go7.github.io/Tower-Defense-Project/Build1/index.html
 ## HOWEVER IF THIS RUNS SLOW USE THIS:
 
 
