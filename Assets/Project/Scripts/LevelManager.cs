@@ -43,8 +43,8 @@ public class LevelManager : MonoBehaviour
 
     public GameObject DeathScreen;
     public GameObject WinScreen;
-    public bool allRoundsPlayed = false;
-    public bool noEnemiesAlive = false;
+    public bool allRoundsPlayed;
+    public bool noEnemiesAlive;
 
     // Start is called before the first frame update
     void Awake()
@@ -61,12 +61,17 @@ public class LevelManager : MonoBehaviour
         GameLevel.SetActive(true);
         pauseMenuUI.SetActive(false);
         UpgradePanelUI.SetActive(false);
+        allRoundsPlayed = false;
+        noEnemiesAlive = false;
+
     }
 
     void Update()
     {
         HealthText.text = health.ToString();
         CoinText.text = coins.ToString();
+
+        checkForVictory();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -191,7 +196,7 @@ public class LevelManager : MonoBehaviour
 
     public void checkForVictory()
     {
-        if (allRoundsPlayed)
+        if (allRoundsPlayed && noEnemiesAlive)
         {
             SidePanel.SetActive(false);
             WinScreen.SetActive(true);

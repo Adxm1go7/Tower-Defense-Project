@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void setCurrentRound(int round) // sets UI round number
     {
         currentRound = round;
-        if (currentRound >= 25)
+        if (currentRound >= 26)
         {
             levelManager.allRoundsPlayed = true;
         }
