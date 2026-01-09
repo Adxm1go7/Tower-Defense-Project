@@ -12,13 +12,11 @@ public class UpgradePanelController : MonoBehaviour
     public TextMeshProUGUI Upgrade1Text; // Upgrade path A text object
     public TextMeshProUGUI Upgrade2Text; // Upgrade path B text object
 
-    public TextMeshProUGUI Upgrade3Text; // Upgrade path C text object [HERO ONLY]
     public TextMeshProUGUI leftUpgradeCostText; // Upgrade path A cost text object
 
     public TextMeshProUGUI rightUpgradeCostText; // Upgrade path B cost text object
 
-    public TextMeshProUGUI middleUpgradeText; // Upgrade path C for HERO ONLY
-    public TextMeshProUGUI middleUpgradeCostText; // Upgrade path C cost HERO ONLY
+  
     private TowerScript selectedTower; // Currently selected tower
 
     private PlayerAttack2 selectedHero;
@@ -40,7 +38,7 @@ public class UpgradePanelController : MonoBehaviour
         {
             leftUpgradeText.text = $"Path A: {heroUpgrades.GetLevelA()} / 3";
             rightUpgradeText.text = $"Path B: {heroUpgrades.GetLevelB()} / 3";
-            middleUpgradeText.text = $"Path C: {heroUpgrades.GetLevelC()} / 3";
+            
         }
     }
 
@@ -98,18 +96,22 @@ public class UpgradePanelController : MonoBehaviour
         selectedHero = hero;
         heroUpgrades = hero.GetComponent<HeroUpgrader>();
 
-        Upgrade1Text.text = "Single Target Damage";
-        Upgrade2Text.text = "AOE Damage";
-        Upgrade3Text.text = "Fire Rate";
+        Upgrade1Text.text = "Damage";
+        Upgrade2Text.text = "Fire Rate & Range";
 
         upgradePanel.SetActive(true);
     }
 
     public void UpgradeHeroPathA()
     {
+        Debug.Log("UpgradeHeroPathA CLICKED");
         if (heroUpgrades != null)
         {
             heroUpgrades.UpgradeA();
+        }
+        else
+        {
+            Debug.Log("NULLLLL");
         }
     }
 
@@ -121,17 +123,15 @@ public class UpgradePanelController : MonoBehaviour
         }
     }
 
-    public void UpgradeHeroPathC()
-    {
-        if (heroUpgrades != null)
-        {
-            heroUpgrades.UpgradeC();
-        }
-    }
+
 
     public void UpgradeTowerPathA()
     {
         Debug.Log("Upgrade Tower button A clicked");
+        if (selectedHero != null)
+        {
+            UpgradeHeroPathA();
+        }
         if (selectedTower != null && selectedTower.towerUppies != null)
         {
             Debug.Log("Attempting to upgrade tower: " + selectedTower.towerName);
@@ -143,6 +143,10 @@ public class UpgradePanelController : MonoBehaviour
     public void UpgradeTowerPathB()
     {
         Debug.Log("Upgrade Tower button B clicked");
+        if (selectedHero != null)
+        {
+            UpgradeHeroPathB();
+        }
         if (selectedTower != null && selectedTower.towerUppies != null)
         {
             Debug.Log("Attempting to upgrade tower: " + selectedTower.towerName);

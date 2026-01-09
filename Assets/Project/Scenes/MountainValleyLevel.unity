@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14578,6 +14578,7 @@ GameObject:
   - component: {fileID: 595046858}
   - component: {fileID: 595046857}
   - component: {fileID: 595046856}
+  - component: {fileID: 595046860}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -14695,6 +14696,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &595046860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595046854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f0a4da5322674ca46b0cb8defa2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathA:
+  - {fileID: 11400000, guid: 8ad64107e3b9d9b4c9cfb4435f34a384, type: 2}
+  - {fileID: 11400000, guid: 8ad64107e3b9d9b4c9cfb4435f34a384, type: 2}
+  - {fileID: 11400000, guid: 8ad64107e3b9d9b4c9cfb4435f34a384, type: 2}
+  pathB:
+  - {fileID: 11400000, guid: 2eb6244fe4bc2f24daff4dbb3921c994, type: 2}
+  - {fileID: 11400000, guid: 2eb6244fe4bc2f24daff4dbb3921c994, type: 2}
+  - {fileID: 11400000, guid: 2eb6244fe4bc2f24daff4dbb3921c994, type: 2}
+  maxA: 3
+  maxB: 3
 --- !u!1001 &597917942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38276,6 +38299,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenArcana
       objectReference: {fileID: 0}
+    - target: {fileID: 2597182387807680365, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597182387807680365, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597182387807680365, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 344cf01914c421f47839ab4c5400e621, type: 3}
+    - target: {fileID: 2597182387807680365, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597182387807680365, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UpgradePanelController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2682469862955537442, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_Name
       value: Upgrade2Text
@@ -38465,8 +38508,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4684399414775715790, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684399414775715790, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4684399414775715790, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -38813,6 +38860,14 @@ PrefabInstance:
     - target: {fileID: 8733507316656326770, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_Spacing
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733507316656326770, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733507316656326770, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8870024096817371838, guid: 38aa2808c0b832c40948d064ccd4b980, type: 3}
       propertyPath: m_AnchorMax.y

@@ -7,16 +7,15 @@ public class HeroUpgrader : MonoBehaviour
 
     public HeroUpgrades[] pathA;
     public HeroUpgrades[] pathB;
-    public HeroUpgrades[] pathC;
+    
 
     public int maxA = 3;
     public int maxB = 3;
-    public int maxC = 3;
-
+    
     
     private int currentLevelA = 0;
     private int currentLevelB = 0;
-    private int currentLevelC = 0;
+    
     private PlayerAttack2 hero;
     // Start is called before the first frame update
     void Awake()
@@ -28,7 +27,7 @@ public class HeroUpgrader : MonoBehaviour
 
     public bool CanUpgradeA() => CanUpgrade(pathA, currentLevelA, maxA);
     public bool CanUpgradeB() => CanUpgrade(pathB, currentLevelB, maxB);
-    public bool CanUpgradeC() => CanUpgrade(pathC, currentLevelC, maxC);
+    
 
     bool CanUpgrade(HeroUpgrades[] path, int level, int max)
     {
@@ -39,9 +38,16 @@ public class HeroUpgrader : MonoBehaviour
     }
 
 
-    public void UpgradeA() => Upgrade(pathA, ref currentLevelA);
-    public void UpgradeB() => Upgrade(pathB, ref currentLevelB);
-    public void UpgradeC() => Upgrade(pathC, ref currentLevelC);
+    public void UpgradeA()
+    {
+        Debug.Log("BUTONNA AA PRESED");
+        Upgrade(pathA, ref currentLevelA);
+    }
+    public void UpgradeB()
+    {
+        Upgrade(pathB, ref currentLevelB);
+    }
+    
 
     public void Upgrade(HeroUpgrades[] path, ref int level)
     {
@@ -54,5 +60,5 @@ public class HeroUpgrader : MonoBehaviour
     }
     public int GetLevelA() => currentLevelA;
     public int GetLevelB() => currentLevelB;
-    public int GetLevelC() => currentLevelC;
+    
 }
