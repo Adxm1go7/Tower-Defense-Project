@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Wave 2
   m_EditorClassIdentifier: 
   waveChunks:
-  - {fileID: 11400000, guid: a7afa6ac06ac7b34d8a3202d83b89202, type: 2}
-  - {fileID: 11400000, guid: a7afa6ac06ac7b34d8a3202d83b89202, type: 2}
+  - {fileID: 11400000, guid: 6c17855dd98487f42828b49724dc5f81, type: 2}
   - {fileID: 11400000, guid: a7afa6ac06ac7b34d8a3202d83b89202, type: 2}
   - {fileID: 11400000, guid: 34a88e01e50935c4d9c0e39b13f14f15, type: 2}
-  TimeBeforeNextWave: 5
+  TimeBeforeNextWave: 7
