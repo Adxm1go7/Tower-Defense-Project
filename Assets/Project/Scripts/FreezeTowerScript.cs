@@ -6,6 +6,9 @@ public class FreezeTowerScript : TowerScript // Inherits original tower behaviou
 {
     public FreezeTowerStats FreezeTowerStats;
 
+    [SerializeField] private ParticleSystem freezeParticles; 
+    private Animator anim;
+
     public float coneAngle;
     public float slowDownMult;
     public float slowDuration;
@@ -13,6 +16,7 @@ public class FreezeTowerScript : TowerScript // Inherits original tower behaviou
     protected override void Start()
     {
         base.Start();
+        anim = GetComponentInChildren<Animator>();
         coneAngle = FreezeTowerStats.coneAngle;
         slowDownMult = FreezeTowerStats.slowDownMult;
         slowDuration = FreezeTowerStats.slowDuration;
@@ -25,10 +29,13 @@ public class FreezeTowerScript : TowerScript // Inherits original tower behaviou
     protected override IEnumerator AttackSequence(){
         if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
- 
+            if (anim != null) anim.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.4f);
+            if (freezeParticles != null) freezeParticles.Play();
             foreach (Collider enemyInRange in enemiesInRange){
+                if (enemyInRange == null) continue;
                 Vector3 directionToEnemy = (enemyInRange.transform.position - transform.position).normalized;
-                float angleToEnemy = Vector3.Angle(towerDirection, directionToEnemy);
+                float angleToEnemy = Vector3.Angle(transform.forward, directionToEnemy);
                 
                 if (angleToEnemy <= coneAngle / 2f){
                     enemyInRange.GetComponentInParent<Enemy>().TakeDamage(towerDamage);

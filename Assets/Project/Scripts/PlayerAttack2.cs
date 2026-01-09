@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAttack2 : MonoBehaviour
 {
     public HeroStats heroStats;
+    private Animator anim;
+    [SerializeField] private float damageDelay = 0.5f;
 
     private float areaAttackRadius;
     private int areaDamage;
@@ -20,6 +22,7 @@ public class PlayerAttack2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         time = 0;
         attackType = 2;
 
@@ -37,6 +40,7 @@ public class PlayerAttack2 : MonoBehaviour
     {
         if (time <= 0)
         {
+            
             if (attackType == 1)
             {
                 AreaAttack();
@@ -44,7 +48,7 @@ public class PlayerAttack2 : MonoBehaviour
             }
             else if (attackType == 2)
             {
-                SingleAttack();
+                StartCoroutine(SingleAttack());
                 time = singleTimeToAttack;
             }
         }
@@ -69,7 +73,7 @@ public class PlayerAttack2 : MonoBehaviour
         }
     }
 
-    public void SingleAttack() // Attacks single target that is furthest along the track
+    IEnumerator SingleAttack() // Attacks single target that is furthest along the track
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, singleAttackRadius, enemyLayer);
         Enemy furthestEnemy = null;
@@ -89,6 +93,11 @@ public class PlayerAttack2 : MonoBehaviour
 
         if (furthestEnemy != null)
         {
+            if (anim != null)
+            {
+                anim.SetTrigger("Jump");
+            }
+            yield return new WaitForSeconds(damageDelay);
             furthestEnemy.TakeDamage(singleDamage);
         }
     }

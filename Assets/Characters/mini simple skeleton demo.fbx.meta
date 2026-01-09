@@ -434,6 +434,5 @@ AssetOrigin:
   productId: 262897
   packageName: Mini Simple Characters | Skeleton | Free Demo
   packageVersion: 1.0
-  assetPath: Assets/Mini Simple Characters Skeleton Demo/Models/mini simple skeleton
-    demo.fbx
+  assetPath: Assets/Characters/mini simple skeleton demo.fbx
   uploadId: 606480

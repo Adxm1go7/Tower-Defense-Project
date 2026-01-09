@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     [SerializeField] private float speed;
+    [SerializeField] private float turnSpeed = 720f;
+    private Animator anim;
 
     [Space]
 
@@ -27,12 +29,23 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         speed = 8;
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = movementVector.normalized * speed;
+        Vector3 targetVelocity = movementVector.normalized * speed;
+        rb.velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
+        if (movementVector.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movementVector);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+        }
+        if (anim != null)
+        {
+            anim.SetFloat("Speed", targetVelocity.magnitude);
+        }
         stepClimb();
     }
 
