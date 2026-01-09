@@ -15,10 +15,10 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
 
     private float moveSpeed = 12f;
 
-    private int level1Scene = 9;
-    private int level2Scene = 7;
-    private int level3Scene = 8;
-    private int level4Scene = 10;
+    private int level1Scene = 8;
+    private int level2Scene = 6;
+    private int level3Scene = 7;
+    private int level4Scene = 9;
 
 
     public Light Level1Light;

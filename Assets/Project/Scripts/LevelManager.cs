@@ -43,6 +43,8 @@ public class LevelManager : MonoBehaviour
 
     public GameObject DeathScreen;
     public GameObject WinScreen;
+    public bool allRoundsPlayed = false;
+    public bool noEnemiesAlive = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -185,5 +187,23 @@ public class LevelManager : MonoBehaviour
         }
 
         GameManager.Instance.currentSpeed = currentSpeed;
+    }
+
+    public void checkForVictory()
+    {
+        if (allRoundsPlayed)
+        {
+            SidePanel.SetActive(false);
+            WinScreen.SetActive(true);
+            PauseGame();
+        }
+    }
+
+    public void GameOver()
+    {
+        health = 0;
+        SidePanel.SetActive(false);
+        DeathScreen.SetActive(true);
+        PauseGame();
     }
 }

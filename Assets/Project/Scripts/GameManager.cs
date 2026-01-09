@@ -38,10 +38,6 @@ public class GameManager : MonoBehaviour
     public int currentScene;
     public int previousScene;
 
-    public GameObject deathScreen;
-    public GameObject winScreen;
-
-
 
     public LevelManager levelManager; // Contains information and references to everything within the level
 
@@ -77,10 +73,6 @@ public class GameManager : MonoBehaviour
         ultraFastSpeed = levelManager.ultraFastSpeed;
         currentSpeed = levelManager.currentSpeed;
         cameraController = levelManager.mainCamera.GetComponent<CameraController>();
-        deathScreen = levelManager.DeathScreen;
-        winScreen = levelManager.WinScreen;
-
-
 
         setCurrentRound(1);
     }
@@ -90,7 +82,14 @@ public class GameManager : MonoBehaviour
     public void setCurrentRound(int round) // sets UI round number
     {
         currentRound = round;
-        RoundText.text = round.ToString() + " / " + numRounds.ToString();
+        if (currentRound >= 25)
+        {
+            levelManager.allRoundsPlayed = true;
+        }
+        else
+        {
+            RoundText.text = round.ToString() + " / " + numRounds.ToString();
+        }
     }
 
     public void enemySuccess(Collider enemyCollider)
@@ -101,12 +100,7 @@ public class GameManager : MonoBehaviour
 
         if (levelManager.health - deductLives <= 0)
         {
-            levelManager.health = 0;
-            Debug.Log("Game Over!");
-            levelManager.SidePanel.SetActive(false);
-            deathScreen.SetActive(true);
-            levelManager.PauseGame();
-            Debug.Log("OtherSide");
+            levelManager.GameOver();
 
         }
         else
@@ -114,6 +108,8 @@ public class GameManager : MonoBehaviour
             levelManager.health -= deductLives;
         }
     }
+
+
 
     
 
