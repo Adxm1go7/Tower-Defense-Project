@@ -145,6 +145,25 @@ public class GameManager : MonoBehaviour
         UpgradeController.SetSelectedTower(tower);
     }
 
+    public void ShowHeroInfo(PlayerAttack2 hero)
+    {
+        
+        levelManager.CloseSidePanel();
+
+        //Debug.Log("Showing info for tower: " + tower.towerName);
+
+        cameraController.FocusOnTower(hero.transform);
+        
+        upgradePanel.SetActive(true);
+
+        nameOfTower.text = "Hero";
+        DDTower.text = "Damage: " + hero.GetSingleDamage().ToString();
+        SpecialAtk.text = "AOE: " + hero.GetAoeDamage().ToString();
+
+        UpgradePanelController UpgradeController = upgradePanel.GetComponent<UpgradePanelController>();
+        UpgradeController.SetSelectedHero(hero);
+    }
+
     public int getCoins()
     {
         return levelManager.coins;

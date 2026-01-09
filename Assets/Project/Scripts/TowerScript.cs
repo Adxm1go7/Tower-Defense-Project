@@ -138,7 +138,8 @@ public class TowerScript : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         // Passes the tower object that was clicked to the GameManager to show its info
-        GameManager.Instance.ShowTowerInfo(this);       
+        GameManager.Instance.ShowTowerInfo(this);  
+           
     }
 
     private void OnTriggerEnter(Collider other)
