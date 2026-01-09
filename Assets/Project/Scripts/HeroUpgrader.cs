@@ -38,27 +38,34 @@ public class HeroUpgrader : MonoBehaviour
     }
 
 
-    public void UpgradeA()
+    public bool UpgradeA()
     {
         Debug.Log("BUTONNA AA PRESED");
-        Upgrade(pathA, ref currentLevelA);
+        return Upgrade(pathA, ref currentLevelA);
     }
-    public void UpgradeB()
+    public bool UpgradeB()
     {
-        Upgrade(pathB, ref currentLevelB);
+        return Upgrade(pathB, ref currentLevelB);
     }
     
 
-    public void Upgrade(HeroUpgrades[] path, ref int level)
+    public bool Upgrade(HeroUpgrades[] path, ref int level)
     {
-        if (!CanUpgrade(path, level, int.MaxValue)) return;
+        if (!CanUpgrade(path, level, int.MaxValue)) return false;
         HeroUpgrades he = path[level];
         hero.ApplyUpgrade(he);
         GameManager.Instance.deductCoins(he.cost);
 
         level++;
+        return true;
     }
-    public int GetLevelA() => currentLevelA;
-    public int GetLevelB() => currentLevelB;
+    public int GetLevelA()
+    {
+        return currentLevelA;
+    }
+    public int GetLevelB()
+    {
+        return currentLevelB;
+    }
     
 }
