@@ -33,7 +33,7 @@ public class DragDropTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             return;
         }
         OffsetY = 1; //Offset to ensure tower is placed above ground level
-        if (SceneStackManager.Instance.Peek() == 9)
+        if (SceneStackManager.Instance.Peek() == 8)
         {
             OffsetY +=1.02f;
         }

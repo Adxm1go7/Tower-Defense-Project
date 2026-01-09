@@ -26,7 +26,7 @@ public class HomeMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(2); // Loads level selector
+        SceneManager.LoadScene(1); // Loads level selector
     }
 
     public void ToggleDifficultyPanel()
