@@ -30,8 +30,8 @@ public class FreezeTowerScript : TowerScript // Inherits original tower behaviou
         if (currentEnemy != null && activeTower==true) //Only attack if tower is active
         {
             if (anim != null) anim.SetTrigger("Attack");
-            yield return new WaitForSeconds(0.4f);
             if (freezeParticles != null) freezeParticles.Play();
+            yield return new WaitForSeconds(0.4f);
             foreach (Collider enemyInRange in enemiesInRange){
                 if (enemyInRange == null) continue;
                 Vector3 directionToEnemy = (enemyInRange.transform.position - transform.position).normalized;
