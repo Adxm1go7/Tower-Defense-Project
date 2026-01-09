@@ -101,7 +101,7 @@ public class LevelSelectorPlayerMovement : MonoBehaviour
         transform.Translate(direction.normalized * moveSpeed * Time.deltaTime, Space.World);
         Vector3 playerPosition = new Vector3(transform.position.x, 0f, transform.position.z);
         Vector3 nodePosition = new Vector3(target.position.x, 0f, target.position.z);
-        if (Vector3.Distance(playerPosition, nodePosition) <= 0.05f)
+        if (Vector3.Distance(playerPosition, nodePosition) <= 0.3f)
         {
             movingPlayer = false;
         }
