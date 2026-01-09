@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FreezeUpgradeB1
   m_EditorClassIdentifier: 
   name: 
-  cost: 0
+  cost: 50
   damageInc: 0
-  rangeInc: 0
-  fireRate: 0
+  rangeInc: 0.4
+  fireRate: 0.35
   description: 

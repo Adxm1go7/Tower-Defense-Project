@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HammerUpgradeA1
   m_EditorClassIdentifier: 
   name: 
-  cost: 0
-  damageInc: 5
+  cost: 35
+  damageInc: 4
   rangeInc: 0
-  fireRate: 0.8
+  fireRate: 0
   description: 

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c098fef46992c345b87f6d31534e64f, type: 3}
+  m_Name: Wave12
+  m_EditorClassIdentifier: 
+  waveChunks:
+  - {fileID: 11400000, guid: 9be595affed4fb7418a215488647e980, type: 2}
+  - {fileID: 11400000, guid: fabf598227a0f814d8dfe58a429133d1, type: 2}
+  - {fileID: 11400000, guid: 9be595affed4fb7418a215488647e980, type: 2}
+  - {fileID: 11400000, guid: 6c17855dd98487f42828b49724dc5f81, type: 2}
+  TimeBeforeNextWave: 7

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 7809873025032131433, guid: 5712002d50e661b4a875a59510858650, type: 3}
   ID: 7
-  MaxHealth: 15
+  MaxHealth: 30
   LivesWorth: 5
   Speed: 10
   RegenHealth: 0
@@ -22,5 +22,5 @@ MonoBehaviour:
   RegenTime: 0
   SplitCount: 0
   SplitEnemy: {fileID: 0}
-  CoinsWorth: 5
+  CoinsWorth: 3
   DodgeChance: 0

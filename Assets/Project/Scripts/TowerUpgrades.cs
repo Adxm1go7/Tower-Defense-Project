@@ -84,21 +84,21 @@ public class TowerUpgrades : MonoBehaviour
     private void giveUpgrade(TowerUpgradesObj upgrade, string path)
     {
         //Adding upgrades
-
-        //Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
-        tower.towerDamage += upgrade.damageInc;
-        tower.towerRange += upgrade.rangeInc;
-        tower.towerFireRate *= upgrade.fireRate;
-        GameManager.Instance.deductCoins(upgrade.cost);
+        //Check coins are above upgrade cost
+        if (GameManager.Instance.canPlaceTower(upgrade.cost))
+        {
+            //Debug.Log("Upgrading tower: " + tower.towerName + " with upgrade: " + upgrade.damageInc);
+            tower.towerDamage += upgrade.damageInc;
+            tower.towerRange += upgrade.rangeInc;
+            tower.towerFireRate -= upgrade.fireRate;
+            GameManager.Instance.deductCoins(upgrade.cost);
         
-        //Investor tower upgrade specific
-        ifInvestor(path);
-        //Debug.Log("TEST");
-        ifFlamethrower(path);
-        ifFreeze(path);
-
-
-
+            //Investor tower upgrade specific
+            ifInvestor(path);
+            //Debug.Log("TEST");
+            ifFlamethrower(path);
+            ifFreeze(path);
+        }
     }
 
 
@@ -113,7 +113,7 @@ public class TowerUpgrades : MonoBehaviour
             {
                 if (path == "A")
                 {
-                    lightning.maxChains += 2;
+                    lightning.maxChains += 1;
 
                 }
                 else if (path == "B")
@@ -134,15 +134,13 @@ public class TowerUpgrades : MonoBehaviour
             {
                 if (path == "A")
                 {
-                    freeze.coneAngle += 10f;
+                    freeze.coneAngle += 5f;
                     freeze.slowDownMult -= 0.05f;
-                    freeze.towerFireRate = 1f;
                     
                 }
                 else if (path == "B")
                 {
-                    freeze.slowDuration += 0.33f;
-                    freeze.towerFireRate = 1f;
+                    freeze.slowDuration += 0.4f;
                 }
             }
         }
@@ -158,16 +156,13 @@ public class TowerUpgrades : MonoBehaviour
             {
                 if (path == "A")
                 {
-                    flame.burstDuration *= 1.1f;
-                    flame.burstInterval *= 0.9f;
+                    flame.flameBurnDamagePerTick += 1;
                 }
                 else if (path == "B")
                 {
-                    flame.coneAngle += 8;
-                    flame.burstInterval *= 0.7f;
-                    flame.flameBurnDamagePerTick += 1;
-                    
-
+                    flame.burstDuration += 0.25f;
+                    flame.coneAngle += 4;
+                    flame.burstInterval -= 0.35f;
                 }
                 Debug.Log(flame.burstInterval);
             
@@ -186,12 +181,12 @@ public class TowerUpgrades : MonoBehaviour
             {
                 if (path == "A")
                 {
-                    investor.incomeData.timeInterval *= 0.8f;
+                    investor.incomeData.timeInterval -= 0.7f;
                 }
                 else if (path == "B")
                 {
-                    investor.incomeData.coinsGenerated *= 2;
-                    investor.incomeData.timeInterval *= 1.9f;
+                    investor.incomeData.coinsGenerated += 2;
+                    investor.incomeData.maxStoredCoins += 10;
                     
                 }
 
@@ -201,5 +196,13 @@ public class TowerUpgrades : MonoBehaviour
             //Debug.Log(investor.incomeData.coinsGenerated);
         }
 
+    }
+
+    public int GetALevel(){
+        return currentALevel;
+    }
+
+    public int GetBLevel(){
+        return currentBLevel;
     }
 }

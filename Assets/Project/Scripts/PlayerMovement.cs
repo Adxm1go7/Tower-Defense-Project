@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] float stepHeight = 0.3f;
     [SerializeField] float stepSmooth = 0.1f;
 
+    [SerializeField] private LayerMask pathLayer;
+
     Vector3 movementVector;
 
 
@@ -57,10 +59,10 @@ public class PlayerMovement : MonoBehaviour
         foreach (Vector3 dir in directions)
         {
             RaycastHit hitLower;
-            if (Physics.Raycast(stepRayLower.transform.position, dir, out hitLower, 0.3f))
+            if (Physics.Raycast(stepRayLower.transform.position, dir, out hitLower, 0.5f, pathLayer))
             {
                 RaycastHit hitUpper;
-                if (!Physics.Raycast(stepRayUpper.transform.position, dir, out hitUpper, 0.4f))
+                if (!Physics.Raycast(stepRayUpper.transform.position, dir, out hitUpper, 0.4f, pathLayer))
                 {
                     rb.position += Vector3.up * stepSmooth;
                     break; // prevent double step in one frame

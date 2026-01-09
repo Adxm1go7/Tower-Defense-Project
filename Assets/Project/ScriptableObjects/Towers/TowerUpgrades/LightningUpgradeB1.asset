@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LightningUpgradeB1
   m_EditorClassIdentifier: 
   name: 
-  cost: 0
+  cost: 55
   damageInc: 0
-  rangeInc: 0
-  fireRate: 0
+  rangeInc: 0.5
+  fireRate: 0.25
   description: 

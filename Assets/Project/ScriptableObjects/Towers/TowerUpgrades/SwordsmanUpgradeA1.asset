@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SwordsmanUpgradeA1
   m_EditorClassIdentifier: 
   name: 
-  cost: 0
+  cost: 20
   damageInc: 1
-  rangeInc: 1
-  fireRate: 0.75
+  rangeInc: 0.4
+  fireRate: 0
   description: 

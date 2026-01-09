@@ -14,17 +14,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RoundText;
     public GameObject EnemyEndNode;
 
-
+    public CameraController cameraController;
 
     public Enemy enemyScript;
 
     public GameObject upgradePanel; // Reference to the upgrade panel UI
 
-    public GameObject towerNameObject; // Reference to the tower name UI object
-
-    public GameObject damageDealtObject; // Reference to the damage dealt UI object 
-    public TextMeshPro nameOfTower; //Name of tower text object
-    public TextMeshPro DDTower; //Damage dealt by tower text object
+    public TextMeshProUGUI nameOfTower; //Name of tower text object
+    public TextMeshProUGUI DDTower; //Damage dealt by tower text object
+    public TextMeshProUGUI SpecialAtk; //Special attack text object
 
     public Slider GameSpeedSlider; // Reference to the speed control button
     public float normalSpeed;
@@ -66,15 +64,15 @@ public class GameManager : MonoBehaviour
         EnemyEndNode = levelManager.EnemyEndNode;
         enemyScript = levelManager.enemyScript;
         upgradePanel = levelManager.upgradePanel;
-        towerNameObject = levelManager.towerNameObject;
-        damageDealtObject = levelManager.damageDealtObject;
         nameOfTower = levelManager.nameOfTower;
         DDTower = levelManager.DDTower;
+        SpecialAtk = levelManager.SpecialAtk;
         GameSpeedSlider = levelManager.GameSpeedSlider;
         normalSpeed = levelManager.normalSpeed;
         fastSpeed = levelManager.fastSpeed;
         ultraFastSpeed = levelManager.ultraFastSpeed;
         currentSpeed = levelManager.currentSpeed;
+        cameraController = levelManager.mainCamera.GetComponent<CameraController>();
 
         setCurrentRound(1);
     }
@@ -123,6 +121,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetDifficulty(DifficultyStats difficulty){ // Called from Home screen
+        Debug.Log(difficulty.name + " Recieved at gameManager");
         currentDifficulty = difficulty;
     }
 
@@ -130,15 +129,17 @@ public class GameManager : MonoBehaviour
     {
         // Activate the upgrade panel
 
+        levelManager.CloseSidePanel();
 
+        Debug.Log("Showing info for tower: " + tower.towerName);
+
+        cameraController.FocusOnTower(tower.transform);
+        
         upgradePanel.SetActive(true);
-        towerNameObject.SetActive(true);
-        damageDealtObject.SetActive(true);
 
         nameOfTower.text = tower.towerName;
-        nameOfTower.transform.position = tower.transform.position + new Vector3(0.5f, 2f, 0);
-        DDTower.text = "Δ" + tower.towerDamage.ToString();
-        DDTower.transform.position = tower.transform.position + new Vector3(3f, 0, 0);
+        DDTower.text = "Damage: " + tower.towerDamage.ToString();
+        SpecialAtk.text = "Special: ";
 
         UpgradePanelController UpgradeController = upgradePanel.GetComponent<UpgradePanelController>();
         UpgradeController.SetSelectedTower(tower);

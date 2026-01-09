@@ -19,13 +19,13 @@ public class LevelManager : MonoBehaviour
     public Enemy enemyScript;
 
     public GameObject upgradePanel; // Reference to the upgrade panel UI
-
-    public GameObject towerNameObject; // Reference to the tower name UI object
-
-    public GameObject damageDealtObject; // Reference to the damage dealt UI object 
-    public TextMeshPro nameOfTower; //Name of tower text object
-    public TextMeshPro DDTower; //Damage dealt by tower text object
+    public TextMeshProUGUI nameOfTower; //Name of tower text object
+    public TextMeshProUGUI DDTower; //Damage dealt by tower text object
+    public TextMeshProUGUI SpecialAtk; //Special attack text object
     private TowerScript selectedTower;
+    public GameObject SidePanel;
+
+    [SerializeField]public Camera mainCamera;
 
     public Slider GameSpeedSlider; // Reference to the speed control Slider
     public float normalSpeed = 1f;
@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     public float currentSpeed = 1f;
 
     public GameObject pauseMenuUI; // Reference to the pause menu UI
+    public GameObject UpgradePanelUI; // Reference to the upgrade panel UI
 
     public GameObject GameLevel;
     public GameObject TheArcana;
@@ -47,6 +48,14 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.StartLevel();
         
         EnemyEndNode.GetComponent<Renderer>().enabled = false;
+    }
+
+    void Start()
+    {
+        CloseAllPanels();
+        GameLevel.SetActive(true);
+        pauseMenuUI.SetActive(false);
+        UpgradePanelUI.SetActive(false);
     }
 
     void Update()
@@ -126,6 +135,16 @@ public class LevelManager : MonoBehaviour
         GameLevel.SetActive(true);
     }
 
+    public void CloseSidePanel()
+    {
+        SidePanel.SetActive(false);
+    }
+
+    public void OpenSidePanel()
+    {
+        SidePanel.SetActive(true);
+    }
+
     public void SetGameSpeed()
     {
         Debug.Log("Game Speed Slider Value: " + GameSpeedSlider.value);
@@ -149,8 +168,4 @@ public class LevelManager : MonoBehaviour
 
         GameManager.Instance.currentSpeed = currentSpeed;
     }
-
-
-
-
 }
